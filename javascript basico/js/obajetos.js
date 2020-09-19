@@ -1,4 +1,9 @@
 // objetos
+
+function MostrarInformacionTarea(tarea, prioridad){
+    return  `La tarea ${tarea} tiene una priridad de ${prioridad}`;
+}
+
 // objetos literales
 
 const Datos={
@@ -14,6 +19,10 @@ console.log(Datos);
 console.log(Datos.email);
 console.log(Datos['profesion']);
 
+// mostrando cliente
+const mostrarcliente=MostrarInformacionTarea(Datos.nombre,Datos.profesion);
+console.log(mostrarcliente)
+
 // object constructor
 
 
@@ -21,12 +30,20 @@ function Tarea(nombre, urgencia){
     this.nombre=nombre;
     this.urgencia=urgencia;
 }
+
+// Agregando un prototype a tarea
+function MostrarInformacionTarea(tarea, prioridad){
+    return  `La tarea ${tarea} tiene una priridad de ${prioridad}`;
+}
+
+
 const tarea1=new Tarea("Aprendiendo Javascript y React ", "Urgente");
 const tarea2=new Tarea("Aprendiendo Python en la Nacional", "Urgente");
-const tarea3=new Tarea("Aprendiendo Goland y React ", "Urgente");
-const tarea4=new Tarea("Aprendiendo Seguridad informatica ", "Urgente");
+
 
 console.log(tarea1);
 console.log(tarea2);
-console.log(tarea3);
-console.log(tarea4);
+
+
+const mostrarInfor=MostrarInformacionTarea(tarea1.nombre, tarea1.urgencia);
+console.log(mostrarInfor);
