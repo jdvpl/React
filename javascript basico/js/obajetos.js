@@ -31,9 +31,10 @@ function Tarea(nombre, urgencia){
     this.urgencia=urgencia;
 }
 
-// Agregando un prototype a tarea
-function MostrarInformacionTarea(tarea, prioridad){
-    return  `La tarea ${tarea} tiene una priridad de ${prioridad}`;
+// Agregando un prototype a tarea solo aplica a un objeto tarea es la palabra que comienza
+// https://www.udemy.com/course/react-de-principiante-a-experto-creando-mas-de-10-aplicaciones/learn/lecture/11063284#notes
+Tarea.prototype.MostrarInformacionTarea= function (){
+    return  `La tarea ${this.nombre} tiene una priridad de ${this.urgencia}`;
 }
 
 
@@ -42,8 +43,7 @@ const tarea2=new Tarea("Aprendiendo Python en la Nacional", "Urgente");
 
 
 console.log(tarea1);
+console.log(tarea1.MostrarInformacionTarea());
+
 console.log(tarea2);
-
-
-const mostrarInfor=MostrarInformacionTarea(tarea1.nombre, tarea1.urgencia);
-console.log(mostrarInfor);
+console.log(tarea2.MostrarInformacionTarea());
