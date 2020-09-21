@@ -11,7 +11,11 @@ const AppContenedor = document.querySelector('#carrito');
 //     htmlcarrito += `<li>${producto}</li>`;
 
 // })
+<<<<<<< HEAD
 // AppContenedor.innerHTML = htmlcarrito; //para imprimir en el DOM
+=======
+// AppContenedor.innerHTML = htmlcarrito;
+>>>>>>> 77d77435ca703e9f528cc9cb360b399c31d50f50
 
 // con .map
 carrito.map(productos => {
