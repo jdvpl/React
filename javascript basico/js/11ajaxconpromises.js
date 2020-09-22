@@ -24,6 +24,7 @@ const descargarUsuario = cantidad => new Promise((resolve, reject) => {
     xhr.send()
 })
 descargarUsuario(200).then(
+
     miembros => console.log(miembros), //asi se imprime en consola
     error => console.error(
         new Error(`Hubo unn error ${error}`)
