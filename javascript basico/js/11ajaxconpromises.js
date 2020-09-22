@@ -23,30 +23,47 @@ const descargarUsuario = cantidad => new Promise((resolve, reject) => {
     // send
     xhr.send()
 })
-descargarUsuario(200).then(
+descargarUsuario(30).then(
 
-    miembros => console.log(miembros), //asi se imprime en consola
+    miembros => imprimirHTML(miembros), //crear una funcion para imprimir en el dom de html
     error => console.error(
         new Error(`Hubo unn error ${error}`)
 
     )
 )
 
+function imprimirHTML(usuarios) {
+    let html = ''; //crea variable vacia para ir agregando etiquetas
+    usuarios.forEach(usuario => { //usuario nombre con el que se va a recorrer, name, picture son claves del api
+        html += `<div>
+                <li>Nombre: ${usuario.name.first} ${usuario.name.last} </li>
+                <li>Pais: ${usuario.nat}</li>
+                <h5>Foto</h5>
+                <img src="${usuario.picture.medium}">
+                </div>
+        `;
+    });
+    const contenedorHtml = document.querySelector('#app');
+    contenedorHtml.innerHTML = html;
+
+}
+
 
 
 
 // codigo 2020 mucho mas corto y mas facil on una funcion asincrona
+// mostrando la api en consola
 
-// async function getUserAsync(cantidadUsuarios) {
-//     try {
-//         let response = await fetch(
-//             `https://randomuser.me/api/?results=${cantidadUsuarios}&nat=mx`
-//         );
-//         let data = await response.json();
-//         return data;
-//     } catch (error) {
-//         return "Ocurrio el siguiente error: " + error;
-//     }
-// }
+async function getUserAsync(cantidadUsuarios) {
+    try {
+        let response = await fetch(
+            `https://randomuser.me/api/?results=${cantidadUsuarios}&nat=mx`
+        );
+        let data = await response.json();
+        return data;
+    } catch (error) {
+        return "Ocurrio el siguiente error: " + error;
+    }
+}
 
-// getUserAsync(1000).then(data => console.log(data));
+getUserAsync(1000).then(data => console.log(data));
