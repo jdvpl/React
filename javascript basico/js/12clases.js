@@ -50,5 +50,13 @@ console.log(compra1.hola())
 
 // esxportandola variable para usarla en otro archivo
 
-const nombredetarea = 'pasear al perro';
-export default nombredetarea;
+export const nombredetarea = 'pasear al perro';
+
+
+// exportando funciones
+export const crearTarea = (tarea, urgencia) => {
+    return `La tarea ${tarea} tiene una urgencia de ${urgencia}`;
+}
+export const TareaCompletada = () => {
+    console.log(`La tarea ha sido compleatada`)
+}
