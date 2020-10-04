@@ -47,3 +47,8 @@ let tarea4 = new Tarea('Aprender R', 'Alta');
 let compra1 = new ComprasPendiente('Jabon', 'Alta', 2, 3000, 'valor a pagar')
 compra1.mostrar();
 console.log(compra1.hola())
+
+// esxportandola variable para usarla en otro archivo
+
+const nombredetarea = 'pasear al perro';
+export default nombredetarea;
