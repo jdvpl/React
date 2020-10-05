@@ -1,9 +1,26 @@
-import React,{Fragment} from 'react';
+import React,{Fragment,useState} from 'react';
 
 
 const Formulario = () => {
+    // creando el state de cita
+    const [cita,actualizarCita]=useState({
+        mascota:'',
+        edad:0,
+        propietario:'',
+        fecha:'',
+        hora:'',
+        sintomas:''
+
+    });
+    // funcion que se ejecuta cada vez que el usuario escribe en unb input
+
+    const actualizarState=(id)=>{
+        console.log('escribienbdo',id)
+    }
+
     return (  
         <Fragment>
+
             <h2>Crear Cita</h2>
             <form>
                 <label>Nombre Mascota</label>
@@ -12,6 +29,7 @@ const Formulario = () => {
                     name="mascota"
                     className="u-full-width"
                     placeholder="Nombre mascota"
+                    onChange={actualizarState}
                 />
                 <label>Edad</label>
                 <input 
@@ -19,6 +37,7 @@ const Formulario = () => {
                     name="edad"
                     className="u-full-width"
                     placeholder="Edad"
+                    onChange={actualizarState}
                 />
                  <label>Nombre Dueño</label>
                 <input 
@@ -26,23 +45,27 @@ const Formulario = () => {
                     name="propietario"
                     className="u-full-width"
                     placeholder="Nombre Dueño de la mascota"
+                    onChange={actualizarState}
                 />
                  <label>Fecha</label>
                 <input 
                     type="date"
                     name="fecha"
                     className="u-full-width"
+                    onChange={actualizarState}
                 />
                 <label>Hora</label>
                 <input 
                     type="time"
                     name="fecha"
                     className="u-full-width"
+                    onChange={actualizarState}
                 />
                 <label>Sintomas</label>
                 <textarea
                     className="u-full-width"
                     name="sintomas"
+                    onChange={actualizarState}
                 >
                 
                 </textarea>
