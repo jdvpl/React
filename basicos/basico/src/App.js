@@ -5,7 +5,7 @@ import Producto from './components/Producto';
 
 function App() {
     // listado de productos
-    const [productos, guardarPorudctos ]=useState([
+    const [productos, guardarProductos ]=useState([
         {id:1,nombre:'MSI GE63 Raider 8RE', precio:5000000},
         {id:2,nombre:'Mac Catalina', precio:10000000},
         {id:3,nombre:'Asus Rog', precio:5000000},
