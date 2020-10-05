@@ -15,8 +15,13 @@ const Formulario = () => {
     // funcion que se ejecuta cada vez que el usuario escribe en unb input
 
     const actualizarState=e=>{
-        console.log(e.target.name)
+        actualizarCita({
+            ...cita,
+            [e.target.name]:e.target.value
+        })
     }
+    // extrayendo los valores
+    const {mascota,edad,propietario,fecha,hora,sintomas}=cita;
 
     return (  
         <Fragment>
@@ -30,6 +35,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder="Nombre mascota"
                     onChange={actualizarState}
+                    value={mascota}
                 />
                 <label>Edad</label>
                 <input 
@@ -38,6 +44,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder="Edad"
                     onChange={actualizarState}
+                    value={edad}
                 />
                  <label>Nombre Dueño</label>
                 <input 
@@ -46,6 +53,7 @@ const Formulario = () => {
                     className="u-full-width"
                     placeholder="Nombre Dueño de la mascota"
                     onChange={actualizarState}
+                    value={propietario}
                 />
                  <label>Fecha</label>
                 <input 
@@ -53,19 +61,22 @@ const Formulario = () => {
                     name="fecha"
                     className="u-full-width"
                     onChange={actualizarState}
+                    value={fecha}
                 />
                 <label>Hora</label>
                 <input 
                     type="time"
-                    name="fecha"
+                    name="hora"
                     className="u-full-width"
                     onChange={actualizarState}
+                    value={hora}
                 />
                 <label>Sintomas</label>
                 <textarea
                     className="u-full-width"
                     name="sintomas"
                     onChange={actualizarState}
+                    value={sintomas}
                 >
                 
                 </textarea>
