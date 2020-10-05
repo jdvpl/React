@@ -7,17 +7,17 @@ html {
     font-family: sans-serif;
     background-image: linear-gradient(-225deg, #1435bb 0%, #2961db 40%, #0c34a1 100%);
     min-height: 100%;
-    padding-bottom: 5rem;
+    /* padding-bottom: 1rem; */
   }
   h1, h2  {
     color: white;
-    padding: 3rem 0;
+    padding: 1rem 0;
     text-align: center;
   
     text-transform: uppercase;
   
     font-family: 'Staatliches', cursive;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
   }
   .lista-citas .media {
     border-bottom: 1px solid #e1e1e1;
