@@ -1,6 +1,13 @@
 #primero descargar node simpre descargar la version mas estable
 https://nodejs.org/es/
 
+#instalar chocolatey
+https://chocolatey.org/install
+
+https://www.udemy.com/course/react-de-principiante-a-experto-creando-mas-de-10-aplicaciones/learn/lecture/22534594#notes
+
+Get-ExecutionPolicy   ====> debe aparecer allsigned
+
 #pasos como dice github para crear un proyecto
 https://github.com/facebook/create-react-app
 

@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+// archivo principal de donde le pones los elementos al index.html
+ReactDOM.render( < React.StrictMode >
+    <
+    App / >
+    <
+    /React.StrictMode>,
+    document.getElementById('react')
 );
 
 // If you want your app to work offline and load faster, you can change
