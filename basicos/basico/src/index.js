@@ -10,7 +10,7 @@ ReactDOM.render( < React.StrictMode >
     App / >
     <
     /React.StrictMode>,
-    document.getElementById('react')
+    document.getElementById('App')
 );
 
 // If you want your app to work offline and load faster, you can change

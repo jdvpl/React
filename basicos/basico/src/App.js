@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Header from './components/Header'; /** importar el componete header */
 
 function App() {
     return ( <
         div className = "App" >
-        <h1>Hola Insectos</h1>
+        <Header/> /**asi se llama la funcion componente */
 
         </div>
     );
