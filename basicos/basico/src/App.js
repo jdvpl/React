@@ -1,6 +1,7 @@
 import React,{Fragment,useState} from 'react';
 import Header from './components/Header'; /** importar el componete header */
 import Footer from './components/Footer'; 
+import Producto from './components/Producto'; 
 
 function App() {
     // listado de productos
@@ -20,6 +21,13 @@ function App() {
             <Header
             titulo="Tienda Virtual"
             /> 
+            <h2>Lista de Prodcutos</h2>
+            {productos.map(producto=>(
+                <Producto
+                key={producto.id}
+                producto={producto}
+                />
+            ))}
             
             <Footer
                 fecha={fecha}
