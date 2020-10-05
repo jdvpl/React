@@ -6,3 +6,5 @@ https://github.com/facebook/create-react-app
 
 #para crear un proyecto de react
 npx create-react-app nombre
+
+#recuerde simepre ejecutar npm install ya que no suben los archivos completos
