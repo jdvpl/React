@@ -1,0 +1,8 @@
+#primero descargar node simpre descargar la version mas estable
+https://nodejs.org/es/
+
+#pasos como dice github para crear un proyecto
+https://github.com/facebook/create-react-app
+
+#para crear un proyecto de react
+npx create-react-app nombre
