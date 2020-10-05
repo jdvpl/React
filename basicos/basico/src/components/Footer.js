@@ -1,17 +1,8 @@
 import React from 'react'
 
-
-//mejor forma mas abreviada sin el funcion
-// const Footer = () => {
-//     return ( 
-//         <footer>
-//             <p>Todos los derechos reservador &copy;</p>
-//         </footer>
-//      );
-// }
-const Footer = () =>  ( 
+const Footer = ({fecha}) =>  ( 
         <footer>
-            <p>Todos los derechos reservador &copy;</p>
+            <p>Todos los derechos reservados &copy; {fecha}</p>
         </footer>
      );
 
