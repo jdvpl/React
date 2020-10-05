@@ -14,8 +14,8 @@ const Formulario = () => {
     });
     // funcion que se ejecuta cada vez que el usuario escribe en unb input
 
-    const actualizarState=(id)=>{
-        console.log('escribienbdo',id)
+    const actualizarState=e=>{
+        console.log(e.target.name)
     }
 
     return (  
