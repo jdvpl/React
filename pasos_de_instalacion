@@ -18,3 +18,8 @@ npx create-react-app nombre
 
 #para agregar un id unico
 npm i uuid
+
+cuando termines tu proyecto subir correr npm run build
+se crear una carpeta sube esa a netifly y podras verla en produccion
+
+https://www.youtube.com/watch?v=lC4aTfWm7Xg
