@@ -12,6 +12,10 @@ const Formulario = () => {
         sintomas:''
 
     });
+
+    // 
+    const [error, actualizarError]=useState(false)
+
     // funcion que se ejecuta cada vez que el usuario escribe en unb input
 
     const actualizarState=e=>{
@@ -27,10 +31,12 @@ const Formulario = () => {
     const submitCita=e=>{
         e.preventDefault();
 
+
+
         // validar si esta vacio
         if(mascota.trim()==='' || edad.trim()===''|| propietario.trim()===''
             || fecha.trim()==='' || hora.trim()==='' || sintomas.trim()==='' ){
-            console.log('hay un error');
+            actualizarError(true);
             return; //para que no se siga ejecutando el codigo
         }
 
@@ -46,6 +52,10 @@ const Formulario = () => {
 
     return (  
         <Fragment>
+
+        {error ? <p className="alerta-error">Debes llenar todos los campos</p>
+        : null
+        }
 
             <h2>Crear Cita</h2>
             <form
@@ -65,7 +75,7 @@ const Formulario = () => {
                     type="number"
                     name="edad"
                     className="u-full-width"
-                    placeholder="Edad"
+                    placeholder="Edad en meses"
                     onChange={actualizarState}
                     value={edad}
                 />
