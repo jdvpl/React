@@ -39,10 +39,13 @@ const Formulario = () => {
             actualizarError(true);
             return; //para que no se siga ejecutando el codigo
         }
+        // para que borre la funcion si el usuario digito vacio la primera vez
+        actualizarError(false);
 
 
         // asignar un ID
-
+        cita.id=10;
+        console.log(cita);
 
         // crear una sita
 
