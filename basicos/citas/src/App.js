@@ -4,12 +4,25 @@ import Formulario from './components/Formulario';
 
 
 function App() {
+
+  // citas en el Local Storage
+  let citasIniciales=JSON.parse(localStorage.getItem('citas'));
+
+  if(!citasIniciales){
+    citasIniciales= [];
+
+  }
+
 // arreglo de citas
-  const [citas,guardarCitas]=useState([])
+  const [citas,guardarCitas]=useState(citasIniciales)
   // usar effect para realicar alguna operaciones cuando el state cambia
 
-  useEffect(()=>{
-    console.log('Documento listo o algo paso con las citas')
+  useEffect( ()=>{
+    if(citasIniciales){
+      localStorage.setItem('citas',JSON.stringify(citas))
+    }else{
+      localStorage.setItem('citas',JSON.stringify([]))
+    }
   },[citas]);
   // funcion que tome las citas actuales y agregue la nueva
 
