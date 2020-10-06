@@ -10,7 +10,10 @@ function App() {
   // funcion que tome las citas actuales y agregue la nueva
 
   const crearCita=cita=>{
-    console.log(cita)
+    guardarCitas([
+      ...citas,
+      cita
+    ])
 
   }
 
