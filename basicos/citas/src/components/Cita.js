@@ -9,7 +9,13 @@ const Cita = ({cita}) => (
             <p>Fecha: <span>{cita.fecha}</span></p>
             <p>Hora: <span>{cita.hora}</span></p>
             <p>Sintomas: <span>{cita.sintomas}</span></p>
+            <button
+                className="button eliminar u-full-width"
+                // onclick
+                >
+                Eliminar &times;</button>
         </div>
+    
     </Fragment>
 );
  

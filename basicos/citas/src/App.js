@@ -14,8 +14,12 @@ function App() {
     guardarCitas([
       ...citas,
       cita
-    ])
+    ]) 
 
+  }
+  // funcion que elimina una cita por su ID
+  const eliminarCitar=id=>{
+    console.log(id);
   }
 
   return (
