@@ -8,13 +8,23 @@ const Pregunta = () => {
     const definirPresupuesto =e=>{
        guardarCantidad(parseInt(e.target.value,10))
     }
+    const [error,guardarError]=useState(false)
     // submit para definir el presupuesto
     const agregarPresupuesto=e=>{
         e.preventDefault(); //para que no cargue la pagina 
+
+        // validar
+        if(cantidad<1 || isNaN(cantidad)){
+            guardarError(true);
+            return;
+        }
+        guardarError(false);
+
     }
     return (  
         <Fragment>
             <h2>Ingrese Presupuesto</h2>
+            {error}
 
             <form onSubmit={agregarPresupuesto}>
 
