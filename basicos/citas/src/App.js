@@ -22,6 +22,8 @@ function App() {
     const nuevasCitas=citas.filter(cita =>cita.id !==id);
     guardarCitas(nuevasCitas);
   }
+  // mensaje condicional
+  console.log(citas.length);
 
   return (
     <Fragment>
