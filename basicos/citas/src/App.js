@@ -18,8 +18,9 @@ function App() {
 
   }
   // funcion que elimina una cita por su ID
-  const eliminarCitar=id=>{
-    console.log(id);
+  const eliminarCita=id=>{
+    const nuevasCitas=citas.filter(cita =>cita.id !==id);
+    guardarCitas(nuevasCitas);
   }
 
   return (
@@ -44,6 +45,7 @@ function App() {
             <Cita
               key={cita.id}
               cita={cita}
+              eliminarCita={eliminarCita}
             />
           ))}
         </div>

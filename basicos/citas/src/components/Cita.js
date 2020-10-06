@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react';
 
-const Cita = ({cita}) => ( 
+const Cita = ({cita,eliminarCita}) => ( 
     <Fragment>
         <div className="cita">
             <p>Mascota: <span>{cita.mascota}</span></p>
@@ -12,6 +12,7 @@ const Cita = ({cita}) => (
             <button
                 className="button eliminar u-full-width"
                 // onclick
+                onClick={()=>eliminarCita(cita.id)}
                 >
                 Eliminar &times;</button>
         </div>
