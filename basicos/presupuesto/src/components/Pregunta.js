@@ -6,13 +6,17 @@ const Pregunta = () => {
 
     // funcion que leer el presupuesto
     const definirPresupuesto =e=>{
-        console.log(e.target.value)
+       guardarCantidad(parseInt(e.target.value,10))
+    }
+    // submit para definir el presupuesto
+    const agregarPresupuesto=e=>{
+        e.preventDefault(); //para que no cargue la pagina 
     }
     return (  
         <Fragment>
             <h2>Ingrese Presupuesto</h2>
 
-            <form>
+            <form onSubmit={agregarPresupuesto}>
 
                 <input
                     type="number"
