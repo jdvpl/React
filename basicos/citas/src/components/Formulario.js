@@ -5,7 +5,7 @@ const Formulario = () => {
     // creando el state de cita
     const [cita,actualizarCita]=useState({
         mascota:'',
-        edad:0,
+        edad:'',
         propietario:'',
         fecha:'',
         hora:'',
@@ -28,6 +28,11 @@ const Formulario = () => {
         e.preventDefault();
 
         // validar si esta vacio
+        if(mascota.trim()==='' || edad.trim()===''|| propietario.trim()===''
+            || fecha.trim()==='' || hora.trim()==='' || sintomas.trim()==='' ){
+            console.log('hay un error');
+            return; //para que no se siga ejecutando el codigo
+        }
 
 
         // asignar un ID
