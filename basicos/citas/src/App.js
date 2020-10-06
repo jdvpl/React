@@ -2,6 +2,8 @@ import React,{Fragment,useState,useEffect} from 'react';
 import Cita from './components/Cita';
 import Formulario from './components/Formulario';
 
+import PropTypes from 'prop-types';
+
 
 function App() {
 
@@ -23,7 +25,7 @@ function App() {
     }else{
       localStorage.setItem('citas',JSON.stringify([]))
     }
-  },[citas]);
+  },[citas,citasIniciales]);
   // funcion que tome las citas actuales y agregue la nueva
 
   const crearCita=cita=>{
@@ -73,4 +75,8 @@ function App() {
   );
 }
 
+Cita.propTypes={
+  cita: PropTypes.object.isRequired,
+  eliminarCita:PropTypes.func.isRequired,
+}
 export default App;
