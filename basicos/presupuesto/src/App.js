@@ -1,4 +1,5 @@
 import React from 'react';
+import Pregunta from './components/Pregunta';
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <header>
         <h1>Gasto Semanal</h1>
       </header>
+      <Pregunta/>
     </div>
   );
 }
