@@ -15,12 +15,17 @@ function App() {
   // useeffecr que actualiza el restante
 
   useEffect(()=>{
+    // agregando el nuevo presupuesto
       if(creargasto){
         guardarGastos([
           ...gastos,
           gasto
         ]);
+        // resta del presupuesto actual
+        const presupuestoRestante = restante-gasto.cantidad;
+        guardarRestante(presupuestoRestante);
 
+        // resetear a false
         guardarCrearGasto(false)
       }
   },[gasto])
