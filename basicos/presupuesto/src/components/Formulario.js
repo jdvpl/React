@@ -16,7 +16,13 @@ const Formulario = () => {
             guardarError(true);
             return;
         }
-        guardarError(false)
+        guardarError(false);
+        // costruir gasto
+        const gasto={
+            nombre,
+            cantidad,
+            id:
+        }
 
     }
     return (
