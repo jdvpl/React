@@ -28,6 +28,10 @@ const Formulario = ({agregarNuevoGasto}) => {
         // pasar el gasto al componete principal
         agregarNuevoGasto(gasto);
 
+        // limpiar el form
+        guardarNombre('');
+        guardarCantidad(0)
+
     }
     return (
 
