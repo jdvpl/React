@@ -19,4 +19,5 @@ ControlPresupuesto.propTypes={
     presupuesto: PropTypes.number.isRequired,
     restante: PropTypes.number.isRequired
 }
+
 export default ControlPresupuesto;
