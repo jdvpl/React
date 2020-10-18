@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from '@emotion/styled';
 
 const Campo=styled.div`
@@ -26,18 +26,34 @@ const Button=styled.button`
     text-transform:uppercase;
     font-weight:bold;
     border:none;
-    
+    transition:background-color .3s ease;
+    margin-top:1.5rem;
+
+    &:hover{
+        background-color:#26c6da;
+        cursor: pointer;
+    }
 `;
 const InputRadio=styled.input`
     margin:0 1rem;
 `;
 
 const Formulario = () => {
+    const[datos,guardarDatos]=useState({
+        marca:'',
+        year:'',
+        plan:''
+    });
+    // extraer los valores
+    const {marca,year,plan}=datos;
+
     return (  
         <form>
             <Campo>
                 <Label>Marca</Label>
-                <Select>
+                <Select
+                    name="marca"
+                    value={marca}>
                     <option value="">Seleccione</option>
                     <option value="americano">Americano</option>
                     <option value="europeo">Europeo</option>
@@ -46,7 +62,10 @@ const Formulario = () => {
             </Campo>
             <Campo>
                 <Label>Año</Label>
-                <Select>
+                <Select
+                    name="year"
+                    value={year}
+                >
                     <option value="">Seleccione</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
@@ -66,11 +85,13 @@ const Formulario = () => {
                     type="radio"
                     name="plan"
                     value="basico"
+                    checked={plan==="basico"}
                 />Basico
                 <InputRadio
                     type="radio"
                     name="plan"
                     value="completo"
+                    checked={plan==="completo"}
                 />Completo
 
             </Campo>
