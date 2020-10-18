@@ -48,10 +48,10 @@ const Formulario = () => {
     const {marca,year,plan}=datos;
 
     // leer los datos del formulario y colocarlos en el state
-    const obtenerInformacion =e={
+    const obtenerInformacion =e=>{
         guardarDatos({
             ...datos,
-            [e.target.name]:e.target.value
+            [e.target.name] : e.target.value
         })
     }
 
@@ -61,7 +61,8 @@ const Formulario = () => {
                 <Label>Marca</Label>
                 <Select
                     name="marca"
-                    value={marca}>
+                    value={marca}
+                    onChange={obtenerInformacion}>
                     <option value="">Seleccione</option>
                     <option value="americano">Americano</option>
                     <option value="europeo">Europeo</option>
@@ -73,6 +74,7 @@ const Formulario = () => {
                 <Select
                     name="year"
                     value={year}
+                    onChange={obtenerInformacion}
                 >
                     <option value="">Seleccione</option>
                     <option value="2021">2021</option>
@@ -94,12 +96,14 @@ const Formulario = () => {
                     name="plan"
                     value="basico"
                     checked={plan==="basico"}
+                    onChange={obtenerInformacion}   
                 />Basico
                 <InputRadio
                     type="radio"
                     name="plan"
                     value="completo"
                     checked={plan==="completo"}
+                    onChange={obtenerInformacion}
                 />Completo
 
             </Campo>
