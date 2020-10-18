@@ -47,6 +47,14 @@ const Formulario = () => {
     // extraer los valores
     const {marca,year,plan}=datos;
 
+    // leer los datos del formulario y colocarlos en el state
+    const obtenerInformacion =e={
+        guardarDatos({
+            ...datos,
+            [e.target.name]:e.target.value
+        })
+    }
+
     return (  
         <form>
             <Campo>
