@@ -1,5 +1,6 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
+import {TransitionGroup,CSSTransition} from 'react-transition-group';
 
 const Mensaje=styled.p`
     background-color:rgba(128,230,200,0.3);
@@ -31,8 +32,19 @@ const Resultado = ({cotizacion}) => {
         (cotizacion===0)?<Mensaje>Elige marca, año y tipo de seguro</Mensaje>
         :(
             <ResultadoCotizacion>
-        <TextoInsectado>El total es: ${cotizacion}</TextoInsectado>
-        </ResultadoCotizacion>
+                <TransitionGroup
+                    component="p"
+                    className="resultado"
+                >
+                    <CSSTransition
+                        classNames="resultado"
+                        key={cotizacion}
+                        timeout={{enter:500,exit:500}}
+                    >
+                        <TextoInsectado>El total es: ${cotizacion}</TextoInsectado>
+                    </CSSTransition>
+                </TransitionGroup>
+            </ResultadoCotizacion>
         )
      );
 }
