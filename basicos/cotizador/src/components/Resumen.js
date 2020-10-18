@@ -10,6 +10,7 @@ const ContenedorRresumen=styled.div`
     margin-top:1rem;
 `;
 
+
 const Resumen = ({datos}) => {
     // extraer fatos
     const {marca,year,plan}=datos;
