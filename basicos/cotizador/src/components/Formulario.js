@@ -82,7 +82,7 @@ const Formulario = ({guardarResumen}) => {
         guardarError(false);
 
         // ibtener la diferencia de años
-        let resultado =2000;
+        let resultado =300000;
         const diferencia=obtenerDiferenciaYear(year);
         
         // por cada año hay que restar el 3%

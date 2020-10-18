@@ -19,7 +19,7 @@ const Resumen = ({datos}) => {
         <h2>Resumen de cotizacion</h2>
         <ul>
             <li>Marca: {primerMayuscula(marca)}</li>
-            <li>Plan: {plan}</li>
+            <li>Plan: {primerMayuscula(plan)}</li>
             <li>Año: {year}</li>
         </ul>
         </ContenedorRresumen>
