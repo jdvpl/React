@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,Fragment} from 'react';
 import styled from '@emotion/styled';
 import {obtenerDiferenciaYear,calcularMarca,obtenerPlan} from '../helper';
 
@@ -46,7 +46,11 @@ const Eror=styled.div`
     text-align:center;
     margin-bottom:2rem;
 `;
-const Formulario = () => {
+const Lol=styled.div`
+    margin:auto;
+    padding:1%;
+`;
+const Formulario = ({guardarResumen}) => {
     const[datos,guardarDatos]=useState({
         marca:'',
         year:'',
@@ -87,19 +91,29 @@ const Formulario = () => {
         // calculando el precion segun la marca
 
         resultado=calcularMarca(marca)*resultado;
-        console.log(resultado);
 
         // basico aumenta 20%
 
         // completo 50%
         const incrementoPlan=obtenerPlan(plan);
         resultado=parseFloat(incrementoPlan*resultado).toFixed(2);
+        console.log(resultado)
+
+        guardarResumen({
+            cotizacion:resultado,
+            datos
+        })
     }
     return (  
+        <>
+        <Lol>
+        {error ? <Eror>Todos los campos son obligatorios</Eror> :null}
+        </Lol>
+        
         <form 
             onSubmit={cotizarSeguro}
             >
-            {error ? <Eror>Todos los campos son obligatorios</Eror> :null}
+            
             <Campo>
                 <Label>Marca</Label>
                 <Select
@@ -154,6 +168,7 @@ const Formulario = () => {
             </Campo>
             <Button type="submit">Cotizar</Button>
         </form>
+        </>
     );
 }
  

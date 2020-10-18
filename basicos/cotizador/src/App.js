@@ -1,11 +1,11 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Header from './components/Header';
 import styled from '@emotion/styled';
 import Formulario from './components/Formulario';
 
 const Contenedor=styled.div`
   max-width:600px;
-  margin:0 auto;
+  margin: auto;
 
 `;
 const ContenedorFormulario=styled.div`
@@ -14,18 +14,20 @@ const ContenedorFormulario=styled.div`
 `;
 
 function App() {
+  const [resumen,guardarResumen]=useState({})
   return (
     <div className="App">
       <Contenedor>
       <Header
         titulo="Cotizador de Seguros"
       />
-      </Contenedor>
-
+    
       <ContenedorFormulario>
-        <Formulario/>
+        <Formulario
+          guardarResumen={guardarResumen}
+        />
       </ContenedorFormulario>
-     
+      </Contenedor>
     </div>
   );
 }
