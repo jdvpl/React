@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import styled from '@emotion/styled';
+import Frase from './components/Frase';
 
 const Contenedor = styled.div`
   display: flex;
@@ -38,6 +39,9 @@ function App() {
   return (
     <div className="App">
     <Contenedor>
+    <Frase
+      frase={frase}
+    />
     <Boton
       onClick={consultarAPI}
     >Obtener Frase</Boton>
