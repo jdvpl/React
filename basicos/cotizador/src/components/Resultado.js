@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import {TransitionGroup,CSSTransition} from 'react-transition-group';
 
 const Mensaje=styled.p`
@@ -48,5 +49,7 @@ const Resultado = ({cotizacion}) => {
         )
      );
 }
- 
+Resultado.propTypes={
+    cotizacion:PropTypes.number.isRequired
+}
 export default Resultado;
