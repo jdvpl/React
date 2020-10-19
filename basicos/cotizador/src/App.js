@@ -45,8 +45,8 @@ const {cotizacion,datos}=resumen;
         <Resumen
           datos={datos}
         />
-        
-        {cargando?  <Resultado
+
+        {!cargando?  <Resultado
           cotizacion={cotizacion}
         /> : null}
        
