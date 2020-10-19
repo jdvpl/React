@@ -23,11 +23,11 @@ const ContenedorFrase = styled.div`
 
         &::before {
             content: open-quote;
-            font-size: 8rem;
+            font-size: 4rem;
             color: black;
             position: absolute;
-            left: -1rem;
-            top: -2rem;
+            left: 2rem;
+            top: -1rem;
         }
     }
     p {

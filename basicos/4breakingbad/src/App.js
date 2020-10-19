@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import styled from '@emotion/styled';
 import Frase from './components/Frase';
+import Imagen from './components/Imagen';
 
 const Contenedor = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ function App() {
   return (
     <div className="App">
     <Contenedor>
+    <Imagen/>
     <Frase
       frase={frase}
     />
