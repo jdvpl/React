@@ -50,7 +50,7 @@ const Lol=styled.div`
     margin:auto;
     padding:1%;
 `;
-const Formulario = ({guardarResumen}) => {
+const Formulario = ({guardarResumen,guardarCargando}) => {
     const[datos,guardarDatos]=useState({
         marca:'',
         year:'',
@@ -97,12 +97,17 @@ const Formulario = ({guardarResumen}) => {
         // completo 50%
         const incrementoPlan=obtenerPlan(plan);
         resultado=parseFloat(incrementoPlan*resultado).toFixed(2);
-        console.log(resultado)
+        
+        guardarCargando(true);
+        setTimeout(()=>{
+            guardarCargando(false);
+            guardarResumen({
+                cotizacion:resultado,
+                datos
+            })
+        },500);
 
-        guardarResumen({
-            cotizacion:resultado,
-            datos
-        })
+        
     }
     return (  
         <>
