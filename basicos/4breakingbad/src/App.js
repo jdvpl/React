@@ -27,10 +27,11 @@ const Boton = styled.button`
 
 function App() {
   const consultarAPI=()=>{
-    const resultado=fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
-    const frase=resultado.then(respuesta=>{
-      return respuesta.json;
-    })
+    const api=fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
+    const frase=api.then(respuesta=> respuesta.json());
+    frase.then(resultado=> console.log(resultado));
+    
+
   }
   return (
     <div className="App">
