@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import styled from '@emotion/styled';
 import Frase from './components/Frase';
 
@@ -34,8 +34,11 @@ function App() {
     const frase=await api.json();
     guardaFrase(frase[0]);
     
-
   }
+  // cargar con una frase desde el inicio
+  useEffect(()=>{
+    consultarAPI()
+  },[]);
   return (
     <div className="App">
     <Contenedor>

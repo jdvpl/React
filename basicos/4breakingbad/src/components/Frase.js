@@ -2,15 +2,16 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const ContenedorFrase = styled.div`
-    margin-top:2rem;
+    margin-top:6rem;
     padding: 3rem;
     border-radius: .5rem;
     background-color: #fff;
-    max-width:60%px;
+    max-width:60%;
 
     
-    @media (min-width: 992px) {
-        margin-top: 3rem;
+    @media (max-width: 1000px) {
+        margin-top: 1rem;
+        max-width: 92%;
     }
     h1 {
         font-family: Arial, Helvetica, sans-serif;
@@ -20,7 +21,7 @@ const ContenedorFrase = styled.div`
 
         &::before {
             content: open-quote;
-            font-size: 10rem;
+            font-size: 8rem;
             color: black;
             position: absolute;
             left: -1rem;
@@ -38,7 +39,6 @@ const ContenedorFrase = styled.div`
 `;
 
 const Frase = ({frase}) => {
-    if(Object.keys(frase).length===0)return null;
     return (  
         <ContenedorFrase>
             <h1>{frase.quote} </h1>
