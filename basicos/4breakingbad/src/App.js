@@ -27,8 +27,8 @@ const Boton = styled.button`
 
 function App() {
   const consultarAPI=()=>{
-    console.log('consultando...')
-     
+    const resultado=fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
+    
   }
   return (
     <div className="App">
