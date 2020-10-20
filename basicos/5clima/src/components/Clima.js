@@ -18,14 +18,12 @@ const Clima = ({resultado}) => {
     return ( 
         <div className="card-panel fondo col s12">
             <div className="black-text">
-                
                 <h2>El clima de {name} es: </h2>
                 <p className="temperatura">
                 {parseFloat( main.temp-kelvin,10).toFixed(2)} <span>&#x2103;</span>
                 </p>
                 <IMG>
-                {name? <img src="http://openweathermap.org/img/w/'{weather[0].icon}'.png" />:null}
-                
+                <img src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} />
                 </IMG>
                 <p>Temperatura Maxima:
                 {parseFloat( main.temp_max-kelvin,10).toFixed(2)} <span>&#x2103;</span>
@@ -40,8 +38,9 @@ const Clima = ({resultado}) => {
                     {clouds.all}%
                 </p>
                 <p>clima: 
-                    {weather[0].description}
+                    {weather[0].main}
                 </p>
+                <p>{weather[0].description}</p>
                  
             </div>
 

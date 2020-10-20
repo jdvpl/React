@@ -53,15 +53,17 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
   text-emphasis: left;
 }
 .card-panel h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   text-align: center;
+  color: white;
 }
 .card-panel p {
   text-align: center;
   font-size: 1.4rem;
 }
 .temperatura {
-  font-size: 4rem!important
+  font-size: 3rem!important;
+  color: white;
 }
 .temperatura span {
   font-size: 2rem!important;
@@ -78,5 +80,5 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
   color: #FFF!important;
 }
 .fondo{
-  background-color: rgba(231, 236, 155, 0.425) !important;
+  background: -webkit-linear-gradient(#226b9683 0%, #19a398 50%, #22598b 100%);
 }
