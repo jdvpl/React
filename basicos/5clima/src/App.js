@@ -4,18 +4,19 @@ import Header from './components/Header';
 
 
 function App() {
+  // state del form
   const [busqueda,guardarBusqueda]=useState({
     ciudad:'',
     pais:''
 });
 // hacer la consulta
-const [consultar,guardarConsultar]=useEffect(false);
+const [consultar,guardarConsultar]=useState(false);
 
 // extrar los datos
 const {ciudad,pais}=busqueda;
 useEffect(()=>{
   console.log(ciudad)
-},[ciudad,pais])
+},[consultar])
 
   return (
     <Fragment>
@@ -29,6 +30,7 @@ useEffect(()=>{
             <Formulario
               busqueda={busqueda}
               guardarBusqueda={guardarBusqueda}
+              guardarConsultar={guardarConsultar}
             />
           </div>
           <div className="col m6 s12">
