@@ -19,8 +19,21 @@ const Boton = styled.input`
     }
 `
 const Formulario = () => {
+    const MONEDAS = [
+        { codigo: 'USD', nombre: 'Dolar de Estados Unidos' },
+        { codigo: 'COP', nombre: 'Peso Colombiano' },
+        { codigo: 'MXN', nombre: 'Peso Mexicano' },
+        { codigo: 'EUR', nombre: 'Euro' },
+        { codigo: 'GBP', nombre: 'Libra Esterlina' },
+        { codigo: 'CAD', nombre: 'Dolar Canadiense' },
+        { codigo: 'PEN', nombre: 'Sol Peruano' },
+        { codigo: 'JPY', nombre: 'Yen Japones' },
+        { codigo: 'RUB', nombre: 'Rublo Ruso' },
+        { codigo: 'VEB', nombre: 'Bolívar Venezolano' },
+
+    ];
     // utilizar usemoneda
-    const [moneda,SelectMonedas,actualizarState]=useMoneda('Elige tu moneda');
+    const [moneda,SelectMonedas]=useMoneda('Elige tu moneda','',MONEDAS);
     return ( 
         <form>
             <SelectMonedas/>
