@@ -11,6 +11,8 @@ function App() {
 });
 // hacer la consulta
 const [consultar,guardarConsultar]=useState(false);
+// guardar el resultado de la consulta
+const [resultado,guardarResultado]=useState({});
 
 // extrar los datos
 const {ciudad,pais}=busqueda;
@@ -22,7 +24,7 @@ useEffect(()=>{
     
     const respuesta=await fetch(url);
     const resultado= await respuesta.json();
-    console.log(resultado)
+    guardarResultado(resultado);
     }
   }
   consultarAPI();
