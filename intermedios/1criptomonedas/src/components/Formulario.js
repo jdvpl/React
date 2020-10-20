@@ -20,7 +20,7 @@ const Boton = styled.input`
 `
 const Formulario = () => {
     // utilizar usemoneda
-    const [moneda,SelectMonedas,actualizarState]=useMoneda();
+    const [moneda,SelectMonedas,actualizarState]=useMoneda('Elige tu moneda');
     return ( 
         <form>
             <SelectMonedas/>
