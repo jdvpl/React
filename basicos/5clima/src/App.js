@@ -26,6 +26,7 @@ useEffect(()=>{
     const respuesta=await fetch(url);
     const resultado= await respuesta.json();
     guardarResultado(resultado);
+    guardarConsultar(false);
     }
   }
   consultarAPI();

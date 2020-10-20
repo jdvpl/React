@@ -77,3 +77,6 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
   text-align: center!important;
   color: #FFF!important;
 }
+.fondo{
+  background-color: rgba(231, 236, 155, 0.425) !important;
+}
