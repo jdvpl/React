@@ -39,13 +39,14 @@ useEffect(()=>{
     }
   }
   consultarAPI();
+  // eslint-disable-next-line
 },[consultar]);
 
   let componente;
   if(error){
     componente=<Error mensaje="No hay Resultados por favor verificar el pais y ciudad"/>
   }else{
-    componente=<Clima resultado={resultado}/>
+    componente=<Clima resultado={resultado} img='imagen'/>
   }
 
   return (

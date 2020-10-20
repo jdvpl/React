@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 const IMG = styled.div`
     margin:auto;
     text-align:center;
@@ -8,9 +9,9 @@ const IMG = styled.div`
         width:25%;
     }
 `
-const Clima = ({resultado}) => {
+const Clima = ({resultado,img}) => {
     // extraer los valores
-    const {name,main,coord,wind,clouds}=resultado;
+    const {name,main,clouds}=resultado;
     const{weather}=resultado;
     if(!name) return null;
     // grados kelvin
@@ -23,29 +24,31 @@ const Clima = ({resultado}) => {
                 {parseFloat( main.temp-kelvin,10).toFixed(2)} <span>&#x2103;</span>
                 </p>
                 <IMG>
-                <img src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} />
+                <img src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} title={img+' '+weather[0].icon+' '+name} />
                 </IMG>
                 <p>Temperatura Maxima:
                 {parseFloat( main.temp_max-kelvin,10).toFixed(2)} <span>&#x2103;</span>
                 </p>
                 <p >Temperatura Minina:
-                 {parseFloat( main.temp_min-kelvin,10).toFixed(2)} <span>&#x2103;</span>
-                 </p>
-                 <p>Humedad: 
-                 {main.humidity} <span>g/m3</span>
-                 </p>
+                {parseFloat( main.temp_min-kelvin,10).toFixed(2)} <span>&#x2103;</span>
+                </p>
+                <p>Humedad: 
+                {main.humidity} <span>g/m3</span>
+                </p>
                 <p>Nubes:
                     {clouds.all}%
                 </p>
                 <p>clima: 
                     {weather[0].main}
                 </p>
-                <p>{weather[0].description}</p>
-                 
+                <p>{weather[0].description}</p> 
             </div>
 
         </div>
-     );
+    );
 }
- 
+Clima.propTypes={
+    resultado:PropTypes.object.isRequired,
+    img:PropTypes.string.isRequired
+}
 export default Clima;
