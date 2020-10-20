@@ -28,6 +28,7 @@ const Formulario = () => {
         { codigo: 'COP', nombre: 'Peso Colombiano' },
         { codigo: 'MXN', nombre: 'Peso Mexicano' },
         { codigo: 'EUR', nombre: 'Euro' },
+        { codigo: 'AUD', nombre: 'Dólar Australiano' },
         { codigo: 'GBP', nombre: 'Libra Esterlina' },
         { codigo: 'CAD', nombre: 'Dolar Canadiense' },
         { codigo: 'PEN', nombre: 'Sol Peruano' },
