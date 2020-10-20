@@ -8,7 +8,15 @@ const Formulario = () => {
     });
     // extraer ciudad y pais
     const {ciudad,pais}=busqueda;
-    
+    // funcion quye coloca los elemento en el state
+    const handleChange=e=>{
+        // actualizar el state
+        guardarBusqueda({
+            ...busqueda,
+            [e.target.name]:e.target.value
+        })
+    }
+
     return ( 
         <form>
             <div className="input-field col s12">
@@ -17,6 +25,7 @@ const Formulario = () => {
                     name="ciudad"
                     id="ciudad"
                     value={ciudad}
+                    onChange={handleChange}
                 />
                 <label htmlFor="ciudad">Ciudad: </label>
             </div>
@@ -26,6 +35,7 @@ const Formulario = () => {
                     name="pais"
                     id="pais"
                     value={pais}
+                    onChange={handleChange}
                 >
                     <option value="">Seleccione</option>
                     <option value="US">Estados Unidos</option>
