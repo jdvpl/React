@@ -21,7 +21,7 @@ const Boton = styled.input`
         cursor:pointer;
     }
 `
-const Formulario = ({mensaje}) => {
+const Formulario = ({mensaje,guardarCriptomoneda,guardarMoneda}) => {
     // state del listado de criptomonedad
     const [listadocripto,guardarCriptomonedas]=useState([]);
     const [error,guardarError]=useState(false);
@@ -66,6 +66,8 @@ const Formulario = ({mensaje}) => {
         }
         // pasar los datos al componente principal
         guardarError(false);
+        guardarCriptomoneda(criptomoneda);
+        guardarMoneda(moneda);
     }
     return ( 
         <form
