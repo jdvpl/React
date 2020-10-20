@@ -1,4 +1,5 @@
 import React,{Fragment, useState,useEffect} from 'react';
+import Clima from './components/Clima';
 import Formulario from './components/Formulario';
 import Header from './components/Header';
 
@@ -46,7 +47,9 @@ useEffect(()=>{
             />
           </div>
           <div className="col m6 s12">
-            2
+            <Clima
+              resultado={resultado}
+            />
           </div>
         </div>
       </div>
