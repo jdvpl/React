@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import useMoneda from '../hooks/useMoneda';
 import useCriptomoneda from '../hooks/useCriptomoneda';
 import axios from 'axios';
+import Error from './Error';
 
 const Boton = styled.input`
     margin-top: 20px;
@@ -20,9 +21,10 @@ const Boton = styled.input`
         cursor:pointer;
     }
 `
-const Formulario = () => {
+const Formulario = ({mensaje}) => {
     // state del listado de criptomonedad
     const [listadocripto,guardarCriptomonedas]=useState([]);
+    const [error,guardarError]=useState(false);
     const MONEDAS = [
         { codigo: 'USD', nombre: 'Dolar de Estados Unidos' },
         { codigo: 'COP', nombre: 'Peso Colombiano' },
@@ -53,8 +55,24 @@ const Formulario = () => {
         ConsultarAPI();
 
     },[]);
+
+    // cuando el usuario hace onsubmit
+    const cotizarMoneda=e=>{
+        e.preventDefault();
+        // validacion si estan llenos
+        if(moneda===''|| criptomoneda===''){
+            guardarError(true);
+            return;
+        }
+        // pasar los datos al componente principal
+        guardarError(false);
+    }
     return ( 
-        <form>
+        <form
+           onSubmit={cotizarMoneda} 
+        >   
+        {error? <Error mensaje="Debes completar todos los campos" /> :null}
+
             <SelectMonedas/>
             <SelectCripto/>
             <Boton
