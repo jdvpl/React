@@ -15,7 +15,17 @@ const [consultar,guardarConsultar]=useState(false);
 // extrar los datos
 const {ciudad,pais}=busqueda;
 useEffect(()=>{
-  console.log(ciudad)
+  const consultarAPI=async()=>{
+    if(consultar){
+      const appID='8689f1656e2443008bc9b7a82330f5c6';
+    const url=`https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appID}`;
+    
+    const respuesta=await fetch(url);
+    const resultado= await respuesta.json();
+    console.log(resultado)
+    }
+  }
+  consultarAPI();
 },[consultar])
 
   return (
