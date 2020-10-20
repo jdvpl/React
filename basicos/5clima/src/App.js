@@ -1,5 +1,6 @@
 import React,{Fragment, useState,useEffect} from 'react';
 import Clima from './components/Clima';
+import Error from './components/Error';
 import Formulario from './components/Formulario';
 import Header from './components/Header';
 
@@ -14,6 +15,8 @@ function App() {
 const [consultar,guardarConsultar]=useState(false);
 // guardar el resultado de la consulta
 const [resultado,guardarResultado]=useState({});
+// state cuando no hay resultados
+const [error,guardarError]=useState(false);
 
 // extrar los datos
 const {ciudad,pais}=busqueda;
@@ -27,10 +30,23 @@ useEffect(()=>{
     const resultado= await respuesta.json();
     guardarResultado(resultado);
     guardarConsultar(false);
+    // para mirar si no hubo resultados en la consulta
+    if(resultado.cod==='404'){
+      guardarError(true);
+    }else{
+      guardarError(false);
+    }
     }
   }
   consultarAPI();
-},[consultar])
+},[consultar]);
+
+  let componente;
+  if(error){
+    componente=<Error mensaje="No hay Resultados por favor verificar el pais y ciudad"/>
+  }else{
+    componente=<Clima resultado={resultado}/>
+  }
 
   return (
     <Fragment>
@@ -48,9 +64,7 @@ useEffect(()=>{
             />
           </div>
           <div className="col m6 s12">
-            <Clima
-              resultado={resultado}
-            />
+            {componente}
           </div>
         </div>
       </div>
