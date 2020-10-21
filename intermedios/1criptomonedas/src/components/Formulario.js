@@ -36,7 +36,17 @@ const Formulario = ({mensaje,guardarCriptomoneda,guardarMoneda}) => {
         { codigo: 'PEN', nombre: 'Sol Peruano' },
         { codigo: 'JPY', nombre: 'Yen Japones' },
         { codigo: 'RUB', nombre: 'Rublo Ruso' },
-        { codigo: 'VEB', nombre: 'Bolívar Venezolano' },
+        { codigo: 'VEF', nombre: 'Bolívar Venezolano' },
+        { codigo: 'BOB', nombre: 'Boliviano' },
+        { codigo: 'CLP', nombre: 'Peso chileno' },
+        { codigo: 'ARS', nombre: 'Peso argentino' },
+        { codigo: 'BRL', nombre: 'Real brasileño' },
+        { codigo: 'CHF', nombre: 'Franco suizo' },
+        { codigo: 'UYU', nombre: 'Peso uruguayo' },
+
+        
+
+        
 
     ];
     // utilizar usemoneda

@@ -50,6 +50,7 @@ function App() {
       const url =`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
       const resultado =await axios.get(url);
       console.log(resultado.data.DISPLAY[criptomoneda][moneda]);
+      console.log(resultado.data.RAW.[criptomoneda][moneda]);
    }
 
    contizarCriptomoneda()
