@@ -40,6 +40,8 @@ function App() {
   const [moneda,guardarMoneda]=useState('');
   // state para guardar la cripto
   const [criptomoneda,guardarCriptomoneda]=useState('');
+  const [resultado,guardarResultado]=useState({})
+  const [resultado1,guardarResultado1]=useState({})
   
   useEffect(()=>{
 
@@ -49,8 +51,8 @@ function App() {
 
       const url =`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`;
       const resultado =await axios.get(url);
-      console.log(resultado.data.DISPLAY[criptomoneda][moneda]);
-      console.log(resultado.data.RAW.[criptomoneda][moneda]);
+      guardarResultado(resultado.data.DISPLAY[criptomoneda][moneda]);
+      guardarResultado1(resultado.data.RAW[criptomoneda][moneda]);
    }
 
    contizarCriptomoneda()
