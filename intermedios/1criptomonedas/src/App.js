@@ -67,7 +67,7 @@ function App() {
    contizarCriptomoneda()
   },[moneda,criptomoneda]);
   // mostar spinner o resultado
-  const componente=(cargando)? <Spinner/>:<Cotizacion resultado={resultado}/>
+  const componente=(cargando)? <Spinner/>:<Cotizacion resultado={resultado} criptomoneda={criptomoneda}/>
   return (
     <Contenedor>
       <div>

@@ -28,16 +28,18 @@ const Precio = styled.p`
     }
 `
 
-const Cotizacion = ({resultado}) => {
+const Cotizacion = ({resultado,criptomoneda}) => {
     if(Object.keys(resultado).length===0) return null;
-    console.log(resultado);
 
     return ( 
         <ResultadoDiv>
         <IMG>
-            <img src={`https://www.cryptocompare.com${resultado.IMAGEURL}`}/>
+            <img src={`https://www.cryptocompare.com${resultado.IMAGEURL}`} alt={resultado.FROMSYMBOL} title={resultado.FROMSYMBOL}/>
+
+            
+
         </IMG>
-            <Precio>El precio de <span>1 {resultado.FROMSYMBOL}</span> es: <span>{resultado.PRICE}</span></Precio>
+            <Precio>El precio de <span>1 {criptomoneda}</span> es: <span>{resultado.PRICE}</span></Precio>
             <Info>El precio mas alto del dia: <span>{resultado.HIGHDAY}</span></Info>
             <Info>El precio mas bajo del dia: <span>{resultado.LOWDAY}</span></Info>
             <Info>Variacion ultimas 24 horas: <span>{resultado.CHANGEPCT24HOUR}</span></Info>
