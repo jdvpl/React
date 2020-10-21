@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const IMG = styled.div`
     margin-top:1rem;
@@ -47,5 +48,8 @@ const Cotizacion = ({resultado,criptomoneda}) => {
         </ResultadoDiv>
      );
 }
- 
+Cotizacion.propTypes={
+    resultado:PropTypes.object.isRequired,
+    criptomoneda:PropTypes.string.isRequired
+}
 export default Cotizacion;
