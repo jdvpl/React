@@ -57,7 +57,7 @@ const Formulario = ({mensaje,guardarCriptomoneda,guardarMoneda}) => {
 
     useEffect(()=>{
         const ConsultarAPI=async()=>{
-            const url='https://min-api.cryptocompare.com/data/top/mktcapfull?limit=30&tsym=USD';
+            const url='https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD';
             // consultarlo con axios
             const resultado=await axios.get(url);
             guardarCriptomonedas(resultado.data.Data);
