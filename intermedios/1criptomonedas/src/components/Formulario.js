@@ -45,10 +45,6 @@ const Formulario = ({mensaje,guardarCriptomoneda,guardarMoneda}) => {
         { codigo: 'CHF', nombre: 'Franco suizo' },
         { codigo: 'UYU', nombre: 'Peso uruguayo' },
 
-        
-
-        
-
     ];
     // utilizar usemoneda
     const [moneda,SelectMonedas]=useMoneda('Elige tu moneda','',MONEDAS);
@@ -100,3 +96,4 @@ Formulario.propTypes={
     guardarCriptomoneda:PropTypes.func.isRequired,
 }
 export default Formulario;
+
