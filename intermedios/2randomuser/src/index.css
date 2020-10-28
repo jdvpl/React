@@ -1,6 +1,4 @@
-body {
-  background-color: #0d3517;
-}
+
 .error {
   background-color: #b7322c;
   padding: 1rem;
@@ -10,19 +8,62 @@ body {
   font-weight: bold;
   text-align: center;
 }
-.resultado {
-  color: white;
+
+
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
 }
-.resultado h2 {
-  font-weight: bold;
-  color: white;
+
+p {
+  line-height: 2rem;
 }
-.resultado p {
-  font-size: 18px!important;
+
+.sidenav-trigger {
+  color: #26a69a;
 }
-.resultado p span {
-  font-weight: bold;
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
 }
-p.precio{
-  font-size: 30px!important;
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
 }
