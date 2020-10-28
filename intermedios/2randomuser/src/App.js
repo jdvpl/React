@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
+import Formulario from './components/Fomulario';
 
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
     <Header/>
 
     <Banner/>
+
+    <Formulario/>
     <Footer/>
     </Fragment>
     
