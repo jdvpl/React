@@ -20,7 +20,7 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: rgb(250, 248, 248);
 }
 
 p {
@@ -32,7 +32,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 380px;
+  min-height: 400px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -48,6 +48,12 @@ p {
   }
   #index-banner .section {
     top: 10%;
+  }
+  .parallax-container {
+    min-height: 200px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
   }
 }
 
@@ -65,5 +71,7 @@ p {
 }
 
 footer.page-footer {
-  margin: 0;
+  width: 100%;
+   bottom: 0 !important;
+   position: absolute;
 }
