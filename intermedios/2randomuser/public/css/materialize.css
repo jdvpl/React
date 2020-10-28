@@ -3320,8 +3320,7 @@ td, th {
   text-align: right;
 }
 .mt-5{
-  margin-top: 600px;
-  clear: both;
+  margin-top: 1vh;
 }
 
 .center, .center-align {

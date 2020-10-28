@@ -10,16 +10,11 @@ const Img = styled.img`
 
 }  
 `
-const H5 = styled.h5`
-    color: #ff0000;
-    font-weight:bold;
-    
-`
 const Banner = () => {
     return ( 
         <Fragment>
-         <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
+         <div id="index-banner" className="parallax-container">
+    <div className="section no-pad-bot">
     </div>
     <div className="parallax">
     <Img src={imagen}/>
