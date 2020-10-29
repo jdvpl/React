@@ -57,7 +57,9 @@ const Formulario = ({guardarPais,guardarCategoria}) => {
     return ( 
         <div className={`${styles.buscador} row`}>
             <div className="col s12 m8 offset-m2"> 
-                <form>
+                <form
+                    onSubmit={buscarNoticias}
+                >
                     <h2 className={styles.heading}>Encuentra noticias por categoria</h2>
                     <SelecNoticias/>
                     <SelectPais/>
