@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Fomulario.module.css';
 import useSelect from '../hooks/useSelect';
 import usePais from '../hooks/usePais';
+import PropTypes from 'prop-types';
 
 
 
@@ -77,5 +78,8 @@ const Formulario = ({guardarPais,guardarCategoria}) => {
         </div>
      );
 }
- 
+Formulario.propTypes={
+    guardarPais:PropTypes.func.isRequired,
+    guardarCategoria:PropTypes.func.isRequired,
+}
 export default Formulario;
