@@ -6,13 +6,15 @@ const Img = styled.img`
     height:15rem;
     
 `
-
-
 const Noticia = ({ noticia }) => {
+  
   // extraer los datos
-  const { urlToImage, url, title, description, source } = noticia;
+  const { urlToImage, url, title, description, source,content,publishedAt} = noticia;
+  const fecha=publishedAt.slice(0,-10)
+  console.log(fecha)
+
   const imagen = urlToImage ? (
-    <div class="card-image waves-effect waves-block waves-light">
+    <div className="card-image waves-effect waves-block waves-light">
       <Img src={urlToImage} alt={title} />
       <span className="card-title">{source.name}</span>
     </div>
@@ -23,12 +25,12 @@ const Noticia = ({ noticia }) => {
     </div>
   return (
     <div className="col s12 m6">
-      <div class="card">
+      <div className="card">
         {imagen}
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4 truncate">
+        <div className="card-content">
+          <span className="card-title activator grey-text text-darken-4 truncate">
             {title}
-            <i class="material-icons right">more_vert</i>
+            <i className="material-icons right">more_vert</i>
           </span>
           <p>
             <a href={url}
@@ -42,7 +44,10 @@ const Noticia = ({ noticia }) => {
           {title}<i class="material-icons right">close</i>
           </span>
           <p>{description}</p>
+          <p>{content}</p>
+          <span>Fecha: {fecha}</span> 
         </div>
+        
       </div>
     </div>
   );
