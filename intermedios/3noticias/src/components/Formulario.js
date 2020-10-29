@@ -17,9 +17,38 @@ const Formulario = () => {
         {value:'technology',label:'Tecnologia'},
         {value:'sports',label:'Deportes'},
     ]
+    // paises disponibles
+    const OPCIONESPAIS=[
+        {value:'co',label:'Colombia'},
+        {value:'us',label:'Estados Unidos'},
+        {value:'at',label:'Austria'},
+        {value:'fr',label:'Francia'},
+        {value:'ve',label:'Venezuela'},
+        {value:'za',label:'Sudafrica'},
+        {value:'ru',label:'Rusia'},
+        {value:'br',label:'Brazil'},
+        {value:'ca',label:'Canada'},
+        {value:'de',label:'Alemania'},
+        {value:'mx',label:'Mexico'},
+        {value:'ch',label:'Suiza'},
+        {value:'ae',label:'Emiraros Arabes'},
+        {value:'jp',label:'Japon'},
+        {value:'it',label:'Italia'},
+        {value:'ar',label:'Argentina'},
+        {value:'be',label:'Belgica'},
+        {value:'cn',label:'China'},
+        {value:'pt',label:'Portugal'},
+        {value:'rs',label:'Serbia'},
+        {value:'tr',label:'Turquia'},
+        {value:'sa',label:'Arabia Saudita'},
+
+        
+
+
+    ]
     // utilizar el customHool 
     const [categoria,SelecNoticias]=useSelect('general',OPCIONESCATE);
-    const [paises,SelectPais]=usePais();
+    const [paises,SelectPais]=usePais('co',OPCIONESPAIS);
     
     return ( 
         <div className={`${styles.buscador} row`}>
