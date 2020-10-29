@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const UseSelect = ({stateInicial,opciones}) => {
+const UseSelect = (stateInicial,opciones) => {
+    const [state,actualizarState]=useState('');
     const SelectNoticias=()=>(
         <select className="browser-default">
             <option value="">Seleccione</option>

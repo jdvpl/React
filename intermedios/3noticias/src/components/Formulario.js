@@ -12,6 +12,7 @@ const Formulario = () => {
             <div className="col s12 m8 offset-m2"> 
                 <form>
                     <h2 className={styles.heading}>Encuentra noticias por categoria</h2>
+                    <SelecNoticias/>
                     <div className="input-field col s12">
                         <input
                             type="submit"
