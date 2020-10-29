@@ -18,7 +18,7 @@ const Formulario = () => {
         {value:'sports',label:'Deportes'},
     ]
     // utilizar el customHool 
-    const [categoria,SelecNoticias]=useSelect();
+    const [categoria,SelecNoticias]=useSelect('general',OPCIONESCATE);
     const [paises,SelectPais]=usePais();
     
     return ( 
