@@ -60,7 +60,7 @@ const Formulario = ({guardarPais,guardarCategoria}) => {
                 <form
                     onSubmit={buscarNoticias}
                 >
-                    <h2 className={styles.heading}>Encuentra noticias por categoria</h2>
+                    <h2 className={styles.heading}>Encuentra noticias</h2>
                     <SelecNoticias/>
                     <SelectPais/>
 

@@ -1,18 +1,20 @@
 import React,{Fragment,useState,useEffect} from 'react';
 import Formulario from './components/Formulario';
 import Header from './components/Header';
+import ListadoNoticias from './components/ListadoNoticias';
 
 function App() {
   const [categoria,guardarCategoria]=useState('');
   const [pais,guardarPais]=useState('');
-  const [noticias,guardarNoticias]=useState([])
+  const [noticias,guardarNoticias]=useState([]);
 
   useEffect(()=>{
     const ConsultarApi=async()=>{
-      const url=`http://newsapi.org/v2/top-headlines?country=${pais}&category=${categoria}&apiKey=c2785e0903dd448e8ba84959e90a22fa`;
+      const apiID='360caaa42c2144f49dbae842f84d09ae';
+      const url=`http://newsapi.org/v2/top-headlines?country=${pais}&category=${categoria}&apiKey=${apiID}`;
       const respuesta=await fetch(url);
-      const noticias=await respuesta.json();
-      guardarNoticias(noticias.articles);
+      const noticia=await respuesta.json();
+      guardarNoticias(noticia.articles);
     } 
     ConsultarApi()
   },[categoria,pais])
@@ -25,6 +27,11 @@ function App() {
         <Formulario
           guardarCategoria={guardarCategoria}
           guardarPais={guardarPais}
+          pais={pais}
+        />
+
+        <ListadoNoticias
+          noticias={noticias}
         />
       </div>
     </Fragment>
