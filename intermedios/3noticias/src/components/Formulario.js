@@ -6,7 +6,7 @@ import usePais from '../hooks/usePais';
 
 
 
-const Formulario = () => {
+const Formulario = ({guardarPais,guardarCategoria}) => {
     // opciones de categorias
     const OPCIONESCATE=[
         {value:'general',label:'General'},
@@ -48,6 +48,7 @@ const Formulario = () => {
     ]
     // utilizar el customHool 
     const [categoria,SelecNoticias]=useSelect('general',OPCIONESCATE);
+    // utilizar el customhookde pais
     const [paises,SelectPais]=usePais('co',OPCIONESPAIS);
     
     return ( 
