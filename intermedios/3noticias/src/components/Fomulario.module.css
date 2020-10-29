@@ -1,9 +1,10 @@
-.heding{
+.heading{
     font-family: 'Raleway', sans-serif;
     font-weight: 900;
     font-size: 2rem;
     text-transform: uppercase;
     text-align: center;
+    color: rebeccapurple;
 }
 .buscador{
     margin-top: 2rem;
@@ -12,4 +13,5 @@
 }
 .btn-block{
     width: 100%;
+
 }
