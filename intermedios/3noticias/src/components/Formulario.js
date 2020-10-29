@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Fomulario.module.css'
 
 
 const Formulario = () => {
@@ -6,7 +7,7 @@ const Formulario = () => {
         <div className="row">
             <div className="col s12 m8 offset-m2"> 
                 <form>
-                    <h2>Encuantra noticias por categoria</h2>
+                    <h2>Encuentra noticias por categoria</h2>
                     <div className="input-field col s12">
                         <input
                             type="submit"
