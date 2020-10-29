@@ -42,14 +42,17 @@ const Formulario = ({guardarPais,guardarCategoria}) => {
         {value:'tr',label:'Turquia'},
         {value:'sa',label:'Arabia Saudita'},
 
-        
-
-
     ]
     // utilizar el customHool 
     const [categoria,SelecNoticias]=useSelect('general',OPCIONESCATE);
     // utilizar el customhookde pais
-    const [paises,SelectPais]=usePais('co',OPCIONESPAIS);
+    const [pais,SelectPais]=usePais('co',OPCIONESPAIS);
+    // submir al form pasar categoria y pais
+    const buscarNoticias=e=>{
+        e.preventDefault();
+        guardarCategoria(categoria);
+        guardarPais(pais);
+    }
     
     return ( 
         <div className={`${styles.buscador} row`}>
