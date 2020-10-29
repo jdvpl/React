@@ -11,7 +11,7 @@ const Formulario = () => {
                     <div className="input-field col s12">
                         <input
                             type="submit"
-                            className={`${styles.['btn-block']} btn-large amber darken-2`}
+                            className={`${styles.btn_block} btn-large amber darken-2`}
                             value="buscar"
                         />
 
