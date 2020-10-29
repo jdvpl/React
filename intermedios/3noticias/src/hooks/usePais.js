@@ -6,6 +6,8 @@ const usePais = (stateInicial, opciones) => {
             <option value="">Seleccione Pais</option>
         </select>
     );
+    // ! lo que va a retornar el formulario
+    return [state,SelectPais];
 }
  
 export default usePais;
