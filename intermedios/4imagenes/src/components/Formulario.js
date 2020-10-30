@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 
 const Formulario = () => {
     const [termino,guardarTermino]=useState('');
+    const buscarImagenes=e=>{
+        e.preventDefault();
+    }
     return ( 
-        <form>
+        <form
+            onSubmit={buscarImagenes}
+        >
             <div className="row">
                 <div className="form-group col-md-8">
                     <input
