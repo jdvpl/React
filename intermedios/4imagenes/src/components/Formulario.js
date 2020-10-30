@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Formulario = () => {
+    const [termino,guardarTermino]=useState('');
     return ( 
         <form>
             <div className="row">
@@ -9,6 +10,7 @@ const Formulario = () => {
                         type="text"
                         className="form-control form-control-lg"
                         placeholder="buscar imagen"
+                        onChange={e=>guardarTermino(e.target.value)}
                     />
                 </div>
                 <div className="form-group col-md-4">
