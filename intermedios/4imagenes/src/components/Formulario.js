@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Error from './Error';
 
 const Formulario = () => {
     const [termino,guardarTermino]=useState('');
@@ -11,6 +12,7 @@ const Formulario = () => {
             guardarError(true);
             return;
         }
+        guardarError(false);
     }
     return ( 
         <form
@@ -28,11 +30,12 @@ const Formulario = () => {
                 <div className="form-group col-md-4">
                     <input
                         type="submit"
-                        className="btn btn-block btn-outline-danger btn-lg"
+                        className="btn btn-block btn-danger btn-lg"
                         placeholder="Buscar"
                     />
                 </div>
             </div>
+            {error? <Error mensaje="Campo obligatorio"/>:null}
         </form>
      );
 }
