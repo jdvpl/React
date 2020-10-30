@@ -35,7 +35,7 @@ const Formulario = () => {
                     />
                 </div>
             </div>
-            {error? <Error mensaje="Campo obligatorio"/>:null}
+            {error? <Error mensaje="Ingresa un nombre para la imagen"/>:null}
         </form>
      );
 }
