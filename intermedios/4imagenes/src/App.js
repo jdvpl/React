@@ -30,7 +30,9 @@ function App() {
   },[busqueda])
   // definicion de la pagina anterior
   const paginaAnterior=()=>{
-    <h1>Hola perror</h1>
+    const nuevaPaginaActual=paginaactual-1;
+    if(nuevaPaginaActual===0)return;
+    guardarPaginaActual(nuevaPaginaActual)
   }
   return (
    <div className="container">
