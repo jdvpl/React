@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Formulario from './components/Formulario';
 
 function App() {
   const [busqueda,guardarBusqueda]=useState('');
+
+  useEffect(()=>{
+    if(busqueda==='')return;
+    
+  },[busqueda])
   return (
    <div className="container">
     <div className="jumbotron">
