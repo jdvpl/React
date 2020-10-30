@@ -27,7 +27,6 @@ function App() {
         <Formulario
           guardarCategoria={guardarCategoria}
           guardarPais={guardarPais}
-          pais={pais}
         />
 
         <ListadoNoticias

@@ -10,7 +10,7 @@ const IMG = styled.div`
   }
 `;
 
-const Datos = ({ resultado, img }) => {
+const Datos = ({ resultado}) => {
   const { name } = resultado;
   if (!name) return null;
   return (

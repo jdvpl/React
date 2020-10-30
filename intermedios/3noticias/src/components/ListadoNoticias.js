@@ -10,7 +10,5 @@ const ListadoNoticias = ({noticias}) => (
                 />
             ))}
     </div>
-
 );
-
 export default ListadoNoticias;

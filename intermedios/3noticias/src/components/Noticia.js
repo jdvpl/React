@@ -8,7 +8,7 @@ const Img = styled.img`
     
 `
 const Noticia = ({ noticia }) => {
-  
+
   // extraer los datos
   const { urlToImage, url, title, description, source,content,publishedAt} = noticia;
   const fecha=publishedAt.slice(0,-10)

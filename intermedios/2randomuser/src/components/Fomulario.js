@@ -1,85 +1,66 @@
 import React, { useState } from "react";
-import Error from "./Error";
+import useGenero from '../hooks/useGenero';
+import usePais from '../hooks/usePais';
 
-const Formulario = ({ busqueda, guardarBusqueda, guardarConsultar }) => {
-  // state del formulario
 
-  const [error, guardarError] = useState(false);
-  // extraer ciudad y pais
-  const { ciudad, pais, genero } = busqueda;
-  // funcion quye coloca los elemento en el state
-  const handleChange = (e) => {
-    // actualizar el state
-    guardarBusqueda({
-      ...busqueda,
-      [e.target.name]: e.target.value,
-    });
-  };
-  // cuando el usuario da submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // validacion
-    if (ciudad.trim() === "" || pais.trim() === "" || genero.trim() === "") {
-      guardarError(true);
-      return;
-    }
-    guardarError(false);
-    guardarConsultar(true);
-    // pasarlo al componente principal
-  };
+const Formulario = ({ }) => {
+
+  const GENEROS=[
+    {value:'male',label:'Hombre'},
+    {value:'female',label:'Mujer'},
+    {value:'1',label:'Cualquiera'},
+  ]
+      // paises disponibles
+  const OPCIONESPAIS=[
+    {value:'US',label:'Estados Unidos'},
+    {value:'BR',label:'Brazil'},
+    {value:'IE',label:'Irlanda'},
+    {value:'TR',label:'Turquia'},
+    {value:'ES',label:'España'},
+    {value:'DE',label:'Alemania'},
+    {value:'CA',label:'Canada'},
+    {value:'AU',label:'Australia'},
+    {value:'CH',label:'Suiza'},
+    {value:'FI',label:'Finlandia'},
+    {value:'DK',label:'Dinamarca'},
+    {value:'IR',label:'Iran'},
+    {value:'FR',label:'Francia'},
+    {value:'NO',label:'Noruega'},
+    {value:'NL',label:'Holanda'},
+    {value:'GB',label:'Reino Unido'},
+    {value:'NZ',label:'Nueva Zelanda'},
+    
+  ]
+      
+
+   // utilizar el customhookde pais
+   const [pais,SelectPais]=usePais('US',OPCIONESPAIS);
+  // utilizar el customHook de generos
+  const [genero,SelectGenero]=useGenero('1',GENEROS);
+  
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error ? <Error mensaje="Todos los campos son obligatorios" /> : null}
+    <form>
       <div className="row">
         <div className="input-field col s12 m4 mt-5">
           <input
             type="number"
-            name="ciudad"
-            id="ciudad"
-            value={ciudad}
-            onChange={handleChange}
-          />
+            name="cantidad"
+            id="cantidad"/>
           <label htmlFor="ciudad">Cantidad de usuarios: </label>
         </div>
 
-        <div className="input-field  col s12 m4 mt-5">
-          <select name="pais" id="pais" value={pais} onChange={handleChange}>
-            <option value="">Seleccione</option>
-            <option value="US">Estados Unidos</option>
-            <option value="BR">Brazil</option>
-            <option value="IE">Irlanda</option>
-            <option value="TR">Turquia</option>
-            <option value="ES">España</option>
-            <option value="DE">Alemania</option>
-            <option value="CA">Canadá</option>
-            <option value="AU">Australia</option>
-            <option value="CH">Suiza</option>
-            <option value="FI">Finalandia</option>
-            <option value="DK">Dinamarca</option>
-            <option value="IR">Iran</option>
-            <option value="FR">Francia</option>
-            <option value="NO">Noruega</option>
-            <option value="NL">Holanda</option>
-            <option value="GB">Reino Unido</option>
-            <option value="NZ">Nueva Zelanda</option>
-          </select>
-          <label htmlFor="pais">Pais: </label>
-        </div>
-        
         <div className="input-field col s12 m4 mt-5">
-          <select
-            name="genero"
-            id="genero"
-            value={genero}
-            onChange={handleChange}
-          >
-            <option value="">Seleccione</option>
-            <option value="male">Hombre</option>
-            <option value="female">mujer</option>
-            <option value="1">cualquiera</option>
-          </select>
-          <label htmlFor="genero">Genero: </label>
+          <SelectGenero/>
+        </div>
+        <div className="input-field col s12 m4 mt-5">
+        <div className="col m1 s2">
+        <p>Pais:</p>
+        </div>
+        <div className="col s10 m11">
+        <SelectPais/>
+        </div>
+          
         </div>
 
         <div className="input-field col s12 center">
