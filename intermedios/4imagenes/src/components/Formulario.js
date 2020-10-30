@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 
 const Formulario = () => {
     const [termino,guardarTermino]=useState('');
+    const [error,guardarError]=useState(false);
     const buscarImagenes=e=>{
         e.preventDefault();
+
+        // validar
+        if(termino.trim()===''){
+            guardarError(true);
+            return;
+        }
     }
     return ( 
         <form
