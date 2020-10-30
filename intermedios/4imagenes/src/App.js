@@ -2,7 +2,11 @@ import React from 'react';
 
 function App() {
   return (
-   <h1>Imgenes de pixaby</h1> 
+   <div className="container">
+    <div className="jumbotron">
+      <p className="lead text-center">Buscador de imagenes</p>
+    </div>
+   </div>
   );
 }
 
