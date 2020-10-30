@@ -23,6 +23,10 @@ function App() {
     // calcular el total de paginas
     const calcularTotalPaginas=Math.ceil(resultado.totalHits/imganesPorPagina);
     guardarTotalPaginas(calcularTotalPaginas);
+
+    // mover pagina hacia arriba
+    const jumbotron=document.querySelector('.jumbotron');
+    jumbotron.scrollIntoView({behavior: 'smooth'});
     }
 
     ConsultarApi();
