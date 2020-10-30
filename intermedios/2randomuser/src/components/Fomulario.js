@@ -3,7 +3,7 @@ import useGenero from '../hooks/useGenero';
 import usePais from '../hooks/usePais';
 
 
-const Formulario = ({ }) => {
+const Formulario = ({ datos,guardarGenero,guardarPais,guardarCantidad,guardarDatos}) => {
 
   const GENEROS=[
     {value:'male',label:'Hombre'},
@@ -31,22 +31,46 @@ const Formulario = ({ }) => {
     {value:'NZ',label:'Nueva Zelanda'},
     
   ]
+  
       
-
+  const [error,guardarError]=useState(false);
    // utilizar el customhookde pais
    const [pais,SelectPais]=usePais('US',OPCIONESPAIS);
   // utilizar el customHook de generos
   const [genero,SelectGenero]=useGenero('1',GENEROS);
+
+  const {cantidad}=datos;
+  const handleChange=e=>{
+    // actualizar el state
+    guardarDatos({
+        ...datos,
+        [e.target.name]:e.target.value
+    })
+}
   
+  const handleSubmit=e=>{
+    e.preventDefault();
+    // validacion
+    if(cantidad.trim()==='' || pais.trim()===''){
+        guardarError(true);
+        return;
+    }
+    guardarError(false);
+    // pasarlo al componente principal
+}
 
   return (
-    <form>
+    <form
+    onSubmit={handleSubmit}
+    >
       <div className="row">
         <div className="input-field col s12 m4 mt-5">
           <input
             type="number"
             name="cantidad"
-            id="cantidad"/>
+            id="cantidad"
+
+            />
           <label htmlFor="ciudad">Cantidad de usuarios: </label>
         </div>
 
