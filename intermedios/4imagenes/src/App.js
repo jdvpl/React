@@ -28,6 +28,10 @@ function App() {
     ConsultarApi();
 
   },[busqueda])
+  // definicion de la pagina anterior
+  const paginaAnterior=()=>{
+    <h1>Hola perror</h1>
+  }
   return (
    <div className="container">
     <div className="jumbotron">
@@ -40,6 +44,16 @@ function App() {
       <ListadoImagenes
         imagenes={imagenes}
       />
+      <button
+        className="btn btn-info mr-1"
+        onClick={paginaAnterior}
+         >
+        &laquo; Anterior 
+      </button>
+      <button
+        className="btn btn-info">
+        Siguiente &raquo;
+      </button>
     </div>
     
    </div>
