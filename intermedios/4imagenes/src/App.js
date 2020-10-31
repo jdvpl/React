@@ -41,7 +41,7 @@ function App() {
   // pagina siguiente
   const paginaSiguiente=()=>{
     const nuevaPaginaActual=paginaactual+1;
-    if(nuevaPaginaActual>totalpaginas) return;
+    if(nuevaPaginaActual>=totalpaginas) return;
     guardarPaginaActual(nuevaPaginaActual);
     
   }

@@ -1,11 +1,11 @@
 import React from 'react';
-
+import styles from './imagen.module.css';
 const Imagen = ({imagen}) => {
     const {largeImageURL,views,downloads,likes,tags}=imagen;
     return (
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
             <div className="card">
-                <img src={largeImageURL} alt={tags} className="card-img-top " />
+                <img src={largeImageURL} alt={tags} className={`card-img-top ${styles.img}`} />
                 
                 <div className="card-body">
                     <p className="card-text">{likes} Me Gusta</p>
