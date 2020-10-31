@@ -31,7 +31,9 @@ function App() {
             Biografia
           </div>
           <div className="col-md-6">
-            <Cancion/>
+            <Cancion
+              letra={letra}
+            />
           </div>
         </div>
       </div>
