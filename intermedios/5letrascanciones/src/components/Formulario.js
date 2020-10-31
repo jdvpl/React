@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Formulario = () => {
+const Formulario = ({guardarBusquedaLetra}) => {
     const [busqueda,guardarBusqueda]=useState({
         artista:'',
         cancion:''
@@ -23,16 +23,23 @@ const Formulario = () => {
             guardarError(true);
             return;
         }
+        guardarError(false);
+        // pasar al componente principal
+        guardarBusquedaLetra(busqueda);
     }
     return ( 
         <div className="bg-info">
+        
             <div className="container">
                 <div className="row">
                     <form 
                     onSubmit={buscarInformacion}
                     className="col card text-white bg-transparent mb-5 pt-5 pb-2">
+                    
                         <fieldset>
                             <legend className="text-center">Buscador Letras Canciones</legend>
+            {error?<p className="alert alert-danger text-center p-2">Todos los campos son obligatorios</p>:null}
+
                             <div className="row">
                             <div className="col-md-6">
                                 <div className="form-group">
@@ -43,7 +50,7 @@ const Formulario = () => {
                                         name="artista"
                                         placeholder="Nombre Artista"
                                         onChange={actializarState}
-                                        value="artista"
+                                        value={artista}
                                         />
                                 </div>
                                 </div>
@@ -56,7 +63,7 @@ const Formulario = () => {
                                         name="cancion"
                                         placeholder="Nombre Cancion"
                                         onChange={actializarState}
-                                        value="cancion"
+                                        value={cancion}
                                         />
                                 </div>
                                 </div>

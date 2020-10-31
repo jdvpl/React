@@ -1,11 +1,14 @@
-import React,{Fragment,useEffect} from 'react';
+import React,{Fragment,useEffect, useState} from 'react';
 import Formulario from './components/Formulario';
 function App() {
+  const [busquedaletra,guardarBusquedaLetra]=useState({})
 
  
   return (
     <Fragment>
-      <Formulario/>
+      <Formulario
+        guardarBusquedaLetra={guardarBusquedaLetra}
+      />
     </Fragment>
   );
 }
