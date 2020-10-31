@@ -5,6 +5,8 @@ const Formulario = () => {
         artista:'',
         cancion:''
     })
+    // state del error
+    const [error,guardarError]=useState(false);
     //? state para mostrar lso que esta escribiendo
     const actializarState=e=>{
         guardarBusqueda({
@@ -18,7 +20,8 @@ const Formulario = () => {
     const buscarInformacion=e=>{
         e.preventDefault()
         if(artista.trim()===''||cancion.trim()===''){
-            
+            guardarError(true);
+            return;
         }
     }
     return ( 
