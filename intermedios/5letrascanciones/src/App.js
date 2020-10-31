@@ -3,7 +3,10 @@ import Formulario from './components/Formulario';
 import axios from 'axios';
 
 function App() {
+  // definir el state
   const [busquedaletra,guardarBusquedaLetra]=useState({})
+  // creando el state oara guardar la letra
+  const [letra,guardarLetra]=useState('');
   useEffect(()=>{
     if(Object.keys(busquedaletra).length===0)return;
 
@@ -11,7 +14,7 @@ function App() {
       const {artista,cancion}=busquedaletra;
       const url =`https://api.lyrics.ovh/v1/${artista}/${cancion}`;
       const resultado=await axios(url);
-      console.log(resultado.data.lyrics);
+      guardarLetra(resultado.data.lyrics);
     }
     consultarApiLetra();
   },[busquedaletra])
