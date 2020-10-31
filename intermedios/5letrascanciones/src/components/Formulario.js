@@ -5,6 +5,12 @@ const Formulario = () => {
         artista:'',
         cancion:''
     })
+    const actializarState=e=>{
+        guardarBusqueda({
+            ...busqueda,
+            [e.target.name]:e.target.value
+        })
+    }
     return ( 
         <div className="bg-info">
             <div className="container">
@@ -21,6 +27,7 @@ const Formulario = () => {
                                         className="form-control"
                                         name="artista"
                                         placeholder="Nombre Artista"
+                                        onChange={actializarState}
                                         />
                                 </div>
                                 </div>
@@ -32,6 +39,7 @@ const Formulario = () => {
                                         className="form-control"
                                         name="cancion"
                                         placeholder="Nombre Cancion"
+                                        onChange={actializarState}
                                         />
                                 </div>
                                 </div>
