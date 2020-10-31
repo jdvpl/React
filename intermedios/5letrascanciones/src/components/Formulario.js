@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Formulario = () => {
+    const [busqueda,guardarBusqueda]=useState({
+        artista:'',
+        cancion:''
+    })
     return ( 
         <div className="bg-info">
             <div className="container">
