@@ -19,3 +19,4 @@ const CategoriasProvider=(props)=>{
         </CategoriasContext.Provider>
     )
 }
+export default CategoriasProvider;
