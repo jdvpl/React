@@ -7,5 +7,15 @@ export const CategoriasContext=createContext();
 const CategoriasProvider=(props)=>{
     // crear el state del context
     const [hola,guardarHola]=useState('hola');
-    
+
+    // lo quye va a devolver
+    return(
+        <CategoriasContext.Provider
+            value={{
+                hola
+            }}
+        >
+            {props.children}
+        </CategoriasContext.Provider>
+    )
 }
