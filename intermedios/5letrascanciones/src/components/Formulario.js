@@ -14,11 +14,20 @@ const Formulario = () => {
     }
     // extraer los valores
     const {artista,cancion}=busqueda;
+    // consultar las apis
+    const buscarInformacion=e=>{
+        e.preventDefault()
+        if(artista.trim()===''||cancion.trim()===''){
+            
+        }
+    }
     return ( 
         <div className="bg-info">
             <div className="container">
                 <div className="row">
-                    <form className="col card text-white bg-transparent mb-5 pt-5 pb-2">
+                    <form 
+                    onSubmit={buscarInformacion}
+                    className="col card text-white bg-transparent mb-5 pt-5 pb-2">
                         <fieldset>
                             <legend className="text-center">Buscador Letras Canciones</legend>
                             <div className="row">
