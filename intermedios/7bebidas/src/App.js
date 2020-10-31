@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Formulario from './components/Formulario';
 import Header from "./components/Header";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
       <Header/>
       <div className="mt-5 container">
         <div className="row">
-          
+          <Formulario/>
         </div>
       </div>
     </Fragment>
