@@ -5,12 +5,15 @@ const Formulario = () => {
         artista:'',
         cancion:''
     })
+    //? state para mostrar lso que esta escribiendo
     const actializarState=e=>{
         guardarBusqueda({
             ...busqueda,
             [e.target.name]:e.target.value
         })
     }
+    // extraer los valores
+    const {artista,cancion}=busqueda;
     return ( 
         <div className="bg-info">
             <div className="container">
@@ -28,6 +31,7 @@ const Formulario = () => {
                                         name="artista"
                                         placeholder="Nombre Artista"
                                         onChange={actializarState}
+                                        value="artista"
                                         />
                                 </div>
                                 </div>
@@ -40,6 +44,7 @@ const Formulario = () => {
                                         name="cancion"
                                         placeholder="Nombre Cancion"
                                         onChange={actializarState}
+                                        value="cancion"
                                         />
                                 </div>
                                 </div>
