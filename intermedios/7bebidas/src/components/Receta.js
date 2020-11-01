@@ -31,7 +31,7 @@ const Receta = ({ receta }) => {
   const [modalStyle]=useState(getModalStyle);
   const [open,setOpen]=useState(false);
   const classes=useStyles();
-  
+
   const handleOpen=()=>{
     setOpen(true);
   }
@@ -60,6 +60,10 @@ const Receta = ({ receta }) => {
           Ver Receta
         </button>
         <Modal
+        onClose={()=>{
+          guardarIdReceta(null);
+          handleClose();
+        }}
           open={open}
           >
           <div style={modalStyle} className={classes.paper}>
