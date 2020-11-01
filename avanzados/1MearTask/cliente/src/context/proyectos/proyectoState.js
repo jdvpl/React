@@ -3,17 +3,19 @@ import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
 import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS} from '../../types';
 
-const proyectos=[
-    
-    {id:1,nombre:'Kakaroto'},
-    {id:2,nombre:'Vegueta'},
-    {id:3,nombre:'Lucifer'},
-    {id:4,nombre:'React'},
-    {id:5,nombre:'MEARN'},
-    {id:6,nombre:'Congiguracion MongoDB'},
-]
 
 const ProyectoState=props=>{
+
+    const proyectos=[
+    
+        {id:1,nombre:'Kakaroto'},
+        {id:2,nombre:'Vegueta'},
+        {id:3,nombre:'Lucifer'},
+        {id:4,nombre:'React'},
+        {id:5,nombre:'MEARN'},
+        {id:6,nombre:'Configuracion MongoDB'},
+    ]
+    
     const initailState={
         proyectos:[],
         formulario:false
@@ -29,7 +31,7 @@ const ProyectoState=props=>{
     }
     // obtener los poryectos como si fuera con una base de datos
 
-    const obtenerProyectos=proyectos=>{
+    const obtenerProyectos=()=>{
         dispatch({
             type:OBTENER_PROYECTOS,
             payload:proyectos
@@ -41,7 +43,8 @@ const ProyectoState=props=>{
         value={{
             proyectos:state.proyectos,
             formulario: state.formulario,
-            mostrarFormulario
+            mostrarFormulario,
+            obtenerProyectos
         }}>
             {props.children}
         </ProyectoContext.Provider>
