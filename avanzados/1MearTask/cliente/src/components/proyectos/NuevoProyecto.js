@@ -1,6 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 const NuevoProyecto = () => {
+    const [proyecto,guardarProyecto]=useState({
+        nombre:''
+    })
+    
     return ( 
         <Fragment>
         <button
