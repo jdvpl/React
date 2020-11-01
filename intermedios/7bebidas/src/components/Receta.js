@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { ModalContext } from "../context/ModalContext";
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
-import { ModalConsumer } from '../context/ModalContext';
+
 
 
 function getModalStyle() {
@@ -19,7 +19,7 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
     paper: {
       position: 'absolute',
-      width: 400,
+      width: 450,
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
@@ -40,10 +40,22 @@ const Receta = ({ receta }) => {
   }
 
     // extrayendo los valores del context
-    const {info,guardarIdReceta}=useContext(ModalContext);
+    const {info,guardarIdReceta,guardarReceta}=useContext(ModalContext);
 
 
   const { strDrinkThumb,strDrink,idDrink } = receta;
+  // muestra los ingredientes
+  const mostrarIngredientes=info=>{
+    let ingredientes=[];
+    for(let i=1;i<16;i++){
+      if(info[`strIngredient${i}`]){
+        ingredientes.push(
+          <li>{info[`strIngredient${i}`]}  {info[`strMeasure${i}`]}</li>
+        )
+      }
+    }
+    return ingredientes;
+  }
 
   return (
       <div className="col-md-4 mt-3">
@@ -61,9 +73,13 @@ const Receta = ({ receta }) => {
           Ver Receta
         </button>
         <Modal
+         aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         onClose={()=>{
           guardarIdReceta(null);
+          guardarReceta({});
           handleClose();
+          
         }}
           open={open}
           >
@@ -74,8 +90,13 @@ const Receta = ({ receta }) => {
               {info.strInstructions}
             </p>
             <img src={info.strDrinkThumb} className="img-fluid my-4"/>
+          
+          <h3>Ingredientes y Cantidades</h3>
+            <ul>
+              {mostrarIngredientes(info)}
+            </ul>
           </div>
-       
+
         </Modal>
       </div>
     </div>
