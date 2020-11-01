@@ -8,7 +8,11 @@ const RecetasProvider = (props) => {
         categoria:''
     })
     return (  
-        <RecetasContext.Provider>
+        <RecetasContext.Provider
+            value={{
+                buscarRecetas
+            }}
+        >
             {props.children}
         </RecetasContext.Provider>
     );
