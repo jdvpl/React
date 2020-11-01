@@ -1,5 +1,5 @@
 import React from 'react';
-import NuevoProyecto from './NuevoProyecto';
+import NuevoProyecto from '../proyectos/NuevoProyecto';
 
 const Sidebar = () => {
     return ( 
