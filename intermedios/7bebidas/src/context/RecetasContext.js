@@ -8,9 +8,12 @@ const RecetasProvider = (props) => {
         nombre:'',
         categoria:''
     });
+    // aplicando destructuring para los datos: categoria y bebida
+    const{nombre,categoria}=busqueda;
+
     useEffect(()=>{
         const obtenerRecetas=async()=>{
-            const url=`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka&c=Cocoa`;
+            const url=`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${nombre}&c=${categoria}`;
             const receta=await Axios(url);
             console.log(receta);
         }
