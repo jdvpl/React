@@ -17,7 +17,7 @@ const CategoriasProvider=(props)=>{
             guardarCategorias(categorias.data.drinks);
         }
         obtenerCategotias();
-    })
+    },[])
     return(
         <CategoriasContext.Provider
             value={{
