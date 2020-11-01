@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { RecetasContext } from '../context/RecetasContext';
+import Receta from './Receta';
 
 const ListaRecetas = () => {
     // extraer las recetas
@@ -8,7 +9,7 @@ const ListaRecetas = () => {
     return ( 
         <div className="row">
             {recetas.map(receta=>(
-                
+                <Receta/>
             ))}
         </div>
      );
