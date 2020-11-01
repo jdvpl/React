@@ -4,6 +4,8 @@ import axios from 'axios';
 export const ModalContext=createContext();
 
 const ModalProvider = (props) => {
+    // state para guardar la receta
+    const [receta,guardarReceta]=useEffect({});
     // state del provider VA ASE nullo porque asi debe ser inicial hasta que el usuario presion una que el guste
     const [idreceta,guardarIdReceta]=useState(null);
     // una vez que ya tenemos la receta llamar la api
@@ -14,7 +16,7 @@ const ModalProvider = (props) => {
             if(!idreceta)return;
             const url=`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idreceta}`;
             const ingrediente=await axios(url);
-            console.log(ingrediente.data.drinks[0]);
+            guardarReceta(ingrediente.data.drinks[0]);
 
         }
         obtenerIngredientes();
