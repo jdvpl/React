@@ -34,7 +34,7 @@ const Formulario = () => {
       <div className="row mt-4">
         <div className="col-md-4">
           <input
-            className="form-control"
+            className="form-control mb-3"
             type="text"
             name="nombre"
             placeholder="Buscar por Ingrediente"
@@ -43,7 +43,7 @@ const Formulario = () => {
         </div>
         <div className="col-md-4">
         <select 
-          className="form-control"
+          className="form-control mb-3"
           name="categoria"
           onChange={obtenerReceta}
         >

@@ -9,7 +9,10 @@ const ListaRecetas = () => {
     return ( 
         <div className="row">
             {recetas.map(receta=>(
-                <Receta/>
+                <Receta
+                    key={receta.idDrink}
+                    receta={receta}
+                />
             ))}
         </div>
      );
