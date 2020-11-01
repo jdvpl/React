@@ -3,11 +3,14 @@ import Proyecto from './Proyecto';
 
 
 const ListadoProyectos = () => {
+    
     const proyectos=[
         {nombre:'Kakaroto'},
         {nombre:'Vegueta'},
         {nombre:'Kamisama'},
-        {nombre:'Lucifer'}
+        {nombre:'Lucifer'},
+        {nombre:'React'},
+        {nombre:'MEARN'}
     ]
     return ( 
         <ul className="listado-proyectos">
