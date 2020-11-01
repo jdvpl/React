@@ -8,21 +8,28 @@ const RecetasProvider = (props) => {
         nombre:'',
         categoria:''
     });
+    // state para la consulta
+    const [consultar,guardarConsultar]=useState(false);
     // aplicando destructuring para los datos: categoria y bebida
     const{nombre,categoria}=busqueda;
 
     useEffect(()=>{
-        const obtenerRecetas=async()=>{
-            const url=`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${nombre}&c=${categoria}`;
-            const receta=await Axios(url);
-            console.log(receta);
+        if(consultar){
+            const obtenerRecetas=async()=>{
+                const url=`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&c=${categoria}`;
+                const receta=await Axios(url);
+                // console.log(receta.data.drinks);
+                guardarRecetas(receta.data.drinks)
+            }
+            obtenerRecetas();
         }
-        obtenerRecetas();
+        
     },[busqueda])
     return (  
         <RecetasContext.Provider
             value={{
-                buscarRecetas
+                buscarRecetas,
+                guardarConsultar
             }}
         >
             {props.children}

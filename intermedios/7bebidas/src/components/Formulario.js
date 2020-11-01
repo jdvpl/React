@@ -4,7 +4,7 @@ import { RecetasContext } from "../context/RecetasContext";
 
 const Formulario = () => {
     const {categorias}=useContext(CategoriasContext);
-    const {buscarRecetas}=useContext(RecetasContext);
+    const {buscarRecetas,guardarConsultar}=useContext(RecetasContext);
     
     // el state para guarda lo que el usuario selecciona
     const [busqueda,guardarBusqueda]=useState({
@@ -25,6 +25,7 @@ const Formulario = () => {
       onSubmit={e=>{
         e.preventDefault();
         buscarRecetas(busqueda);
+        guardarConsultar(true);
       }}
     >
       <fieldset className="text-center">
