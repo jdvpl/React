@@ -4,8 +4,12 @@ import Proyecto from './Proyecto';
 
 
 const ListadoProyectos = () => {
+    // extraer proyectos del state incial
     const proyectosContext = useContext(ProyectoContext);
+    // validar si proyectos tiene contenido
     const {proyectos}=proyectosContext;
+    
+    if(proyectos.length===0)return null;
     return ( 
         <ul className="listado-proyectos">
             {proyectos.map(proyecto=>(
