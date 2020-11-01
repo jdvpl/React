@@ -10,7 +10,11 @@ const Login = () => {
     // destructuring para traer el usuario y la contraseña
     const {email,password}=usuario;
 
-    const onChange=()=>{
+    const onChange=e=>{
+        guardarUsuario({
+            ...usuario,
+            [e.target.name]:e.target.value
+        })
         
     }
     return ( 
