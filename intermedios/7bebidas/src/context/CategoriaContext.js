@@ -14,14 +14,14 @@ const CategoriasProvider=(props)=>{
         const obtenerCategotias=async()=>{
             const url =`https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list`;
             const categorias=await axios(url);
-            console.log(categorias.data.drinks);
+            guardarCategorias(categorias.data.drinks);
         }
         obtenerCategotias();
     })
     return(
         <CategoriasContext.Provider
             value={{
-                
+                categorias
             }}
         >
             {props.children}
