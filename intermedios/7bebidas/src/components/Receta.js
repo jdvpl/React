@@ -9,9 +9,11 @@ const Receta = ({ receta }) => {
       <img src={strDrinkThumb} className="card-img-top img-fluid" alt={`Imagen de ${strDrink}`} title={strDrink}/>
       <div className="card-body">
         <h6 className="card-title text-center truncate text-info font-weight-bold">{strDrink}</h6>
-        <a href="#" className="btn btn-success btn-block">
-          Receta
-        </a>
+        <button 
+        className="btn btn-primary btn-block"
+        >
+          Ver Receta
+        </button>
       </div>
     </div>
     </div>
