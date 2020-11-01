@@ -7,6 +7,9 @@ const Login = () => {
         password:''
     });
 
+    // destructuring para traer el usuario y la contraseña
+    const {email,password}=usuario;
+
     const onChange=()=>{
         
     }
@@ -23,6 +26,7 @@ const Login = () => {
                         name="email"
                         placeholder="Correo"
                         onChange={onChange}
+                        value={email}
                         />
                 </div>
 
@@ -34,6 +38,7 @@ const Login = () => {
                         name="password"
                         placeholder="Contraseña"
                         onChange={onChange}
+                        value={password}
                         />
                 </div>
                 <div className="campo-form">
