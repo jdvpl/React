@@ -103,6 +103,9 @@ a {
   }
 
 }
+.btn-eliminar {
+  background-color: var(--blanco);
+}
 
 
 /* BARRA LATERAL */
