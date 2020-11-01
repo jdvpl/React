@@ -17,11 +17,11 @@ const ListadoTareas = () => {
                 ?Fragment(
                     <li className="tareas"><p>No Hay tareas</p></li>
                 ):
-                {tareasPoyecto.map(tarea=>(
+                tareasPoyecto.map(tarea=>(
                     <Tarea
                         tarea={tarea}
                     />
-                ))}
+                ))
 
                 }
             </ul>

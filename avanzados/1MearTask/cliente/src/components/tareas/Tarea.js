@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Tarea = () => {
+const Tarea = ({tarea}) => {
     return (  
-        <h1>Desde Tarea</h1>
+        <li className="tarea sombra"> 
+            <p>{tarea.nombre}</p>
+            
+        </li>
     );
 }
  
