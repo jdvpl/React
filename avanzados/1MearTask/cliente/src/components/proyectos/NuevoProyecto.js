@@ -4,7 +4,15 @@ const NuevoProyecto = () => {
     const [proyecto,guardarProyecto]=useState({
         nombre:''
     })
-    
+    // extrayendo nombre del state proyecto
+    const {nombre}=proyecto;
+    // funcion para lo que el usuario va escribiendo
+    const onChangeProyecto=e=>{
+        guardarProyecto({
+            ...proyecto,
+            [e.target.name]:e.target.value
+        })
+    }
     return ( 
         <Fragment>
         <button
@@ -19,6 +27,8 @@ const NuevoProyecto = () => {
                 className="input-text"
                 placeholder="Nombre Proyecto"
                 name="nombre"
+                value={nombre}
+                onChange={onChangeProyecto}
                 />
                 <input 
                 type="submit"
