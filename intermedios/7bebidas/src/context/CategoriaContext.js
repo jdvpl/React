@@ -12,7 +12,9 @@ const CategoriasProvider=(props)=>{
 
     useEffect(()=>{
         const obtenerCategotias=async()=>{
-
+            const url =`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink`;
+            const categorias=await axios(url);
+            console.log(categorias.data.drinks);
         }
         obtenerCategotias();
     })
