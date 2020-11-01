@@ -13,6 +13,16 @@ const NuevoProyecto = () => {
             [e.target.name]:e.target.value
         })
     }
+    // cuando el usario de agregar proyecto
+    const onSubmitProyecto=e=>{
+        e.preventDefault();
+        // vlaidar el proyecto
+
+        // agregar al state
+
+        // reinivar el form
+        
+    }
     return ( 
         <Fragment>
         <button
@@ -21,7 +31,9 @@ const NuevoProyecto = () => {
         >
             Nuevo Proyecto
         </button>
-            <form className="formulario-nuevo-proyecto">
+            <form 
+            onSubmit={onSubmitProyecto}
+            className="formulario-nuevo-proyecto">
                 <input 
                 type="text"
                 className="input-text"
