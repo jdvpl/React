@@ -6,6 +6,13 @@ import {FROMULARIO_PROYECTO} from '../../types';
 
 const ProyectoState=props=>{
     const initailState={
+        proyectos=[
+            {id:1,nombre:'Kakaroto'},
+            {id:2,nombre:'Vegueta'},
+            {id:3,nombre:'Lucifer'},
+            {id:4,nombre:'React'},
+            {id:5,nombre:'MEARN'}
+        ],
         formulario:false
     }
     // disparch para ejecutar las acciones
