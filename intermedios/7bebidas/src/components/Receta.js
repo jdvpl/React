@@ -30,6 +30,8 @@ const Receta = ({ receta }) => {
   // configuracion del modal de materialUi
   const [modalStyle]=useState(getModalStyle);
   const [open,setOpen]=useState(false);
+  const classes=useStyles();
+  
   const handleOpen=()=>{
     setOpen(true);
   }
@@ -51,11 +53,19 @@ const Receta = ({ receta }) => {
         <button 
         className="btn btn-primary btn-block"
         onClick={()=>{
-            guardarIdReceta(idDrink)
+            guardarIdReceta(idDrink);
+            handleOpen();
         }}
         >
           Ver Receta
         </button>
+        <Modal
+          open={open}
+          >
+          <div style={modalStyle} className={classes.paper}>
+            <h1>Desde Modal</h1>
+          </div>
+        </Modal>
       </div>
     </div>
     </div>

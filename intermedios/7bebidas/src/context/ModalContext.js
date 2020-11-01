@@ -4,10 +4,11 @@ import axios from 'axios';
 export const ModalContext=createContext();
 
 const ModalProvider = (props) => {
-    // state para guardar la receta
-    const [receta,guardarReceta]=useEffect({});
     // state del provider VA ASE nullo porque asi debe ser inicial hasta que el usuario presion una que el guste
     const [idreceta,guardarIdReceta]=useState(null);
+
+    // state para guardar la receta
+    const [receta,guardarReceta]=useState({});
     // una vez que ya tenemos la receta llamar la api
 
     useEffect(()=>{
