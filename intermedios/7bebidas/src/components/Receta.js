@@ -20,12 +20,13 @@ const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
     [theme.breakpoints.down('sm')]: {
-      width: '100%',  
+      width: '87%',
+      maxHeight:'580px'  
     },
     [theme.breakpoints.up('sm')]: {
-      width: 450,  
+      width: 700,  
     },
-    maxHeight: 550,
+    maxHeight: 700,
     overflowY: 'auto',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
@@ -80,8 +81,6 @@ const Receta = ({ receta }) => {
           Ver Receta
         </button>
         <Modal
-         aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
         onClose={()=>{
           guardarIdReceta(null);
           guardarReceta({});
@@ -91,6 +90,14 @@ const Receta = ({ receta }) => {
           open={open}
           >
           <div style={modalStyle} className={classes.paper}>
+          <button class="btn btn-primary float-right"
+            onClick={()=>{
+          guardarIdReceta(null);
+          guardarReceta({});
+          handleClose();
+          
+        }}
+          >X</button>
             <h2>{info.strDrink}</h2>
             <h4 className="mt-4">Instrucciones:</h4>
             <p>
@@ -102,7 +109,9 @@ const Receta = ({ receta }) => {
             <ul>
               {mostrarIngredientes(info)}
             </ul>
+            
           </div>
+          
 
         </Modal>
       </div>
