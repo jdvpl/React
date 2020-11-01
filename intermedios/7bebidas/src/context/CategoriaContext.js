@@ -6,13 +6,13 @@ export const CategoriasContext=createContext();
 
 const CategoriasProvider=(props)=>{
     // crear el state del context
-    const [hola,guardarHola]=useState('yo soy un dios');
+    const [categorias,guardarCategorias]=useState([]);
 
     // lo quye va a devolver
     return(
         <CategoriasContext.Provider
             value={{
-                hola
+                
             }}
         >
             {props.children}
