@@ -3,7 +3,7 @@ import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
 
 
-const proyectoState=props=>{
+const ProyectoState=props=>{
     const initailState={
         formulario:false
     }
@@ -20,3 +20,4 @@ const proyectoState=props=>{
         </ProyectoContext.Provider>
     )
 }
+export default ProyectoState;
