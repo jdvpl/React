@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
-import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS} from '../../types';
+import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO} from '../../types';
 
 
 const ProyectoState=props=>{
