@@ -15,7 +15,7 @@ const FormTarea = () => {
                 <div className="contenedor-input">
                     <input
                         type="submit"
-                        className="btn btn-primario btn-blockt"
+                        className="btn btn-primario btn-block"
                         placeholder="Nombre Tarea..."
                         value="Agregar Tarea"
                     />
