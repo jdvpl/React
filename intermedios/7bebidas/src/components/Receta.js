@@ -17,12 +17,19 @@ function getModalStyle() {
 }
 
 const useStyles = makeStyles(theme => ({
-    paper: {
-      position: 'absolute',
-      width: 450,
-      backgroundColor: theme.palette.background.paper,
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
+  paper: {
+    position: 'absolute',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',  
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: 450,  
+    },
+    maxHeight: 550,
+    overflowY: 'auto',
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
   },
 }));
 
