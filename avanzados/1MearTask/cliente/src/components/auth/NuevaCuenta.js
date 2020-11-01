@@ -23,6 +23,13 @@ const NuevaCuenta = () => {
     // cuando el usuario inicia sesion
     const onSubmit=e=>{
         e.preventDefault();
+        // valikdar que no haya campos vacios
+
+        // passwords minimos de 6 caracteres
+
+        // que las contrasenas sean iguales
+
+        // pasar al ction
     }
     return ( 
         <div className="form-usuario">
