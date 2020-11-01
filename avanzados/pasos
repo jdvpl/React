@@ -1,0 +1,4 @@
+instalando el cliente
+npx create-react-app cliente
+#instalando la dependencia
+npm install react-router-dom  => el enrutador de be ser en la carpeta cliente
