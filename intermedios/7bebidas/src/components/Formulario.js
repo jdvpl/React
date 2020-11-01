@@ -1,8 +1,10 @@
 import React,{useContext, useState} from "react";
 import { CategoriasContext } from "../context/CategoriaContext";
+import { RecetasContext } from "../context/RecetasContext";
 
 const Formulario = () => {
     const {categorias}=useContext(CategoriasContext);
+    const {buscarRecetas}=useContext(RecetasContext);
     
     // el state para guarda lo que el usuario selecciona
     const [busqueda,guardarBusqueda]=useState({
@@ -19,7 +21,12 @@ const Formulario = () => {
     
 
   return (
-    <form className="col-12">
+    <form className="col-12"
+      onSubmit={e=>{
+        e.preventDefault();
+        buscarRecetas(busqueda);
+      }}
+    >
       <fieldset className="text-center">
         <legend>Busca bebidas por Categoria o Ingrediente</legend>
       </fieldset>
