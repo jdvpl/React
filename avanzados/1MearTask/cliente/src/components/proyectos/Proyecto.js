@@ -10,7 +10,7 @@ const Proyecto = ({proyecto}) => {
                 {proyecto.nombre}
             </button>
         </li>
-     );
+     ); 
 }
  
 export default Proyecto;
