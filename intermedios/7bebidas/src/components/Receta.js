@@ -29,6 +29,13 @@ const useStyles = makeStyles(theme => ({
 const Receta = ({ receta }) => {
   // configuracion del modal de materialUi
   const [modalStyle]=useState(getModalStyle);
+  const [open,setOpen]=useState(false);
+  const handleOpen=()=>{
+    setOpen(true);
+  }
+  const handleClose=()=>{
+    setOpen(false);
+  }
 
     // extrayendo los valores del context
     const {guardarIdReceta}=useContext(ModalContext);
