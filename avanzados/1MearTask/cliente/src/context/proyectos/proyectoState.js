@@ -21,7 +21,8 @@ const ProyectoState=props=>{
     return(
         <ProyectoContext.Provider
         value={{
-            formulario: state.formulario
+            formulario: state.formulario,
+            mostrarFormulario
         }}>
             {props.children}
         </ProyectoContext.Provider>
