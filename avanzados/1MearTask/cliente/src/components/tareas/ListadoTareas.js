@@ -1,13 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import Tarea from './Tarea';
+import proyectoContext from '../../context/proyectos/proyectoContext';
+
 
 const ListadoTareas = () => {
+
+       // extraer proyectos del state incial
+       const proyectosContext = useContext(proyectoContext);
+       // validar si proyectos tiene contenido
+       const {proyecto}=proyectosContext;
 
     const tareasPoyecto=[
         {nombre:'Crear Proyecto',estado:true},
         {nombre:'npx create-react-app cliente',estado:false},
         {nombre:'Instalar el routerDom',estado:true},
-        {nombre:'npm react-router-dom',estado:false},
+        {nombre:'npm react-router-dom',estado:false}, 
     ]
     return ( 
         <Fragment>
