@@ -25,12 +25,12 @@ export default (state,action)=>{
                 ...state,
                 errorformulario:true
             }
-        case ELIMINAR_PROYECTO:
+        case PROYECTO_ACTUAL:
         return{
             ...state,
             proyecto:state.proyectos.filter(proyecto=>proyecto.id===action.payload)
         }
-        case PROYECTO_ACTUAL:
+        case ELIMINAR_PROYECTO:
         return{
             ...state,
             proyectos:state.proyectos.filter(proyecto=>proyecto.id!==action.payload)

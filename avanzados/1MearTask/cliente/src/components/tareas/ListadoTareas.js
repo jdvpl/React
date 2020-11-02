@@ -8,7 +8,7 @@ const ListadoTareas = () => {
      // extraer proyectos del state incial
     const proyectosContext = useContext(proyectoContext);
     // extraer el proyecto del context
-    const {proyecto}=proyectosContext;
+    const {proyecto,eliminarProyecto}=proyectosContext;
     if(!proyecto)return <h2>Selecciona un proyecto</h2>;
        
     const [proyectoActual]=proyecto;
@@ -19,6 +19,10 @@ const ListadoTareas = () => {
         {nombre:'Instalar el routerDom',estado:true},
         {nombre:'npm react-router-dom',estado:false}, 
     ]
+    // elimiar el proyecto
+    const onClickEliminar=()=>{
+        eliminarProyecto(proyectoActual.id);
+    }
     return ( 
         <Fragment>
             <h2>Proyecto: {proyectoActual.nombre}</h2>
@@ -37,6 +41,7 @@ const ListadoTareas = () => {
             </ul>
             <button
                 type="button"
+                onClick={onClickEliminar}
                 className="btn btn-eliminar"
                 >Eliminar Proyecto &times;</button>
         </Fragment>
