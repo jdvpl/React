@@ -20,7 +20,7 @@ const ProyectoState=props=>{
     const initailState={
         proyectos:[],
         formulario:false,
-        erroformulario:false
+        errorformulario:false
     }
     // disparch para ejecutar las acciones
     const [state,dispatch]=useReducer(proyectoReducer,initailState)
@@ -60,7 +60,7 @@ const ProyectoState=props=>{
         value={{
             proyectos:state.proyectos,
             formulario: state.formulario,
-            erroformulario:state.erroformulario,
+            errorformulario:state.errorformulario,
             mostrarFormulario,
             obtenerProyectos,
             AgregarProyecto,
