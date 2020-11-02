@@ -4,7 +4,12 @@ import TareaReducer from './tareaReducer';
 
 const TareaState=props=>{
     const initialState={
-        tareas:[],
+        tareas:[
+            {nombre:'Crear Proyecto',estado:true},
+            {nombre:'npx create-react-app cliente',estado:false},
+            {nombre:'Instalar el routerDom',estado:true},
+            {nombre:'npm react-router-dom',estado:false}, 
+        ],
 
     }
     // creadno el sidpatch y state
