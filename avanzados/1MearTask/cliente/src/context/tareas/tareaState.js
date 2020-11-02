@@ -16,6 +16,7 @@ const TareaState=props=>{
             {nombre:'Instalar mongoCliente',estado:true,proyectoId:3},
             {nombre:'Ejecutar Mongod',estado:false,proyectoId:3},  
         ],
+        tareasproyecto:null
 
     }
     // creadno el sidpatch y state
@@ -35,7 +36,8 @@ const TareaState=props=>{
         <TareaContext.Provider
             value={{
                 tareas:state.tareas,
-                ObtenerTareas
+                tareasproyecto:state.tareasproyecto,
+                ObtenerTareas,
             }}
         >
             {props.children}
