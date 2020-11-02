@@ -28,7 +28,10 @@ const NuevoProyecto = () => {
         // agregar al state
         AgregarProyecto(proyecto);
 
-        // reinivar el form
+        // reiniciar el form\
+        guardarProyecto({
+            nombre:''
+        })
         
     }
     // mostrar el formuclacion
