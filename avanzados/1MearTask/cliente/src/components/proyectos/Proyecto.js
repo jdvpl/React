@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ProyectoContext from '../../context/proyectos/proyectoContext';
 
 const Proyecto = ({proyecto}) => {
+    // state del proyecto
+    const proyectosContext = useContext(ProyectoContextContext);
+    // extrayendo la funcionalidad del formulario
+    const {proyectoActual}=proyectosContext;
+
+
     return ( 
         <li>
             <button
