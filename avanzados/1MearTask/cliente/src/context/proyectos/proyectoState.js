@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
 import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO,
-    VALIDAR_FORMULARIO,PROYECTO_ACTUAL} from '../../types';
+    VALIDAR_FORMULARIO,PROYECTO_ACTUAL,ELIMINAR_PROYECTO} from '../../types';
 import uuid from 'uuid/dist/v4';
 
 
