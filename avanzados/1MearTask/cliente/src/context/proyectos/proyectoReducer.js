@@ -1,5 +1,5 @@
 import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO,
-    VALIDAR_FORMULARIO,PROYECTO_ACTUAL} from '../../types';
+    VALIDAR_FORMULARIO,PROYECTO_ACTUAL,ELIMINAR_PROYECTO} from '../../types';
 
 export default (state,action)=>{
     switch(action.type){
@@ -25,10 +25,15 @@ export default (state,action)=>{
                 ...state,
                 errorformulario:true
             }
-        case PROYECTO_ACTUAL:
+        case ELIMINAR_PROYECTO:
         return{
             ...state,
             proyecto:state.proyectos.filter(proyecto=>proyecto.id===action.payload)
+        }
+        case PROYECTO_ACTUAL:
+        return{
+            ...state,
+            proyectos:state.proyectos.filter(proyecto=>proyecto.id!==action.payload)
 
         }
         default:
