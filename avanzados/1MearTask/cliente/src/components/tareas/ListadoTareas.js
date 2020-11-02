@@ -27,7 +27,7 @@ const ListadoTareas = () => {
             <h2>Proyecto: {proyectoActual.nombre}</h2>
             <ul className="listado-tareas">
                 {tareasproyecto.length===0
-                ?Fragment(
+                ?(
                     <li className="tareas"><p>No Hay tareas</p></li>
                 ):
                 tareasproyecto.map(tarea=>(
