@@ -5,7 +5,7 @@ const NuevoProyecto = () => {
     // obtener el state del formulario
     const proyectosContext = useContext(ProyectoContext);
     // extrayendo la funcionalidad del formulario
-    const {formulario,mostrarFormulario,agregarProyecto}=proyectosContext;
+    const {formulario,mostrarFormulario,AgregarProyecto}=proyectosContext;
 
 
     const [proyecto,guardarProyecto]=useState({
@@ -26,7 +26,7 @@ const NuevoProyecto = () => {
         // vlaidar el proyecto
         if(nombre==='')return;
         // agregar al state
-        agregarProyecto(proyecto);
+        AgregarProyecto(proyecto);
 
         // reinivar el form
         

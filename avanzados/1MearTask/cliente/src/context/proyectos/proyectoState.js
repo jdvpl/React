@@ -41,6 +41,11 @@ const ProyectoState=props=>{
     // Agregar nuevo proyecto
     const AgregarProyecto=proyecto=>{
         proyecto.id=uuid();
+        // agregar el proyecto en el state
+        dispatch({
+            type:AGREGAR_PROYECTO,
+            payload:proyecto
+        })
     }
 
     return(
