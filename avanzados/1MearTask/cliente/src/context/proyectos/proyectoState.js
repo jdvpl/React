@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
-import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO,VALIDAR_FORMULARIO} from '../../types';
+import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO,
+    VALIDAR_FORMULARIO,PROYECTO_ACTUAL} from '../../types';
 import uuid from 'uuid/dist/v4';
 
 
@@ -55,6 +56,13 @@ const ProyectoState=props=>{
             type:VALIDAR_FORMULARIO
         })
     }
+    // seleccionar el proyecto cuando 
+    const proyectoActual=proyecto=>{
+        dispatch({
+            type:PROYECTO_ACTUAL,
+            payload:proyecto
+        })
+    }
 
     return(
         <ProyectoContext.Provider
@@ -62,10 +70,12 @@ const ProyectoState=props=>{
             proyectos:state.proyectos,
             formulario: state.formulario,
             errorformulario:state.errorformulario,
+            proyecto:state.proyecto,
             mostrarFormulario,
             obtenerProyectos,
             AgregarProyecto,
-            mostrarError
+            mostrarError,
+            proyectoActual
         }}>
             {props.children}
         </ProyectoContext.Provider>
