@@ -9,13 +9,10 @@ import uuid from 'uuid/dist/v4';
 const ProyectoState=props=>{
 
     const proyectos=[
-    
-        {id:1,nombre:'Kakaroto'},
-        {id:2,nombre:'Vegueta'},
-        {id:3,nombre:'Lucifer'},
-        {id:4,nombre:'React'},
-        {id:5,nombre:'MEARN'},
-        {id:6,nombre:'Configuracion MongoDB'},
+
+        {id:1,nombre:'React'},
+        {id:2,nombre:'MEARN'},
+        {id:3,nombre:'Configuracion MongoDB'},
     ]
     
     const initailState={

@@ -5,10 +5,14 @@ import TareaReducer from './tareaReducer';
 const TareaState=props=>{
     const initialState={
         tareas:[
-            {nombre:'Crear Proyecto',estado:true},
-            {nombre:'npx create-react-app cliente',estado:false},
-            {nombre:'Instalar el routerDom',estado:true},
-            {nombre:'npm react-router-dom',estado:false}, 
+            {nombre:'Crear Proyecto',estado:true,proyectoId:2},
+            {nombre:'npx create-react-app cliente',estado:false,proyectoId:2},
+            {nombre:'Instalar el routerDom',estado:true,proyectoId:2},
+            {nombre:'npm react-router-dom',estado:false,proyectoId:2},
+            {nombre:'Instalando node',estado:true,proyectoId:1},
+            {nombre:'npm install -g create-react-app',estado:false,proyectoId:1},
+            {nombre:'Instalar mongoCliente',estado:true,proyectoId:3},
+            {nombre:'Ejecutar Mongod',estado:false,proyectoId:3},  
         ],
 
     }
