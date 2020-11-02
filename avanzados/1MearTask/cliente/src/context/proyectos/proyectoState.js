@@ -57,10 +57,10 @@ const ProyectoState=props=>{
         })
     }
     // seleccionar el proyecto cuando 
-    const proyectoActual=proyecto=>{
+    const proyectoActual=proyectoId=>{
         dispatch({
             type:PROYECTO_ACTUAL,
-            payload:proyecto
+            payload:proyectoId
         })
     }
 
