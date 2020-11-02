@@ -5,10 +5,13 @@ import proyectoContext from '../../context/proyectos/proyectoContext';
 
 const ListadoTareas = () => {
 
-       // extraer proyectos del state incial
-       const proyectosContext = useContext(proyectoContext);
-       // validar si proyectos tiene contenido
-       const {proyecto}=proyectosContext;
+     // extraer proyectos del state incial
+    const proyectosContext = useContext(proyectoContext);
+    // extraer el proyecto del context
+    const {proyecto}=proyectosContext;
+    if(!proyecto)return <h2>Selecciona un proyecto</h2>;
+       
+    const [proyectoActual]=proyecto;
 
     const tareasPoyecto=[
         {nombre:'Crear Proyecto',estado:true},
@@ -18,7 +21,7 @@ const ListadoTareas = () => {
     ]
     return ( 
         <Fragment>
-            <h2>Proyecto: MERN</h2>
+            <h2>Proyecto: {proyectoActual.nombre}</h2>
             <ul className="listado-tareas">
                 {tareasPoyecto.length===0
                 ?Fragment(
