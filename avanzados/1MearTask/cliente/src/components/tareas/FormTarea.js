@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import proyectoContext from '../../context/proyectos/proyectoContext';
+import tareaContext from '../../context/tareas/tareaContext';
 
 const FormTarea = () => {
 
@@ -8,6 +9,9 @@ const FormTarea = () => {
     // extraer el proyecto del context
 
      const {proyecto}=proyectosContext;
+      // obtener la funcion del context de tarea
+    const tareasContext=useContext(tareaContext);
+    const {agregarTarea}=tareasContext;
      // state del fromulario
      const [tarea,guardarTarea]=useState({
          nombre:''
@@ -35,6 +39,9 @@ const FormTarea = () => {
 
 
         // agregar una nueva tarea al state de tareas
+        tarea.proyectoId=proyectoActual.id;
+        tarea.estado=false;
+        agregarTarea(tarea);
 
         // reiniciar el form
 
