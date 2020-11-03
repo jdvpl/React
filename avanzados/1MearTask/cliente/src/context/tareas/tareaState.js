@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
-import { TAREAS_PROYECTO,AGREGAR_TAREA } from '../../types';
+import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA } from '../../types';
 
 
 const TareaState=props=>{
@@ -16,7 +16,8 @@ const TareaState=props=>{
             {nombre:'Instalar mongoCliente',estado:true,proyectoId:3},
             {nombre:'Ejecutar Mongod',estado:false,proyectoId:3},  
         ],
-        tareasproyecto:null
+        tareasproyecto:null,
+        errortarea:false
 
     }
     // creadno el sidpatch y state
@@ -38,12 +39,18 @@ const TareaState=props=>{
             payload:tarea
         })
     }
+    const validarTarea=()=>{
+        dispatch({
+            type:VALIDAR_TAREA
+        })
+    }
 
     return(
         <TareaContext.Provider
             value={{
                 tareas:state.tareas,
                 tareasproyecto:state.tareasproyecto,
+                errortarea:state.errortarea,
                 ObtenerTareas,
                 agregarTarea
             }}
