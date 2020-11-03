@@ -38,16 +38,15 @@ const FormTarea = () => {
             return;
         }
 
-
-        // pasar la validarciobn
-
-
         // agregar una nueva tarea al state de tareas
         tarea.proyectoId=proyectoActual.id;
         tarea.estado=false;
         agregarTarea(tarea);
 
         // reiniciar el form
+        guardarTarea({
+            nombre:''
+        })
 
     }
 
