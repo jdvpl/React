@@ -52,7 +52,8 @@ const TareaState=props=>{
                 tareasproyecto:state.tareasproyecto,
                 errortarea:state.errortarea,
                 ObtenerTareas,
-                agregarTarea
+                agregarTarea,
+                validarTarea
             }}
         >
             {props.children}

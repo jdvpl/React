@@ -11,7 +11,7 @@ const FormTarea = () => {
      const {proyecto}=proyectosContext;
       // obtener la funcion del context de tarea
     const tareasContext=useContext(tareaContext);
-    const {agregarTarea}=tareasContext;
+    const {errortarea,agregarTarea,validarTarea}=tareasContext;
      // state del fromulario
      const [tarea,guardarTarea]=useState({
          nombre:''
@@ -33,6 +33,10 @@ const FormTarea = () => {
         e.preventDefault();
 
         // validar
+        if(nombre.trim()===''){
+            validarTarea(true)
+            return;
+        }
 
 
         // pasar la validarciobn
@@ -71,6 +75,8 @@ const FormTarea = () => {
                     />
                 </div>
             </form>
+            {errortarea?<p className="mensaje error">Debes colocar un nombre de una tarea</p>:null}
+
         </div>
      );
 }
