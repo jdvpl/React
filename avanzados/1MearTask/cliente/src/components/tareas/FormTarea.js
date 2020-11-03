@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 
 const FormTarea = () => {
@@ -6,7 +6,21 @@ const FormTarea = () => {
     // extraer si un poryecto esta activo
      const proyectosContext = useContext(proyectoContext);
     // extraer el proyecto del context
+
      const {proyecto}=proyectosContext;
+     // state del fromulario
+     const [tarea,guardarTarea]=useState({
+         nombre:''
+     })
+    //  aplicar destructurin para extraer la tarea
+    const {nombre}=tarea;
+    //  funcion para saber lo qeu el usuario va escribiendo
+    const handleChange=e=>{
+        guardarTarea({
+            ...tarea,
+            [e.target.name]:e.target.value
+        })
+    }
     //  si no hay proyecto seleccionado
      if(!proyecto)return null;
     const [proyectoActual]=proyecto;
@@ -23,7 +37,7 @@ const FormTarea = () => {
         // agregar una nueva tarea al state de tareas
 
         // reiniciar el form
-        
+
     }
 
     return ( 
@@ -37,6 +51,8 @@ const FormTarea = () => {
                         className="input-text"
                         placeholder="Nombre Tarea..."
                         name="nombre"
+                        value={nombre}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="contenedor-input">
