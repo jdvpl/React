@@ -1,6 +1,11 @@
 import React from 'react';
+import tareaContext from '../../context/tareas/tareaContext';
 
 const Tarea = ({tarea}) => {
+
+    const tareasContext=useContext(tareaContext);
+    const {errortarea,agregarTarea,validarTarea,ObtenerTareas}=tareasContext;
+    
     return (  
         <li className="tarea sombra"> 
             <p>{tarea.nombre}</p>
