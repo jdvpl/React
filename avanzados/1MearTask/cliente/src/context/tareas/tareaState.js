@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
-import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,ELIMINAR_PROYECTO } from '../../types';
+import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,ELIMINAR_PROYECTO, ELIMINAR_TAREA } from '../../types';
 
 
 const TareaState=props=>{
@@ -47,7 +47,7 @@ const TareaState=props=>{
     // eliminar una tarea por id
     const eliminarTarea=id=>{
         dispatch({
-            type:ELIMINAR_PROYECTO,
+            type:ELIMINAR_TAREA,
             payload:id
         })
     }

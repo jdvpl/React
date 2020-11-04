@@ -1,14 +1,22 @@
 import React, { useContext } from 'react';
 import tareaContext from '../../context/tareas/tareaContext';
+import proyectoContext from '../../context/proyectos/proyectoContext';
 
 const Tarea = ({tarea}) => {
+    // extraer si un poryecto esta activo
+    const proyectosContext = useContext(proyectoContext);
+    // extraer el proyecto del context
+     const {proyecto}=proyectosContext;
 
     const tareasContext=useContext(tareaContext);
-    const {eliminarTarea}=tareasContext;
+    const {eliminarTarea,ObtenerTareas}=tareasContext;
+    // extraer el proyecto
+    const [proyectoActual]=proyecto;
 
     // funcion para eliminar una tarea
     const tareaEliminar=id=>{
         eliminarTarea(id);
+        ObtenerTareas(proyectoActual.id);
 
     }
     

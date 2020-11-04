@@ -7,7 +7,6 @@ const FormTarea = () => {
     // extraer si un poryecto esta activo
      const proyectosContext = useContext(proyectoContext);
     // extraer el proyecto del context
-
      const {proyecto}=proyectosContext;
       // obtener la funcion del context de tarea
     const tareasContext=useContext(tareaContext);
