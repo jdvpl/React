@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import tareaContext from '../../context/tareas/tareaContext';
 
 const Tarea = ({tarea}) => {
 
     const tareasContext=useContext(tareaContext);
-    const {errortarea,agregarTarea,validarTarea,ObtenerTareas}=tareasContext;
+    const {eliminarTarea}=tareasContext;
+
+    // funcion para eliminar una tarea
+    const tareaEliminar=id=>{
+        eliminarTarea(id);
+
+    }
     
     return (  
         <li className="tarea sombra"> 
@@ -37,6 +43,7 @@ const Tarea = ({tarea}) => {
                 <button
                     type="button"
                     className="btn btn-secundario"
+                    onClick={()=>tareaEliminar(tarea.id)}
                 >
                 Eliminar</button>
             </div>
