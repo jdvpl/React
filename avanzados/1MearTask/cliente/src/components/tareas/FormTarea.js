@@ -11,7 +11,7 @@ const FormTarea = () => {
      const {proyecto}=proyectosContext;
       // obtener la funcion del context de tarea
     const tareasContext=useContext(tareaContext);
-    const {errortarea,agregarTarea,validarTarea}=tareasContext;
+    const {errortarea,agregarTarea,validarTarea,ObtenerTareas}=tareasContext;
      // state del fromulario
      const [tarea,guardarTarea]=useState({
          nombre:''
@@ -37,12 +37,15 @@ const FormTarea = () => {
             validarTarea(true)
             return;
         }
+        
 
         // agregar una nueva tarea al state de tareas
         tarea.proyectoId=proyectoActual.id;
         tarea.estado=false;
         agregarTarea(tarea);
 
+        // obtener y filtar las tareas del proyecto actual
+        ObtenerTareas(proyectoActual.id);
         // reiniciar el form
         guardarTarea({
             nombre:''
