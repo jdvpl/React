@@ -33,10 +33,12 @@ const ListadoTareas = () => {
                 ):
                 <TransitionGroup>
                 {tareasproyecto.map(tarea=>(
+                    <CSSTransition>
                     <Tarea
                         key={tarea.id}
                         tarea={tarea}
                     />
+                    </CSSTransition>
                 ))}
                 </TransitionGroup>
 
