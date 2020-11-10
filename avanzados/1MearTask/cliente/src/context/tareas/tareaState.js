@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
-import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA, ELIMINAR_TAREA ,ESTADO_TAREA} from '../../types';
+import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,
+     ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL} from '../../types';
 
 
 const TareaState=props=>{
@@ -59,6 +60,14 @@ const TareaState=props=>{
         })
     }
 
+    // funcion la tarea para edicion
+
+    const guardarTareaActual=tarea=>{
+        dispatch({
+            type:TAREA_ACTUAL,
+            payload:tarea
+        })
+    }
     return(
         <TareaContext.Provider
             value={{
