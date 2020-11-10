@@ -78,7 +78,8 @@ const TareaState=props=>{
                 agregarTarea,
                 validarTarea,
                 eliminarTarea,
-                cambiarEstadoTarea
+                cambiarEstadoTarea,
+                guardarTareaActual
             }}
         >
             {props.children}

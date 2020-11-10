@@ -9,7 +9,7 @@ const Tarea = ({tarea}) => {
      const {proyecto}=proyectosContext;
 
     const tareasContext=useContext(tareaContext);
-    const {eliminarTarea,ObtenerTareas,cambiarEstadoTarea}=tareasContext;
+    const {eliminarTarea,ObtenerTareas,cambiarEstadoTarea,guardarTareaActual}=tareasContext;
     // extraer el proyecto
     const [proyectoActual]=proyecto;
 
@@ -27,6 +27,10 @@ const Tarea = ({tarea}) => {
             tarea.estado=true;
         }
         cambiarEstadoTarea(tarea);
+    }
+    // funcion para selecionar una tarea
+    const seleccionarTarea =tarea=>{
+        guardarTareaActual(tarea);
     }
     
     return (  
@@ -57,6 +61,7 @@ const Tarea = ({tarea}) => {
                 <button
                     type="button"
                     className="btn btn-primario"
+                    onClick={()=>seleccionarTarea(tarea)}
                 >
                 Editar</button>
                 <button
