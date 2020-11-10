@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 import tareaContext from '../../context/tareas/tareaContext';
 
@@ -10,7 +10,7 @@ const FormTarea = () => {
      const {proyecto}=proyectosContext;
       // obtener la funcion del context de tarea
     const tareasContext=useContext(tareaContext);
-    const {errortarea,agregarTarea,validarTarea,ObtenerTareas}=tareasContext;
+    const {tareaseleccionada,errortarea,agregarTarea,validarTarea,ObtenerTareas}=tareasContext;
      // state del fromulario
      const [tarea,guardarTarea]=useState({
          nombre:''
@@ -23,7 +23,19 @@ const FormTarea = () => {
             ...tarea,
             [e.target.name]:e.target.value
         })
+    
     }
+    // effect que detecta si hay una tarea seleccionada
+    useEffect(()=>{
+        if(tareaseleccionada !==null){
+            guardarTarea(tareaseleccionada);
+        }else{
+        guardarTarea({
+            nombre:''
+        })
+    }
+    },[tareaseleccionada]);
+
     //  si no hay proyecto seleccionado
      if(!proyecto)return null;
     const [proyectoActual]=proyecto;
