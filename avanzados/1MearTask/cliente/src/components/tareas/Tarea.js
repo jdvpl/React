@@ -20,7 +20,7 @@ const Tarea = ({tarea}) => {
 
     }
     // funcion que modifica el estado de las tareas
-    const cammbiarEstado = tarea => {
+    const cambiarEstado = tarea => {
         if(tarea.estado){
             tarea.estado=false;
         }else{
@@ -46,8 +46,8 @@ const Tarea = ({tarea}) => {
                 (
                     <button
                         type="button"
-                        onClick={()=>cambiarEstado(tarea)}
-                        className="incompleto"
+                       className="incompleto"
+                        onClick={()=> cambiarEstado(tarea)}
                         >Incompleto</button>
                 )
 
