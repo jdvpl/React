@@ -3,6 +3,7 @@ import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
 import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,
      ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL} from '../../types';
+     import uuid from 'uuid/dist/v4';
 
 
 const TareaState=props=>{
@@ -36,6 +37,7 @@ const TareaState=props=>{
     }
     // AGREGAR UNA NUEVA TAREA
     const agregarTarea=tarea=>{
+        tarea.id=uuid();
         dispatch({
             type:AGREGAR_TAREA,
             payload:tarea
