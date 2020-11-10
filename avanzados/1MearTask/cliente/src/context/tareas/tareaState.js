@@ -18,7 +18,8 @@ const TareaState=props=>{
             {id:8,nombre:'Ejecutar Mongod',estado:false,proyectoId:3},  
         ],
         tareasproyecto:null,
-        errortarea:false
+        errortarea:false,
+        tareaseleccionada:null
 
     }
     // creadno el sidpatch y state
@@ -74,6 +75,7 @@ const TareaState=props=>{
                 tareas:state.tareas,
                 tareasproyecto:state.tareasproyecto,
                 errortarea:state.errortarea,
+                tareaseleccionada:state.tareaseleccionada,
                 ObtenerTareas,
                 agregarTarea,
                 validarTarea,
