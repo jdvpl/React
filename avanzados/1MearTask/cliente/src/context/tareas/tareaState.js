@@ -52,7 +52,7 @@ const TareaState=props=>{
         })
     }
     // cambia el estado de cada tarea
-    const cambiarEstado=tarea=>{
+    const cambiarEstadoTarea=tarea=>{
         dispatch({
             type:ESTADO_TAREA,
             payload:tarea
@@ -69,7 +69,7 @@ const TareaState=props=>{
                 agregarTarea,
                 validarTarea,
                 eliminarTarea,
-                cambiarEstado
+                cambiarEstadoTarea
             }}
         >
             {props.children}
