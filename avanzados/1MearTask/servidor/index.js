@@ -1,1 +1,5 @@
-console.log("insectossss mal alagradecidos ");
+// importando express
+const express=require('express');
+
+// crear el servidor
+const app=express();
