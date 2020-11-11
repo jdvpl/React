@@ -9,7 +9,7 @@ const PORT =process.env.PORT || 4000;
 
 // definir la pagina principal
 app.get('/',(req,res)=>{
-    res.send(`<h1>Insectos depravados</h1>`);
+    res.send(`<h1>Insectos depravados malditos kakarotizados kekeke</h1>`);
 });
 
 // arrancar la app
