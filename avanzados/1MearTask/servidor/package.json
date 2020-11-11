@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jdvpl/ServidorNode/issues"
   },
-  "homepage": "https://github.com/jdvpl/ServidorNode#readme"
+  "homepage": "https://github.com/jdvpl/ServidorNode#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
