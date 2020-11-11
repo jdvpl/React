@@ -18,5 +18,10 @@
   "homepage": "https://github.com/jdvpl/ServidorNode#readme",
   "devDependencies": {
     "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13"
   }
 }
