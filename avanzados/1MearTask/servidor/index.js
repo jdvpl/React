@@ -8,10 +8,8 @@ conectarDb();
 // se crea el puerto
 const PORT =process.env.PORT || 4000;
 
-// definir la pagina principal
-app.get('/',(req,res)=>{
-    res.send(`<h1>Insectos depravados malditos kakarotizados kekeke</h1>`);
-});
+// importar rutas
+app.use('/api/usuarios',require('./routes/usuarios'));
 
 // arrancar la app
 app.listen(PORT,()=>{
