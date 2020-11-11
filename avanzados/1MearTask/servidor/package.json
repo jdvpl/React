@@ -1,0 +1,19 @@
+{
+  "name": "mernjdvpl",
+  "version": "1.0.0",
+  "description": "api rest del proyecto de node servidro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdvpl/ServidorNode.git"
+  },
+  "author": "Juan Daniel JDVPL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdvpl/ServidorNode/issues"
+  },
+  "homepage": "https://github.com/jdvpl/ServidorNode#readme"
+}
