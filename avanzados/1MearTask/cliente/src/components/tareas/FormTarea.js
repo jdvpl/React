@@ -10,7 +10,7 @@ const FormTarea = () => {
      const {proyecto}=proyectosContext;
       // obtener la funcion del context de tarea
     const tareasContext=useContext(tareaContext);
-    const {tareaseleccionada,errortarea,agregarTarea,validarTarea,ObtenerTareas,actualizarTarea}=tareasContext;
+    const {tareaseleccionada,errortarea,agregarTarea,validarTarea,ObtenerTareas,actualizarTarea,limpiarTarea}=tareasContext;
      // state del fromulario
      const [tarea,guardarTarea]=useState({
          nombre:''
@@ -58,6 +58,8 @@ const FormTarea = () => {
         }else{
             // actualizar tarea existente
             actualizarTarea(tarea);
+            // eliminar tarea selecciodanda
+            limpiarTarea();
         }
         
 

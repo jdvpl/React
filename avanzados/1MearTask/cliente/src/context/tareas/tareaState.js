@@ -2,7 +2,8 @@ import React, { useReducer } from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
 import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,
-     ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL,ACTUALIZAR_TAREA} from '../../types';
+     ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL,
+     ACTUALIZAR_TAREA,LIMPIAR_TAREA} from '../../types';
      import uuid from 'uuid/dist/v4';
 
 
@@ -79,6 +80,12 @@ const TareaState=props=>{
             payload:tarea
         })
     }
+    // elimininar la tarea seleccionada
+    const limpiarTarea=()=>{
+        dispatch({
+            type:LIMPIAR_TAREA
+        })
+    }
     return(
         <TareaContext.Provider
             value={{
@@ -92,7 +99,8 @@ const TareaState=props=>{
                 eliminarTarea,
                 cambiarEstadoTarea,
                 guardarTareaActual,
-                actualizarTarea
+                actualizarTarea,
+                limpiarTarea
             }}
         >
             {props.children}
