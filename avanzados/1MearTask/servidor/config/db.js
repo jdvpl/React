@@ -4,7 +4,11 @@ require('dotenv').config({path:'vaiables.env'});
 
 const conectarDb=async()=>{
     try {
-        await mongoose.connect();
+        await mongoose.connect(process.env.DB_MONGO,{
+            useNewUrlParser:true,
+            useUnifiedTopology:true,
+            useFindAndModify:false
+        });
     } catch (error) {
         console.log(error);
         process.exit(1);
