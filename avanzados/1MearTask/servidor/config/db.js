@@ -1,6 +1,5 @@
 const mongoose  = require("mongoose");
-
-require('dotenv').config({path:'vaiables.env'});
+require('dotenv').config({path:'variables.env'});
 
 const conectarDb=async()=>{
     try {
@@ -9,6 +8,7 @@ const conectarDb=async()=>{
             useUnifiedTopology:true,
             useFindAndModify:false
         });
+        console.log("conectado");
     } catch (error) {
         console.log(error);
         process.exit(1);
