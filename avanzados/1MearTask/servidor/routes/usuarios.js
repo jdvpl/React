@@ -6,6 +6,6 @@ const router=express.Router();
 
 // endpoint /api/usuarios
 router.post('/', ()=>{
-
-})
+    console.log('creando usuario...')
+});
 module.exports=router;
