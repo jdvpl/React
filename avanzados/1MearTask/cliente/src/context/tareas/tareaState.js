@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
 import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,
-     ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL} from '../../types';
+     ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL,ACTUALIZAR_TAREA} from '../../types';
      import uuid from 'uuid/dist/v4';
 
 
@@ -71,6 +71,14 @@ const TareaState=props=>{
             payload:tarea
         })
     }
+
+    // FUNCION PARA ACTUALIZAR UNA TAREA
+    const actualizarTarea=tarea=>{
+        dispatch({
+            type:ACTUALIZAR_TAREA,
+            payload:tarea
+        })
+    }
     return(
         <TareaContext.Provider
             value={{
@@ -83,7 +91,8 @@ const TareaState=props=>{
                 validarTarea,
                 eliminarTarea,
                 cambiarEstadoTarea,
-                guardarTareaActual
+                guardarTareaActual,
+                actualizarTarea
             }}
         >
             {props.children}

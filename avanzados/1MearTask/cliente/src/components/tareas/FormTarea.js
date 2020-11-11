@@ -10,7 +10,7 @@ const FormTarea = () => {
      const {proyecto}=proyectosContext;
       // obtener la funcion del context de tarea
     const tareasContext=useContext(tareaContext);
-    const {tareaseleccionada,errortarea,agregarTarea,validarTarea,ObtenerTareas}=tareasContext;
+    const {tareaseleccionada,errortarea,agregarTarea,validarTarea,ObtenerTareas,actualizarTarea}=tareasContext;
      // state del fromulario
      const [tarea,guardarTarea]=useState({
          nombre:''
@@ -48,12 +48,19 @@ const FormTarea = () => {
             validarTarea(true)
             return;
         }
-        
-
-        // agregar una nueva tarea al state de tareas
+        // validar si es edicion o agregar una tarea
+        if(tareaseleccionada===null){
+        // tarea nueva tarea al state de tarea
         tarea.proyectoId=proyectoActual.id;
         tarea.estado=false;
         agregarTarea(tarea);
+
+        }else{
+
+        }
+        
+
+       
 
         // obtener y filtar las tareas del proyecto actual
         ObtenerTareas(proyectoActual.id);
@@ -84,7 +91,7 @@ const FormTarea = () => {
                         type="submit"
                         className="btn btn-primario btn-block"
                         placeholder="Nombre Tarea..."
-                        value="Agregar Tarea"
+                        value={tareaseleccionada?'Editar Tarea': 'Agregar Tarea'}
                     />
                 </div>
             </form>
