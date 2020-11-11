@@ -56,7 +56,8 @@ const FormTarea = () => {
         agregarTarea(tarea);
 
         }else{
-
+            // actualizar tarea existente
+            actualizarTarea(tarea);
         }
         
 
