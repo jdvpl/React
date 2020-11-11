@@ -29,7 +29,8 @@ export default (state,action)=>{
             return{
                 ...state,
                 tareas:state.tareas.map(tarea=>tarea.id===action.payload.id
-                    ? action.payload :tarea )
+                    ? action.payload :tarea ),
+                    tareaseleccionada:null
             }
         case TAREA_ACTUAL:
             return{
