@@ -1,6 +1,7 @@
-const { request } = require('express');
+
 const Usuario=require('../models/Usuario');
 const bcrypts=require('bcryptjs');
+
 
 exports.crearUsuario= async(req,res)=>{
     // extraer email, usuario y password
