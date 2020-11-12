@@ -5,6 +5,8 @@ const conectarDb=require('./config/db');
 const app=express();
 // conectar a la base de datos
 conectarDb();
+// habilitar express.json
+app.use(express.json({extended:true}))
 // se crea el puerto
 const PORT =process.env.PORT || 4000;
 
