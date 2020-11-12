@@ -7,12 +7,15 @@ exports.crearUsuario= async(req,res)=>{
 
     // valdiar si hay errores
     const errores =validationResult(req);
+    if(!errores.isEmpty()){
+        return res.status(400).json({errores:errores.array()});
+    }
 
     // extraer email, usuario y password
     const {email,username,password}=req.body;
     try {
         // validacion de que el usuario sea unico
-
+       
         let usuario =await Usuario.findOne({email,username});
 
         if(usuario){
