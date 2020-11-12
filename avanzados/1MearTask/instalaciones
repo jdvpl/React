@@ -4,3 +4,7 @@ npm i express mongoose dotenv  #servidor (express), mongoose para la base de dat
 
 correr proeycto 
 npm run dev 
+
+
+validador de express
+npm i express-validator
