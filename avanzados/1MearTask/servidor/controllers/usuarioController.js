@@ -9,6 +9,9 @@ exports.crearUsuario= async(req,res)=>{
 
         // guiardar usuario
         await usuario.save();
+
+        // mensaje de confirmacion
+        res.send('Usuario insertado');
     } catch (error) {
         console.log(error);
         res.status(400).send('Eror kisamado');
