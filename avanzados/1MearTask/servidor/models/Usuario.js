@@ -6,10 +6,11 @@ const usuariosSchema=mongoose.Schema({
         require:true,
         trim:true
     },
-    usuario:{
+    username:{
         type:String,
         require:true,
-        trim:true
+        trim:true,
+        unique:true
     },
     email:{
         type:String,
