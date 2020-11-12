@@ -6,7 +6,5 @@ const usuarioController=require('../controllers/usuarioController');
 // crea un usuario
 
 // endpoint /api/usuarios
-router.post('/', ()=>{
-    console.log('creando usuario...')
-});
+router.post('/', usuarioController.crearUsuario);
 module.exports=router;
