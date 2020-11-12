@@ -1,5 +1,6 @@
 const { request } = require('express');
 const Usuario=require('../models/Usuario');
+const bcrypts=require('bcryptjs');
 
 exports.crearUsuario= async(req,res)=>{
     // extraer email, usuario y password
@@ -17,6 +18,10 @@ exports.crearUsuario= async(req,res)=>{
 
         // crear el nuevo usuario
         usuario=new Usuario(req.body);
+
+        // hashear el password
+        const salt=await bcrypts.genSalt(15);
+        usuario.password=await bcrypts.hash(password,salt);
 
         // guiardar usuario
         await usuario.save();
