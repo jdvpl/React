@@ -6,6 +6,11 @@ const usuariosSchema=mongoose.Schema({
         require:true,
         trim:true
     },
+    usuario:{
+        type:String,
+        require:true,
+        trim:true
+    },
     email:{
         type:String,
         require:true,
@@ -43,7 +48,6 @@ const usuariosSchema=mongoose.Schema({
     foto:{
         type:String,
         trim:true
-
     }
 
 
