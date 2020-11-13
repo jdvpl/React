@@ -41,7 +41,7 @@ exports.crearUsuario= async(req,res)=>{
         };
         // firmando el jwt
         jwt.sign(payload,process.env.SECRETA,{
-            expiresIn:3600000
+            expiresIn:3600 //tiempo de autenticacion
         },(error,token)=>{
             if(error) throw error;
 
