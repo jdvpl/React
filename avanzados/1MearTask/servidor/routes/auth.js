@@ -7,7 +7,7 @@ const {check} =require('express-validator')
 
 // crea un usuario
 
-// endpoint /api/usuarios
+// endpoint /api/auth
 router.post('/',
     [
         check('email','El correo es obligatorio').isEmail(),
