@@ -19,7 +19,12 @@ exports.autenticarUsuario=async(req,res)=>{
         }
         // revisar que el password 
         const passCorrecto=await bcrypts.compare(password,usuario.password);
+        if(!passCorrecto){
+            return res.status(400).json({msg:'Contraseña incorrecta'});
+        }
+
         
+
     } catch (error) {
         console.log(error);
     }
