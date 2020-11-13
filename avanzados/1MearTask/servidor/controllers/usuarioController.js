@@ -2,6 +2,7 @@
 const Usuario=require('../models/Usuario');
 const bcrypts=require('bcryptjs');
 const {validationResult}=require('express-validator');
+const jwt =require('jsonwebtoken');
 
 exports.crearUsuario= async(req,res)=>{
 
@@ -16,7 +17,7 @@ exports.crearUsuario= async(req,res)=>{
     try {
         // validacion de que el usuario sea unico
        
-        let usuario =await Usuario.findOne({email,username});
+        let usuario =await Usuario.findOne({username,email});
 
         if(usuario){
             return res.status(400).json({msg: 'El usuario o correo ya existe'});
@@ -31,6 +32,13 @@ exports.crearUsuario= async(req,res)=>{
 
         // guiardar usuario
         await usuario.save();
+
+        // crear y firmar el jwt
+        const payload={
+
+        };
+        // firmando el jwt
+        jwt.sign();
 
         // mensaje de confirmacion
         res.json({msg: 'Usuario creado correctamente'});
