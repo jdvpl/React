@@ -23,7 +23,22 @@ exports.autenticarUsuario=async(req,res)=>{
             return res.status(400).json({msg:'Contraseña incorrecta'});
         }
 
-        
+        // creabndo el jwt
+        const payload={
+            usuario:{
+                id:usuario.id
+            }
+        };
+        // firmando el jwt
+        jwt.sign(payload,process.env.SECRETA,{
+            expiresIn:3600 //tiempo de autenticacion
+        },(error,token)=>{
+            if(error) throw error;
+
+              // mensaje de confirmacion
+        res.json({token});
+        });
+
 
     } catch (error) {
         console.log(error);
