@@ -17,6 +17,9 @@ exports.autenticarUsuario=async(req,res)=>{
         if(!usuario){
             return res.status(400).json({msg:'El usuario no existe'});
         }
+        // revisar que el password 
+        const passCorrecto=await bcrypts.compare(password,usuario.password);
+        
     } catch (error) {
         console.log(error);
     }
