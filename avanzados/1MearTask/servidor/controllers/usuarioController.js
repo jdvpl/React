@@ -40,10 +40,14 @@ exports.crearUsuario= async(req,res)=>{
         // firmando el jwt
         jwt.sign(payload,process.env.SECRETA,{
             expiresIn:3600000
+        },(error,token)=>{
+            if(error) throw error;
+
+              // mensaje de confirmacion
+        res.json({token});
         });
 
-        // mensaje de confirmacion
-        res.json({msg: 'Usuario creado correctamente'});
+      
     } catch (error) {
         console.log(error);
         res.status(400).send('Eror kisamado');
