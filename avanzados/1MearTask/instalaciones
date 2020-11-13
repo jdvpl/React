@@ -8,3 +8,6 @@ npm run dev
 
 validador de express
 npm i express-validator
+
+instalar jsonwebtoken
+npm i jsonwebtoken
