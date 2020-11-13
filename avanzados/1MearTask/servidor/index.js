@@ -12,6 +12,7 @@ const PORT =process.env.PORT || 4000;
 
 // importar rutas
 app.use('/api/usuarios',require('./routes/usuarios'));
+app.use('/api/autj',require('./routes/auth'));
 
 // arrancar la app
 app.listen(PORT,()=>{
