@@ -44,7 +44,10 @@ const NuevaCuenta = () => {
             return;
         }
         // que las contrasenas sean iguales
-
+        if(password !==confirmar){
+            MostrarAlerta('Las contraseñas no coinciden','alerta-error')
+            return;
+        }
         // pasar al ction
     }
     return ( 
