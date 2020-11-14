@@ -70,3 +70,7 @@ exports.ActualizarProyecto=async(req,res)=>{
         res.status(500).send('Error en el servidor');
     }
 }
+
+exports.EliminarProyecto=async(req,res)=>{
+    
+}

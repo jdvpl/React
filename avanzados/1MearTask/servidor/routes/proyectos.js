@@ -25,4 +25,10 @@ router.put('/:id',
     proyectoController.ActualizarProyecto
     );
 
+// borra un
+router.delete('/:id',
+    auth,
+    proyectoController.EliminarProyecto
+    );
+
 module.exports=router;
