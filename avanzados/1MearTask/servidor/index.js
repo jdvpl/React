@@ -3,6 +3,7 @@ const express=require('express');
 const conectarDb=require('./config/db');
 // crear el servidor
 const app=express();
+
 // conectar a la base de datos
 conectarDb();
 // habilitar express.json
