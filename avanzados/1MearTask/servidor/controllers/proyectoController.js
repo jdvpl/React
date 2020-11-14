@@ -23,3 +23,12 @@ exports.crearProyecto=async(req,res)=>{
         res.status(500).send('Hubo un error');
     }
 }
+// Obtiene los proyectos del usuarioActual
+exports.ObtenerProyectos=async(req,res)=>{
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
