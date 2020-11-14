@@ -35,10 +35,14 @@ const NuevaCuenta = () => {
         e.preventDefault();
         // valikdar que no haya campos vacios
         if(nombre.trim()===''||username.trim()===''||foto.trim()===''||email.trim()===''||password.trim()===''||confirmar.trim()===''){
-            MostrarAlerta('Todos los campos son obligatorios','alerta-error')
+            MostrarAlerta('Todos los campos son obligatorios','alerta-error');
+            return;
         }
         // passwords minimos de 6 caracteres
-
+        if(password.length<6){
+            MostrarAlerta('La contraseña debe tener minimo 6 caracteres','alerta-error')
+            return;
+        }
         // que las contrasenas sean iguales
 
         // pasar al ction
