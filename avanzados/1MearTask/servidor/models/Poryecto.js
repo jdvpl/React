@@ -8,7 +8,7 @@ const ProyectoSchema=mongoose.Schema({
     },
     creador:{
         type:mongoose.Schema.Types.ObjectId, //se le pasa el ide de la base de datos
-        ref:'Usuario',
+        ref:'Usuario', 
     },
     creado:{
         type:Date,
