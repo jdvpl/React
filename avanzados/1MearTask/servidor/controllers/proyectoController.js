@@ -61,7 +61,7 @@ exports.ActualizarProyecto=async(req,res)=>{
             return res.status(401).json({msg:'No Autorizado'});
         }
         // actualizar
-        proyecto=await Proyecto.findByIdAndUpdate({_id:req.params.id},{$set:NuevoProyecto},
+        proyecto=await Proyecto.findOneAndUpdate({_id:req.params.id},{$set:NuevoProyecto},
             {new:true});
             res.json({proyecto});
 
