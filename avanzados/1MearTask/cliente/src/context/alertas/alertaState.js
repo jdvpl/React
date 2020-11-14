@@ -20,7 +20,7 @@ const AlertaState=props=>{
             dispatch({
                 type:OCULTAR_ALERTA
             })
-        }, 5000);
+        }, 6000);
     }
     return(
         <alertaContext.Provider

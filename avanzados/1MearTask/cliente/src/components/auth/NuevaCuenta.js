@@ -4,7 +4,7 @@ import AlertaContext from '../../context/alertas/alertaContext';
 const NuevaCuenta = () => {
     // extraer los valores del context
     const alertaContext=useContext(AlertaContext);
-    const {alerta,mostartAlerta}=alertaContext;
+    const {alerta,MostrarAlerta}=alertaContext;
 
     //?state para inciar sesion
     const [usuario,guardarUsuario]=useState({
@@ -34,7 +34,9 @@ const NuevaCuenta = () => {
     const onSubmit=e=>{
         e.preventDefault();
         // valikdar que no haya campos vacios
-
+        if(nombre.trim()===''||username.trim()===''||foto.trim()===''||email.trim()===''||password.trim()===''||confirmar.trim()===''){
+            MostrarAlerta('Todos los campos son obligatorios','alerta-error')
+        }
         // passwords minimos de 6 caracteres
 
         // que las contrasenas sean iguales
@@ -44,8 +46,9 @@ const NuevaCuenta = () => {
     return ( 
         <div className="form-usuario">
         <div className="contenedor-form sombra-dark">
-        {alerta? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>: null}
+      
             <h1>Crear Cuenta</h1>
+            {alerta? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>: null}
             <form
                 onSubmit={onSubmit}
             >

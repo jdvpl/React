@@ -290,7 +290,7 @@ aside  {
 .form-usuario {
     background-color: var(--gris2);
     height: 100vh;
-    min-height: 900px;
+    min-height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -331,7 +331,26 @@ aside  {
   display: block;
   opacity: .7;
 }
+.alerta {
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  font-family: var(--headingFont);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 5%;
+}
 
+.alerta-ok {
+  background-color: rgb(109, 211, 109);
+  color: rgb(2, 103, 2);
+}
+.alerta-error {
+  background-color: rgb(230, 78, 78);
+  color: var(--blanco);
+}
   /* color de la barra scroll */
 
   .navbar.scrolled {
