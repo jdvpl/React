@@ -57,7 +57,7 @@ exports.ActualizarProyecto=async(req,res)=>{
             return res.status(404).json({msg:'Proyecto no encontrado'});
         }
         // verificar el creador
-        if(proyecto.creador.toStringt() !==req.usuario.id){
+        if(proyecto.creador.toString() !==req.usuario.id){
             return res.status(401).json({msg:'No Autorizado'});
         }
         // actualizar
