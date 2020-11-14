@@ -33,3 +33,13 @@ exports.ObtenerProyectos=async(req,res)=>{
         res.status(500).send('Hubo un error');
     }
 }
+
+// Actualiza un proyecto
+exports.ActualizarProyecto=async(req,res)=>{
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
+}
