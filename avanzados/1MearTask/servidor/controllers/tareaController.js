@@ -52,10 +52,21 @@ exports.OntenerTarea=async(req,res)=>{
 
         const tareas=await Tarea.find({proyecto});
         res.json({tareas});
-        
+
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
     }
 
+}
+
+// actualizar tarea
+exports.ActualizarTarea=async(req,res)=>{
+
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error');
+    }
 }

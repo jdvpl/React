@@ -20,4 +20,9 @@ router.get('/',
     auth,
     tareaController.OntenerTarea
 );
+// actualizar tarea
+router.put('/:id',
+    auth,
+    tareaController.ActualizarTarea
+);
 module.exports=router;
