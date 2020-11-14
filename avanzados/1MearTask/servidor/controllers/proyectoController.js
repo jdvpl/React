@@ -36,10 +36,16 @@ exports.ObtenerProyectos=async(req,res)=>{
 
 // Actualiza un proyecto
 exports.ActualizarProyecto=async(req,res)=>{
-    try {
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).send('Hubo un error');
+
+    const errores =validationResult(req);
+    if(!errores.isEmpty()){
+        return res.status(400).json({errores:errores.array()});
+    }
+    // extrear la informacion del proyecto
+    const {nombre}=req.body;
+    const NuevoProyecto={};
+
+    if(nombre){
+        NuevoProyecto.nombre=nombre;
     }
 }
