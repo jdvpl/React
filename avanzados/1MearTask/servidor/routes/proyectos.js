@@ -1,6 +1,8 @@
 const express=require('express');
 const router =express.Router();
-
-router.post('/');
+const proyectoController=require('../controllers/proyectoController');
+// crea proyectos 
+// api/proyectos
+router.post('/',proyectoController.crearProyecto);
 
 module.exports=router;
