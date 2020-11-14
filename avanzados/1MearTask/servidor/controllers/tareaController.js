@@ -34,3 +34,8 @@ exports.crearTarea=async(req,res)=>{
 
 
 }
+
+// obtienes las tareas por poryecto
+exports.OntenerTarea=async(req,res)=>{
+    
+}

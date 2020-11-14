@@ -15,5 +15,9 @@ router.post('/',
     ],
     tareaController.crearTarea
     );
-
+    // obtener las tareas por poryecto
+router.get('/',
+    auth,
+    tareaController.OntenerTarea
+);
 module.exports=router;
