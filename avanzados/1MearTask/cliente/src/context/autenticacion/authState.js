@@ -16,11 +16,21 @@ const AuthState=props=>{
         token:localStorage.getItem('token'),
         autenticado:null,
         usuario:null,
-        mensjae:null
+        mensaje:null
     }
     const [state,dispatch]=useReducer(authContext,initialState);
-    return(
 
+    return(
+        <authContext.Provider
+            value={{
+                token:state.token,
+                autenticado:state.autenticado,
+                usuario:state.usuario,
+                mensaje:state.mensaje
+            }}
+        >
+            {props.children}
+        </authContext.Provider>
     )
 }
 export default AuthState;
