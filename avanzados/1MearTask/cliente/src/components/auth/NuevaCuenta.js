@@ -107,7 +107,7 @@ const NuevaCuenta = () => {
                     type="url"
                     id="linkFacebook"
                     name="linkFacebook"
-                    placeholder="url foto"
+                    placeholder="url facebook"
                     onChange={onChange}
                     value={linkFacebook}
                     />
