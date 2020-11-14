@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import AlertaContext from '../../context/alertas/alertaContext';
 const NuevaCuenta = () => {
+    // extraer los valores del context
+    const alertaContext=useContext(AlertaContext);
+    const {alerta,mostartAlerta}=alertaContext;
+    
     //?state para inciar sesion
     const [usuario,guardarUsuario]=useState({
         nombre:'',
