@@ -60,7 +60,7 @@ exports.ActualizarTarea = async (req, res) => {
     // extraer el proyecto y comprobar si existe
     const { proyecto, nombre, estado } = req.body;
     // revisar si la tarea existe o no
-    const tarea = await Tarea.findById(req.params.id);
+    let tarea = await Tarea.findById(req.params.id);
     if (!tarea) {
       return res.status(404).json({ msg: "No existe tarea" });
     }
