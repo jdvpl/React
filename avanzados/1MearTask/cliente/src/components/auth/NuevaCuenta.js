@@ -5,13 +5,19 @@ const NuevaCuenta = () => {
     //?state para inciar sesion
     const [usuario,guardarUsuario]=useState({
         nombre:'',
+        telefono:'',
+        username:'',
         email:'',
+        linkFacebook:'',
+        foto:'',
+        sitioWeb:'',
+        linkGithub:'',
         password:'',
         confirmar:''
     });
 
     // destructuring para traer el usuario y la contraseña
-    const {nombre,email,password,confirmar}=usuario;
+    const {nombre,telefono,username,email,foto,sitioWeb,linkGithub,linkFacebook,password,confirmar}=usuario;
 
     const onChange=e=>{
         guardarUsuario({
@@ -38,6 +44,7 @@ const NuevaCuenta = () => {
             <form
                 onSubmit={onSubmit}
             >
+            
              <div className="campo-form">
                     <label htmlFor="nombre">Nombre</label>
                     <input
@@ -47,6 +54,29 @@ const NuevaCuenta = () => {
                         placeholder="Tu Nombre"
                         onChange={onChange}
                         value={nombre}
+                        />
+                </div>
+
+                <div className="campo-form">
+                    <label htmlFor="telefono">Telefono</label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Telefono"
+                        onChange={onChange}
+                        value={telefono}
+                        />
+                </div>
+                <div className="campo-form">
+                    <label htmlFor="username">Usuario</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Usuario"
+                        onChange={onChange}
+                        value={username}
                         />
                 </div>
                 <div className="campo-form">
@@ -60,7 +90,50 @@ const NuevaCuenta = () => {
                         value={email}
                         />
                 </div>
-
+                <div className="campo-form">
+                <label htmlFor="foto">Foto URL</label>
+                <input
+                    type="url"
+                    id="foto"
+                    name="foto"
+                    placeholder="url foto"
+                    onChange={onChange}
+                    value={foto}
+                    />
+            </div>
+            <div className="campo-form">
+                <label htmlFor="linkFacebook">Facebook Url</label>
+                <input
+                    type="url"
+                    id="linkFacebook"
+                    name="linkFacebook"
+                    placeholder="url foto"
+                    onChange={onChange}
+                    value={linkFacebook}
+                    />
+            </div>
+            <div className="campo-form">
+                <label htmlFor="sitioWeb">Sitio Web</label>
+                <input
+                    type="url"
+                    id="sitioWeb"
+                    name="sitioWeb"
+                    placeholder="Sitio Web"
+                    onChange={onChange}
+                    value={sitioWeb}
+                    />
+            </div>
+            <div className="campo-form">
+                <label htmlFor="linkGithub">Repositorios</label>
+                <input
+                    type="url"
+                    id="linkGithub"
+                    name="linkGithub"
+                    placeholder="Link de repositorios"
+                    onChange={onChange}
+                    value={linkGithub}
+                    />
+            </div>
                 <div className="campo-form">
                     <label htmlFor="password">Contraseña</label>
                     <input

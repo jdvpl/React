@@ -290,7 +290,7 @@ aside  {
 .form-usuario {
     background-color: var(--gris2);
     height: 100vh;
-    min-height: 800px;
+    min-height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -318,6 +318,8 @@ aside  {
 }
 .campo-form input[type="password"],
 .campo-form input[type="email"], 
+.campo-form input[type="url"], 
+.campo-form input[type="tel"], 
 .campo-form input[type="text"] {
   border: 1px solid #e1e1e1;
   padding: 1rem;
@@ -329,3 +331,4 @@ aside  {
   display: block;
   opacity: .7;
 }
+
