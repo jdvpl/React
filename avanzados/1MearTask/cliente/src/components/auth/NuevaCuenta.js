@@ -5,7 +5,7 @@ const NuevaCuenta = () => {
     // extraer los valores del context
     const alertaContext=useContext(AlertaContext);
     const {alerta,mostartAlerta}=alertaContext;
-    
+
     //?state para inciar sesion
     const [usuario,guardarUsuario]=useState({
         nombre:'',
@@ -44,6 +44,7 @@ const NuevaCuenta = () => {
     return ( 
         <div className="form-usuario">
         <div className="contenedor-form sombra-dark">
+        {alerta? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>: null}
             <h1>Crear Cuenta</h1>
             <form
                 onSubmit={onSubmit}
