@@ -48,4 +48,22 @@ exports.ActualizarProyecto=async(req,res)=>{
     if(nombre){
         NuevoProyecto.nombre=nombre;
     }
+
+    try {
+        // revisar el id
+        let proyecto=await Proyecto.findById(req.params.id);
+        // si el proyecto existe o no
+        if(!proyecto){
+            return res.status(404).json({msg:'Proyecto no encontrado'});
+        }
+        // verificar el creador
+        
+
+
+        // actualizar
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Error en el servidor');
+    }
 }
