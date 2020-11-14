@@ -15,6 +15,9 @@ const PORT =process.env.PORT || 4000;
 app.use('/api/usuarios',require('./routes/usuarios'));
 app.use('/api/auth',require('./routes/auth'));
 app.use('/api/proyectos',require('./routes/proyectos'));
+// routing de tareas
+app.use('/api/tareas',require('./routes/tarea'));
+
 // arrancar la app
 app.listen(PORT,()=>{
     console.log(`corriendo desde el puerto ${PORT}`)
