@@ -24,6 +24,9 @@ const AuthState=props=>{
                 type:REGISTRO_EXISTOSO,
                 payload:respuesta.data
             })
+
+            // obtener el usuario
+            usuarioAutenticado();
         } catch (error) {
             // console.log(error.response.data.msg);
             const alerta={
@@ -36,23 +39,22 @@ const AuthState=props=>{
 
             })
         }
-    
+    }
         // retornar el usuario ya autenticado
         const usuarioAutenticado=async()=>{
             const token=localStorage.getItem('token'); //leert el token que esta en el localstorage
             if(token){
                 // funcion para enviar el token por header
-
-
-                try {
-                    const respuesta=await clienteAxios.get('/api/auth');
-                    
-                } catch (error) {
-                    console.log(error);
-                    dispatch({
-                        type:LOGIN_ERROR
-                    });
-                }
+            }
+            try {
+                const respuesta=await clienteAxios.get('/api/auth');
+                console.log(respuesta);
+                
+            } catch (error) {
+                console.log(error.response);
+                dispatch({
+                    type:LOGIN_ERROR
+                });
             }
         }
     return(
@@ -69,4 +71,5 @@ const AuthState=props=>{
         </AuthContext.Provider>
     )
 }
+
 export default AuthState;
