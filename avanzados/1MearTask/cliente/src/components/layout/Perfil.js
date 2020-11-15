@@ -10,6 +10,7 @@ const Perfil = () => {
 
   useEffect(() => {
     usuarioAutenticado();
+    // eslint-disable-next-lin
   }, []);
   return (
     <div>

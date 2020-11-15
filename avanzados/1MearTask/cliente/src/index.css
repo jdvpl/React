@@ -430,6 +430,7 @@ aside  {
 
 .img{
   margin-left: 1%;
+  border-radius: 25px;
 }
 .cerrar-sesion{
   float: right;

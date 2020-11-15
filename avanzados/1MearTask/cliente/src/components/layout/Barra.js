@@ -9,12 +9,11 @@ const Barra = () => {
   const authContext=useContext(AuthContext);
   const {usuario,usuarioAutenticado,CerrarSesion}=authContext;
 
+
   useEffect(() => {
     usuarioAutenticado();
-    
+    // eslint-disable-next-line
   }, []);
-
-
     return (
         <div className="app-header">
           {usuario? <p className="nombre-usuario">Hola <span>{usuario.nombre}</span></p> :null}
@@ -23,13 +22,13 @@ const Barra = () => {
           <button className="img btn btn-blank cerrar-sesion"
             onClick={()=>CerrarSesion()}
           >
-          <img src={imagen} width="20"></img>
+          <img src={imagen} width="20" alt="Cerrar"></img>
           </button>
           <Link to={'/proyectos'} >
-          <img src={proyectos} width="20"></img>
+          <img src={proyectos} width="20" alt="Poryectos"></img>
             </Link>
             <Link to={'/perfil'}>
-              <img src={usuario1} width="20"></img>
+            {usuario?<img src={usuario.foto} width="20" alt={usuario.nombre} className="img" title={usuario.nombre}></img>:'Perfil'}
             </Link>
             
           </nav>

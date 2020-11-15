@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import TareaContext from './tareaContext';
 import TareaReducer from './tareaReducer';
 import { TAREAS_PROYECTO,AGREGAR_TAREA,VALIDAR_TAREA,
-    ELIMINAR_TAREA ,ESTADO_TAREA,TAREA_ACTUAL,
+    ELIMINAR_TAREA ,TAREA_ACTUAL,
     ACTUALIZAR_TAREA,LIMPIAR_TAREA} from '../../types';
     import clienteAxios from '../../config/axios';
 
