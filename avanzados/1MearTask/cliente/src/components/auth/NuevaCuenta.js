@@ -13,7 +13,12 @@ const NuevaCuenta = (props) => {
     // en caso que el usauio se haya autenticado o registrao o sea uno que ya exista
 
     useEffect(()=>{
-
+        if(autenticado){
+            props.history.push('/proyectos');
+        }
+        if(mensaje){
+            MostrarAlerta(mensaje.msg,mensaje.categoria)
+        }
     },[mensaje,autenticado,props.history]);
 
 
