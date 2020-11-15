@@ -9,12 +9,11 @@ const app=express();
 conectarDb();
 
 // habilitar cors
-app.use(cors({credentials:true,origin:'https://immense-inlet-77378.herokuapp.com/api/auth'}));
-app.use("*",cors());
+app.use(cors());
 // habilitar express.json
 app.use(express.json({extended:true}))
 // se crea el puerto
-const port =process.env.port || 4000;
+const port =process.env.PORT || 4000;
 
 // importar rutas
 app.use('/api/usuarios',require('./routes/usuarios'));

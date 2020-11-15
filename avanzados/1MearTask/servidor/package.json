@@ -4,9 +4,8 @@
   "description": "api rest del proyecto de node servidro",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon .",
-     "start": "node index.js"
-   }
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "repository": {
     "type": "git",
