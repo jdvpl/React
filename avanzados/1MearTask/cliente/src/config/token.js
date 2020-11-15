@@ -1,4 +1,3 @@
-import { delete } from '../../../servidor/routes/auth';
 import clienteAxios from './axios';
 
 const tokenAuth=token=>{
@@ -8,3 +7,4 @@ const tokenAuth=token=>{
         delete clienteAxios.defaults.headers.common['x-auth-token'];
     }
 }
+export default tokenAuth;

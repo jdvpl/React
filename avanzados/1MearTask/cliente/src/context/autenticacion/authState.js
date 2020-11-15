@@ -3,6 +3,7 @@ import {REGISTRO_EXISTOSO,REGISTRO_ERROR,OBTENER_USUARIO,LOGIN_EXITOSO,
 LOGIN_ERROR,CERRAR_SESION,} from '../../types';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
+import tokenAuth from '../../config/token';
 
 import clienteAxios from '../../config/axios';
 
@@ -45,6 +46,7 @@ const AuthState=props=>{
             const token=localStorage.getItem('token'); //leert el token que esta en el localstorage
             if(token){
                 // funcion para enviar el token por header
+                tokenAuth(token);
             }
             try {
                 const respuesta=await clienteAxios.get('/api/auth');
