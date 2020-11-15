@@ -1,15 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
 
-const NuevaCuenta = () => {
+const NuevaCuenta = (props) => {
     // extraer los valores del context
     const alertaContext=useContext(AlertaContext);
     const {alerta,MostrarAlerta}=alertaContext;
 
     const authContext=useContext(AuthContext);
-    const {registrarUsuario} =authContext;
+    const {mensaje,autenticado,registrarUsuario} =authContext;
+    // en caso que el usauio se haya autenticado o registrao o sea uno que ya exista
+
+    useEffect(()=>{
+
+    },[mensaje,autenticado,props.history]);
+
 
     //?state para inciar sesion
     const [usuario,guardarUsuario]=useState({
