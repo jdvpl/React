@@ -8,7 +8,7 @@ const tareaReducer= (state,action)=>{
         case TAREAS_PROYECTO:
         return{
             ...state,
-            tareasproyecto:state.tareasproyecto.filter(tarea=>tarea.proyectoId===action.payload)
+            tareasproyecto:action.payload
         }
         case AGREGAR_TAREA:
         return{

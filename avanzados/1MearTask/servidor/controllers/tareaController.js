@@ -46,7 +46,7 @@ exports.OntenerTarea = async (req, res) => {
     }
     // obtener las tareas por proyecto
 
-    const tareas = await Tarea.find({ proyecto });
+    const tareas = await Tarea.find({ proyecto }).sort({creado: -1});
     res.json({ tareas });
   } catch (error) {
     console.log(error);

@@ -34,7 +34,7 @@ const ListadoProyectos = () => {
                 <CSSTransition
                 classNames="proyecto"
                 key={proyecto._id}
-                timeout={200}
+                timeout={500}
                 >
                 <Proyecto
                     

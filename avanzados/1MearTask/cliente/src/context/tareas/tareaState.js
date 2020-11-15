@@ -28,7 +28,7 @@ const TareaState=props=>{
             console.log(respuesta);
             dispatch({
                 type:TAREAS_PROYECTO,
-                payload:proyecto
+                payload:respuesta.data.tareas
             })
         } catch (error) {
             console.log(error)
