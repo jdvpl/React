@@ -1,5 +1,5 @@
 import React,{useReducer} from 'react';
-import {REGISTRO_EXISTOSO,REGISTRO_ERROR,OBTENER_USUARIO,LOGIN_EXITOSO,
+import {REGISTRO_EXITOSO,REGISTRO_ERROR,OBTENER_USUARIO,LOGIN_EXITOSO,
 LOGIN_ERROR,CERRAR_SESION,} from '../../types';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
@@ -22,7 +22,7 @@ const AuthState=props=>{
             const respuesta=await clienteAxios.post('/api/usuarios',datos);
             console.log(respuesta.data);
             dispatch({
-                type:REGISTRO_EXISTOSO,
+                type:REGISTRO_EXITOSO,
                 payload:respuesta.data
             })
 
@@ -68,7 +68,10 @@ const AuthState=props=>{
         const iniciarSesion=async datos=>{
             try {
                 const respuesta=await clienteAxios.post('/api/auth',datos);
-                console.log(respuesta);
+                dispatch({
+                    type:LOGIN_EXITOSO,
+                    payload:respuesta.data
+                })
             } catch (error) {
                 console.log(error.response.data.msg)
                 const alerta={

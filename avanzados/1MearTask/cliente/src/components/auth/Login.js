@@ -1,9 +1,9 @@
-import React, { useState,useContext } from 'react';
+import React, { useState,useContext,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
 
-const Login = () => {
+const Login = (props) => {
       // extraer los valores del context
       const alertaContext=useContext(AlertaContext);
       const {alerta,MostrarAlerta}=alertaContext;
@@ -11,6 +11,15 @@ const Login = () => {
       const authContext=useContext(AuthContext);
       const {mensaje,autenticado,iniciarSesion} =authContext;
 
+       // en caso que el usuario9 o password no exista
+    useEffect(()=>{
+        // if(autenticado){
+        //     props.history.push('/proyectos');
+        // }
+        if(mensaje){
+            MostrarAlerta(mensaje.msg,mensaje.categoria)
+        }
+    },[mensaje,autenticado,props.history]);
 
 
     //?state para inciar sesion
@@ -29,6 +38,7 @@ const Login = () => {
         })
         
     }
+
     // cuando el usuario inicia sesion
     const onSubmit=e=>{
         e.preventDefault();
@@ -44,9 +54,8 @@ const Login = () => {
     return ( 
         <div className="form-usuario">
         <div className="contenedor-form sombra-dark">
+        {alerta? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>: null}
             <h1>Inciar Sesion</h1>
-            {alerta? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>: null}
-
             <form
                 onSubmit={onSubmit}
             >

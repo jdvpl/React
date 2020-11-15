@@ -1,5 +1,5 @@
 import {
-  REGISTRO_EXISTOSO,
+  REGISTRO_EXITOSO,
   REGISTRO_ERROR,
   OBTENER_USUARIO,
   LOGIN_EXITOSO,
@@ -9,7 +9,7 @@ import {
 
 const authReducer = (state, action) => {
   switch (action.type) {
-    case REGISTRO_EXISTOSO:
+    case REGISTRO_EXITOSO:
       localStorage.setItem('token',action.payload.token);
       return{
         ...state,
