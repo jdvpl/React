@@ -10,7 +10,7 @@ const Perfil = () => {
 
   useEffect(() => {
     usuarioAutenticado();
-    // eslint-disable-next-lin
+    // eslint-disable-next-line
   }, []);
   return (
     <div>
@@ -19,7 +19,7 @@ const Perfil = () => {
       
       {usuario? 
       <div>
-      <img src={usuario.foto} className="foto"/>
+      <img src={usuario.foto} className="foto" alt={usuario.nombre}/>
       <p className="nombre-usuario">Nombre: <span>{usuario.nombre}
       </span></p>
       <p className="nombre-usuario">Usuario: <span>{usuario.username}</span></p>

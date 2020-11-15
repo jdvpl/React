@@ -19,6 +19,7 @@ const NuevaCuenta = (props) => {
         if(mensaje){
             MostrarAlerta(mensaje.msg,mensaje.categoria)
         }
+        // eslint-disable-next-line
     },[mensaje,autenticado,props.history]);
 
 
