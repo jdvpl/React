@@ -88,21 +88,6 @@ a {
   background-color: transparent;
 }
 
-@media (min-width: 768px) {
-  .contenedor-app {
-      display: flex;
-      min-height: 100vh;
-  }
-
-  aside {
-      background-color: var(--blanco);
-      flex: 0 0 300px;
-  }
-  .seccion-principal {
-      flex: 1;
-  }
-
-}
 .btn-eliminar {
   background-color: var(--blanco);
 }
@@ -148,6 +133,7 @@ aside  {
   margin: 0;
 }
 .nombre-usuario span {
+  text-transform: capitalize;
   font-weight: 900;
 }
 .nav-principal a {
@@ -186,6 +172,7 @@ aside  {
 .contenedor-tareas {
   padding: 4rem;
 }
+
 
 
 
@@ -371,4 +358,70 @@ aside  {
     border-radius: 1px !important;
     background-color: rgb(34, 30, 48) !important;
   }
+
+  .contenedor-perfil{
+    margin:auto;
+    width: 40%;
+    padding-bottom: 2%;
+    margin-top: 3%;
+    text-align: center;
+    background-color: var(--gris2);
+  }
+  .foto{
+    width: 20%;
+    border-radius: 80px;
+    text-align: center;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  .contenedor-perfil p{
+    margin-bottom: 3%;
+    text-align: center;
+    background-color: var(--gris2);
+  }
+  .contenedor-perfil a {
+    text-align: center;
+    margin-bottom: 3%;
+
+  }
+  .feacebook{
+    color: rgb(21, 75, 224);
+    font-size: 2.2rem;
+    margin-right: 3%;
+  }
+  .github{
+    color: rgb(97, 99, 107);
+    font-size: 2.2rem;
+    
+  }
+  .sitio{
+    color: rgb(194, 199, 195);
+    font-size: 2.2rem;
+    margin-left: 3%;
+  }
+  .boton{
+    background-color: rgba(23, 26, 204, 0.801);
+    color: white;
+    width: 80%;
+    margin: 5%;
+  padding: 2%;
+  border-radius: 20px;
+  }
+
   
+@media (min-width: 768px) {
+  .contenedor-app {
+      display: flex;
+      min-height: 100vh;
+  }
+
+  aside {
+      background-color: var(--blanco);
+      flex: 0 0 300px;
+  }
+  .seccion-principal {
+      flex: 1;
+  }
+
+}

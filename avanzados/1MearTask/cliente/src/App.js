@@ -8,6 +8,7 @@ import TareaState from './context/tareas/tareaState';
 import AlertaState from './context/alertas/alertaState';
 import AuthState from './context/autenticacion/authState';
 import tokenAuth from './config/token';
+import Perfil from './components/layout/Perfil';
 
 const token=localStorage.getItem('token');
 if(token){
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/" component={Login}/>
         <Route exact path="/nueva-cuenta" component={NuevaCuenta}/>
         <Route exact path="/proyectos" component={Proyectos}/>
+        <Route exact path="/perfil" component={Perfil}/>
       </Switch>
     </Router>
     </AuthState>
