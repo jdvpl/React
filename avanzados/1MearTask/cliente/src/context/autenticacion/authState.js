@@ -44,7 +44,8 @@ const AuthState=props=>{
                 token:state.token,
                 autenticado:state.autenticado,
                 usuario:state.usuario,
-                mensaje:state.mensaje
+                mensaje:state.mensaje,
+                registrarUsuario
             }}
         >
             {props.children}
