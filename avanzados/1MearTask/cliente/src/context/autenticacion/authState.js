@@ -1,13 +1,6 @@
 import React,{useReducer} from 'react';
-import {
-    REGISTRO_EXISTOSO,
-    REGISTRO_ERROR,
-    OBTENER_USUARIO,
-    LOGIN_EXITOSO,
-    LOGIN_ERROR,
-    CERRAR_SESION,
-  } from '../../types';
-import authContext from './authContext';
+import {REGISTRO_EXISTOSO,REGISTRO_ERROR,OBTENER_USUARIO,LOGIN_EXITOSO,
+LOGIN_ERROR,CERRAR_SESION,} from '../../types';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
 
@@ -20,15 +13,16 @@ const AuthState=props=>{
         usuario:null,
         mensaje:null
     }
-    const [state,dispatch]=useReducer(authContext,initialState);
+    const [state,dispatch]=useReducer(AuthReducer,initialState);
     // FUNCIONES
 
     const registrarUsuario=async datos=>{
         try {
             const respuesta=await clienteAxios.post('/api/usuarios',datos);
-            console.log(respuesta);
+            console.log(respuesta.data);
             dispatch({
-                type:REGISTRO_EXISTOSO
+                type:REGISTRO_EXISTOSO,
+                payload:respuesta.data
             })
         } catch (error) {
             console.log(error);
@@ -39,7 +33,7 @@ const AuthState=props=>{
         }
     }
     return(
-        <authContext.Provider
+        <AuthContext.Provider
             value={{
                 token:state.token,
                 autenticado:state.autenticado,
@@ -49,7 +43,7 @@ const AuthState=props=>{
             }}
         >
             {props.children}
-        </authContext.Provider>
+        </AuthContext.Provider>
     )
 }
 export default AuthState;
