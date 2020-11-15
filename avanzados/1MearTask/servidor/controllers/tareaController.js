@@ -74,12 +74,9 @@ exports.ActualizarTarea = async (req, res) => {
     }
     // crear un objeto con la neuva infio
     const nuevaTarea = {};
-    if (nombre) {
-      nuevaTarea.nombre = nombre;
-    }
-    if (estado) {
-      nuevaTarea.estado = estado;
-    }
+    nuevaTarea.nombre = nombre;
+    nuevaTarea.estado = estado;
+  
     // guardar la tarea
     tarea = await Tarea.findOneAndUpdate({ _id: req.params.id }, nuevaTarea, {
       new: true,
