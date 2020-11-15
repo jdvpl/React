@@ -44,3 +44,7 @@ exports.autenticarUsuario=async(req,res)=>{
         console.log(error);
     }
 }
+// obtiene que usuario esta autenticado
+exports.usuarioAutenticado=async(req,res)=>{
+    
+}
