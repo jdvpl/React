@@ -9,7 +9,8 @@ const app=express();
 conectarDb();
 
 // habilitar cors
-app.use(cors());
+app.use(cors({credentials:true,origin:true}))
+app.use("*",cors());
 // habilitar express.json
 app.use(express.json({extended:true}))
 // se crea el puerto
@@ -23,6 +24,6 @@ app.use('/api/proyectos',require('./routes/proyectos'));
 app.use('/api/tareas',require('./routes/tarea'));
 
 // arrancar la app
-app.listen(port,'0.0.0.0',()=>{
+app.listen(port, '0.0.0.0',()=>{
     console.log(`corriendo desde el puerto ${port}`)
 });

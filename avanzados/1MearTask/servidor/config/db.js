@@ -8,7 +8,7 @@ const conectarDb=async()=>{
             useUnifiedTopology:true,
             useFindAndModify:false
         });
-        console.log("conectado");
+        console.log("DB conectado");
     } catch (error) {
         console.log(error);
         process.exit(1);
