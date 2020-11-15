@@ -21,11 +21,18 @@ const TareaState=props=>{
     // FUNCIONES
 
     // OBTENER TAREAS DE UN PROYECTO
-    const ObtenerTareas=proyectoId=>{
-        dispatch({
-            type:TAREAS_PROYECTO,
-            payload:proyectoId
-        })
+    const ObtenerTareas=async proyecto=>{
+        console.log(proyecto)
+        try {
+            const respuesta=await clienteAxios.get('/api/tareas',{params:{proyecto}})
+            console.log(respuesta);
+            dispatch({
+                type:TAREAS_PROYECTO,
+                payload:proyecto
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
     // AGREGAR UNA NUEVA TAREA
     const agregarTarea=async tarea=>{
