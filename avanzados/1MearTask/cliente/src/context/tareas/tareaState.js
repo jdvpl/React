@@ -63,13 +63,7 @@ const TareaState=props=>{
             console.log(error);
         }
     }
-    // cambia el estado de cada tarea
-    const cambiarEstadoTarea=tarea=>{
-        dispatch({
-            type:ESTADO_TAREA,
-            payload:tarea
-        })
-    }
+    
 
     // funcion la tarea para edicion
 
@@ -82,6 +76,7 @@ const TareaState=props=>{
 
     // FUNCION PARA ACTUALIZAR UNA TAREA
     const actualizarTarea=tarea=>{
+        console.log(tarea);
         dispatch({
             type:ACTUALIZAR_TAREA,
             payload:tarea
@@ -103,7 +98,6 @@ const TareaState=props=>{
                 agregarTarea,
                 validarTarea,
                 eliminarTarea,
-                cambiarEstadoTarea,
                 guardarTareaActual,
                 actualizarTarea,
                 limpiarTarea

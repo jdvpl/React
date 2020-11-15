@@ -9,7 +9,7 @@ const Tarea = ({tarea}) => {
      const {proyecto}=proyectosContext;
 
     const tareasContext=useContext(tareaContext);
-    const {eliminarTarea,ObtenerTareas,cambiarEstadoTarea,guardarTareaActual}=tareasContext;
+    const {eliminarTarea,ObtenerTareas,actualizarTarea,guardarTareaActual}=tareasContext;
     // extraer el proyecto
     const [proyectoActual]=proyecto;
 
@@ -26,7 +26,7 @@ const Tarea = ({tarea}) => {
         }else{
             tarea.estado=true;
         }
-        cambiarEstadoTarea(tarea);
+        actualizarTarea(tarea);
     }
     // funcion para selecionar una tarea
     const seleccionarTarea =tarea=>{
