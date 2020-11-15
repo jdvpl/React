@@ -9,7 +9,7 @@ const app=express();
 conectarDb();
 
 // habilitar cors
-app.use(cors({credentials:true,origin:true}))
+app.use(cors({credentials:true,origin:'https://immense-inlet-77378.herokuapp.com/api/auth'}));
 app.use("*",cors());
 // habilitar express.json
 app.use(express.json({extended:true}))
