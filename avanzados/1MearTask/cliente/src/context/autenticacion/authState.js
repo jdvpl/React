@@ -11,6 +11,8 @@ import authContext from './authContext';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
 
+import clienteAxios from '../../config/axios';
+
 const AuthState=props=>{
     const initialState={
         token:localStorage.getItem('token'),
@@ -19,7 +21,19 @@ const AuthState=props=>{
         mensaje:null
     }
     const [state,dispatch]=useReducer(authContext,initialState);
+    // FUNCIONES
 
+    const registrarUsuario=async datos=>{
+        try {
+            
+        } catch (error) {
+            console.log(error);
+            dispatch({
+                type:REGISTRO_ERROR
+
+            })
+        }
+    }
     return(
         <authContext.Provider
             value={{
