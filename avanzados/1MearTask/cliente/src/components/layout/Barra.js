@@ -14,18 +14,27 @@ const Barra = () => {
     
   }, []);
 
+  const cerrarsesion=()=>{
+
+  }
+
     return (
         <div className="app-header">
           {usuario? <p className="nombre-usuario">Hola <span>{usuario.nombre}</span></p> :null}
           <nav className="nav-principal">
-          <a href="#!" className="img"><img src={imagen} width="20"></img></a>
+          
+          <button className="img btn btn-blank cerrar-sesion"
+            onClick={cerrarsesion}
+          >
+          <img src={imagen} width="20"></img>
+          </button>
           <Link to={'/proyectos'} >
           <img src={proyectos} width="20"></img>
             </Link>
             <Link to={'/perfil'}>
               <img src={usuario1} width="20"></img>
             </Link>
-          
+            
           </nav>
         </div>
       );

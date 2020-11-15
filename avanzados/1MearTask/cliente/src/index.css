@@ -431,3 +431,8 @@ aside  {
 .img{
   margin-left: 1%;
 }
+.cerrar-sesion{
+  float: right;
+  margin-top: -1%;
+  margin-right: 1%;
+}
