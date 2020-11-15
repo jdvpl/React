@@ -9,6 +9,16 @@ import {
 
 const authReducer = (state, action) => {
   switch (action.type) {
+    case REGISTRO_EXISTOSO:
+    return{
+      ...state,
+
+    }
+    case REGISTRO_ERROR:
+      return{
+        ...state
+      }
+
     default:
       return state;
   }
