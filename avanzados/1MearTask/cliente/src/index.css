@@ -122,10 +122,10 @@ aside  {
   font-weight: 300;
 }
 .app-header {
-  display: flex;
-  justify-content: space-between;
+  display: inline-block;
+  width: 100%;
   background-color: var(--gris2);
-  padding: 4rem;
+  padding: 3rem;
 }
 .nombre-usuario {
   color: var(--blanco);
@@ -137,11 +137,13 @@ aside  {
   font-weight: 900;
 }
 .nav-principal a {
+  margin-top: -1%;
+  float: right;
   color: var(--blanco);
   text-decoration: none;
 }
-.nav-principal a:first-of-type {
-  margin-right: 2rem;
+.nav-principal a{
+  margin-right: 1rem;
 }
 
 /** Formulario crear y editar tareas **/
@@ -350,7 +352,7 @@ aside  {
   }
   
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(70, 8, 185, 0.3) !important;
+    box-shadow: inset 0 0 6px rgba(70, 8, 185, 0.3) !important;
     background-color: rgba(7, 69, 241, 0.11) !important;
   }
   
@@ -424,4 +426,8 @@ aside  {
       flex: 1;
   }
 
+}
+
+.img{
+  margin-left: 1%;
 }
