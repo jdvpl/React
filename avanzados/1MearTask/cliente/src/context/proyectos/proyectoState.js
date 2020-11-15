@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import ProyectoContext from './proyectoContext';
 import proyectoReducer from './proyectoReducer';
 import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO,
-    VALIDAR_FORMULARIO,PROYECTO_ACTUAL,ELIMINAR_PROYECTO} from '../../types';
+    VALIDAR_FORMULARIO,PROYECTO_ACTUAL,ELIMINAR_PROYECTO,PROYECTO_ERROR} from '../../types';
 import clienteAxios from '../../config/axios';
 
 
@@ -13,7 +13,8 @@ const ProyectoState=props=>{
         proyectos:[],
         formulario:false,
         errorformulario:false,
-        proyecto:null
+        proyecto:null,
+        mensaje:null
     }
     // disparch para ejecutar las acciones
     const [state,dispatch]=useReducer(proyectoReducer,initailState)
@@ -35,7 +36,15 @@ const ProyectoState=props=>{
                 payload:resultado.data.proyectos
             })  
         } catch (error) {
-            console.log(error);
+            const alerta={
+                msg:'Hubo un error',
+                categoria:'alerta-error'
+            }
+           dispatch({
+               type:PROYECTO_ERROR,
+               payload:alerta
+           })
+        
         }
     }
     // Agregar nuevo proyecto
@@ -47,8 +56,16 @@ const ProyectoState=props=>{
                 payload:resultado.data
             })
         } catch (error) {
-            console.log(error);
+            const alerta={
+                msg:'Hubo un error',
+                categoria:'alerta-error'
+            }
+           dispatch({
+               type:PROYECTO_ERROR,
+               payload:alerta
+           })
         }
+        
     }
     // VALIDA EL FORMULARIO POR ERRORES
     const mostrarError=()=>{
@@ -66,13 +83,21 @@ const ProyectoState=props=>{
     // eliminar un poryecto 
     const eliminarProyecto=async proyectoId=>{
         try {
-            await clienteAxios.delete(`/api.proyectos/${proyectoId}`);
+            await clienteAxios.delete(`/api/proyectos/${proyectoId}`);
+            
         dispatch({
             type:ELIMINAR_PROYECTO,
             payload:proyectoId
         });
         } catch (error) {
-            console.log(error);
+            const alerta={
+                msg:'Hubo un error',
+                categoria:'alerta-error'
+            }
+           dispatch({
+               type:PROYECTO_ERROR,
+               payload:alerta
+           })
         }
     }
 
@@ -83,6 +108,7 @@ const ProyectoState=props=>{
             formulario: state.formulario,
             errorformulario:state.errorformulario,
             proyecto:state.proyecto,
+            mensaje:state.mensaje,
             mostrarFormulario,
             obtenerProyectos,
             AgregarProyecto,

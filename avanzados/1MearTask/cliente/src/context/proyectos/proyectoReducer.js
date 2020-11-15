@@ -1,5 +1,5 @@
 import {FROMULARIO_PROYECTO,OBTENER_PROYECTOS,AGREGAR_PROYECTO,
-    VALIDAR_FORMULARIO,PROYECTO_ACTUAL,ELIMINAR_PROYECTO} from '../../types';
+    VALIDAR_FORMULARIO,PROYECTO_ACTUAL,ELIMINAR_PROYECTO,PROYECTO_ERROR} from '../../types';
 
 const proyectoReducer= (state,action)=>{
     switch(action.type){
@@ -31,13 +31,17 @@ const proyectoReducer= (state,action)=>{
             proyecto:state.proyectos.filter(proyecto=>proyecto._id===action.payload)
         }
         case ELIMINAR_PROYECTO:
-            console.log(action.payload);
         return{
             ...state,
             proyectos:state.proyectos.filter(proyecto=>proyecto._id!==action.payload),
             proyecto:null
 
         }
+        case PROYECTO_ERROR:
+            return{
+                ...state,
+                mensaje:action.payload
+            }
         default:
             return state;
     }
