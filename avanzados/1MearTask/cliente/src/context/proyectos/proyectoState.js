@@ -8,13 +8,7 @@ import clienteAxios from '../../config/axios';
 
 const ProyectoState=props=>{
 
-    const proyectos=[
-
-        {id:1,nombre:'React'},
-        {id:2,nombre:'MEARN'},
-        {id:3,nombre:'Configuracion MongoDB'},
-    ]
-    
+   
     const initailState={
         proyectos:[],
         formulario:false,
@@ -32,11 +26,17 @@ const ProyectoState=props=>{
     }
     // obtener los poryectos como si fuera con una base de datos
 
-    const obtenerProyectos=()=>{
-        dispatch({
-            type:OBTENER_PROYECTOS,
-            payload:proyectos
-        })  
+    const obtenerProyectos=async()=>{
+        try {
+            const resultado=await clienteAxios.get('/api/proyectos');
+
+            dispatch({
+                type:OBTENER_PROYECTOS,
+                payload:resultado.data.proyectos
+            })  
+        } catch (error) {
+            console.log(error);
+        }
     }
     // Agregar nuevo proyecto
     const AgregarProyecto=async proyecto=>{
