@@ -67,9 +67,10 @@ const AuthState=props=>{
         // cuando el usuario inicia sesion
         const iniciarSesion=async datos=>{
             try {
-                const respuesta=await clienteAxios.get('/api/auth',datos);
+                const respuesta=await clienteAxios.post('/api/auth',datos);
                 console.log(respuesta);
             } catch (error) {
+                console.log(error.response.data.msg)
                 const alerta={
                     msg:error.response.data.msg,
                     categoria:'alerta-error'
@@ -77,7 +78,6 @@ const AuthState=props=>{
                 dispatch({
                     type:LOGIN_ERROR,
                     payload:alerta
-    
                 })
             }
         }

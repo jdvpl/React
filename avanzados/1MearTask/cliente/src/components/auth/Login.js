@@ -37,8 +37,8 @@ const Login = () => {
         if(email.trim()===''||password.trim()===''){
             MostrarAlerta('Todos los campos son obligatorios','alerta-error')
         }
-
         // pasarlo al action.payload
+        iniciarSesion({email,password});
 
     }
     return ( 
