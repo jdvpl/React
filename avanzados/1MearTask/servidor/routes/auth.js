@@ -10,10 +10,6 @@ const auth = require('../middleware/auth');
 
 // endpoint /api/auth
 router.post('/',
-    [
-        check('email','El correo es obligatorio').isEmail(),
-        check('password','La contraseña debe ser minimo de 6 caracteres').isLength({min:6})
-    ],
     authController.autenticarUsuario);
     // obtiene el usuario autenticado
 

@@ -71,7 +71,10 @@ const AuthState=props=>{
                 dispatch({
                     type:LOGIN_EXITOSO,
                     payload:respuesta.data
-                })
+                });
+
+                // obtener el usuario
+                usuarioAutenticado();
             } catch (error) {
                 console.log(error.response.data.msg)
                 const alerta={
