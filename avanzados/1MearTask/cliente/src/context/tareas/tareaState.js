@@ -75,12 +75,18 @@ const TareaState=props=>{
     }
 
     // FUNCION PARA ACTUALIZAR UNA TAREA
-    const actualizarTarea=tarea=>{
-        console.log(tarea);
+    const actualizarTarea=async tarea=>{
+
+       try {
+           const resultado=await clienteAxios.put(`/api/tareas/${tarea._id}`,tarea);
+           console.log(resultado);
         dispatch({
             type:ACTUALIZAR_TAREA,
-            payload:tarea
+            payload:resultado.data.tarea
         })
+       } catch (error) {
+           console.log(error);
+       }
     }
     // elimininar la tarea seleccionada
     const limpiarTarea=()=>{
