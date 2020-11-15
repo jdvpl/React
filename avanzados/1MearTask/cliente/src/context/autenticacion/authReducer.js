@@ -24,7 +24,11 @@ const authReducer = (state, action) => {
         token:null,
         mensaje:action.payload
       }
-
+    case OBTENER_USUARIO:
+    return{
+      ...state,
+      usuario:action.payload
+    }
 
     default:
       return state;
