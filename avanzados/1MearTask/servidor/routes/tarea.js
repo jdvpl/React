@@ -18,8 +18,7 @@ router.post('/',
     // obtener las tareas por poryecto
 router.get('/',
     auth,
-    tareaController.OntenerTarea
-);
+    tareaController.ObtenerTarea);
 // actualizar tarea
 router.put('/:id',
     auth,

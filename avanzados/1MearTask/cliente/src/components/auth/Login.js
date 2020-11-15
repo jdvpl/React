@@ -67,6 +67,7 @@ const Login = (props) => {
                         type="email"
                         id="email"
                         name="email"
+                        autoComplete={email}
                         placeholder="Correo"
                         onChange={onChange}
                         value={email}
@@ -80,6 +81,7 @@ const Login = (props) => {
                         id="password"
                         name="password"
                         placeholder="Contraseña"
+                        autoComplete={password}
                         onChange={onChange}
                         value={password}
                         />
