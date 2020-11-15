@@ -36,7 +36,25 @@ const AuthState=props=>{
 
             })
         }
-    }
+    
+        // retornar el usuario ya autenticado
+        const usuarioAutenticado=async()=>{
+            const token=localStorage.getItem('token'); //leert el token que esta en el localstorage
+            if(token){
+                // funcion para enviar el token por header
+
+
+                try {
+                    const respuesta=await clienteAxios.get('/api/auth');
+                    
+                } catch (error) {
+                    console.log(error);
+                    dispatch({
+                        type:LOGIN_ERROR
+                    });
+                }
+            }
+        }
     return(
         <AuthContext.Provider
             value={{
