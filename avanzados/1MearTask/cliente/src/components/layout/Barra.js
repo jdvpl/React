@@ -7,16 +7,13 @@ import proyectos from '../../presentacion.png';
 const Barra = () => {
   // extraer la info de la autenticacion
   const authContext=useContext(AuthContext);
-  const {usuario,usuarioAutenticado}=authContext;
+  const {usuario,usuarioAutenticado,CerrarSesion}=authContext;
 
   useEffect(() => {
     usuarioAutenticado();
     
   }, []);
 
-  const cerrarsesion=()=>{
-
-  }
 
     return (
         <div className="app-header">
@@ -24,7 +21,7 @@ const Barra = () => {
           <nav className="nav-principal">
           
           <button className="img btn btn-blank cerrar-sesion"
-            onClick={cerrarsesion}
+            onClick={()=>CerrarSesion()}
           >
           <img src={imagen} width="20"></img>
           </button>
