@@ -4,7 +4,6 @@ const tareaController=require('../controllers/tareaController');
 const auth=require('../middleware/auth');
 const {check}=require('express-validator');
 
-
 // crear una tarea
 // api/tareas
 router.post('/',

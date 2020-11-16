@@ -3,7 +3,6 @@ const express=require('express');
 const router=express.Router();
 const authController=require('../controllers/authController');
 // dependemncia para validar 
-const {check} =require('express-validator');
 const auth = require('../middleware/auth');
 
 // iniciar sesion
