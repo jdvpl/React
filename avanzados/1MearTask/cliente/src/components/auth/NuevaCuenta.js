@@ -81,7 +81,7 @@ const NuevaCuenta = (props) => {
         })
     }
     return ( 
-        <div className="form-usuario">
+        <div className="form-usuario-nueva">
         <div className="contenedor-form sombra-dark">
       
             <h1>Crear Cuenta</h1>

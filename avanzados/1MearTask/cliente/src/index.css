@@ -277,11 +277,19 @@ aside  {
 .form-usuario {
     background-color: var(--gris2);
     height: 100vh;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+.form-usuario-nueva {
+  background-color: var(--gris2);
+  height: 100vh;
+  min-height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .contenedor-form {
     padding: 5rem 3rem;
     max-width: 600px;
