@@ -6,8 +6,25 @@ export function crearNuevoProductoAction(producto){
         dispatch(
             agregarProducto()
         );
+        // para agregar a la base de datos
+        try {
+            dispatch(agregarProductoExito(producto));
+
+        } catch (error) {
+            dispatch(agregarProductoError(true));
+        }
     }
 }
 const agregarProducto=()=>({
     type:AGREGAR_PRODUCTO
 })
+
+// si el prodducto se guarda en la base de datos
+const agregarProductoExito=producto=>({
+    type:AGREGAR_PRODUCTO_EXITO,
+    payload:producto
+})
+
+
+
+// si hay un error
