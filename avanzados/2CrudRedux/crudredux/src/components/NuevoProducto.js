@@ -4,7 +4,10 @@ import {useDispatch,useSelector} from 'react-redux';
 import {crearNuevoProductoAction} from '../actions/productoActions';
 
 const NuevoProducto = () => {
-    cosnt agregarProducto=()=>
+    // utilizar usedispatj y te crea una funcion
+    const dispatch=useDispatch();
+
+    const agregarProducto=()=>dispatch(crearNuevoProductoAction)
 
     // cuando el usuario haga submit en el boton
     const agregarNUevoProducto=e=>{
