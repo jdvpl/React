@@ -14,6 +14,7 @@ const NuevoProducto = () => {
 
     // acceder al state del store
     const cargando=useSelector(state=>state.productos.loading);
+    const error=useSelector(state=>state.productos.error);
     // cuando el usuario haga submit en el boton
     const agregarNUevoProducto=e=>{
         e.preventDefault();
@@ -69,6 +70,7 @@ const NuevoProducto = () => {
                                 </button>
                         </form>
                         {cargando?<p>Cargando...</p>:null}
+                        {error? <p className="alert alert-danger p-2 mt-4 text-center">Hubo un error</p>:null}
                     </div>
                 </div>
             </div>

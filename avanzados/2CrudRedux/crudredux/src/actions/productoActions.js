@@ -35,6 +35,7 @@ const agregarProductoExito=producto=>({
 
 
 // si hay un error
-const agregarProductoError=()=>({
-    type:GUARDAR_PRODUCTO_ERROR
+const agregarProductoError=estado=>({
+    type:GUARDAR_PRODUCTO_ERROR,
+    payload:estado
 })

@@ -44,6 +44,11 @@
       "nombre": "kakaroto",
       "precio": 5300,
       "id": 9
+    },
+    {
+      "nombre": "juan daniel suarez amado",
+      "precio": 654654,
+      "id": 10
     }
   ]
 }
