@@ -1,8 +1,8 @@
 import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO} from '../types/index';
 
 // crear nuecos productos
-export function crearNuevoProductoAction(){
+export function crearNuevoProductoAction(producto){
     return()=>{
-        console.log('desde action');
+        console.log(producto);
     }
 }
