@@ -1,0 +1,7 @@
+isntalar axios
+crear proyecto
+
+crear el json
+instalar json-server
+correr el json en un puerto diferente 
+json-server db.json --port 4000
