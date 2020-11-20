@@ -16,7 +16,8 @@ export function crearNuevoProductoAction(producto){
     }
 }
 const agregarProducto=()=>({
-    type:AGREGAR_PRODUCTO
+    type:AGREGAR_PRODUCTO,
+    payload:true
 })
 
 // si el prodducto se guarda en la base de datos
@@ -28,3 +29,7 @@ const agregarProductoExito=producto=>({
 
 
 // si hay un error
+const agregarProductoError=()=>({
+    type:GUARDAR_PRODUCTO_ERROR,
+    payload:estado
+})
