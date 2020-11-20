@@ -1,6 +1,12 @@
 import React from 'react';
+import {crearNuevoProductoAction} from '../actions/productoActions';
 
 const NuevoProducto = () => {
+
+    // cuando el usuario haga submit en el boton
+    const agregarNUevoProducto=e=>{
+        e.preventDefault();
+    }
     return ( 
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -8,7 +14,9 @@ const NuevoProducto = () => {
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-wight-bold">Agregar Producto</h2>
 
-                        <form>
+                        <form
+                            onSubmit={agregarNUevoProducto}
+                        >
                             <div className="form-group">
                                 <label>Nombre Producto</label>
                                 <input
