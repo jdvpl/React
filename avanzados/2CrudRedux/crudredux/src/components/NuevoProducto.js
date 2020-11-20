@@ -7,7 +7,8 @@ const NuevoProducto = () => {
     // utilizar usedispatj y te crea una funcion
     const dispatch=useDispatch();
 
-    const agregarProducto=()=>dispatch(crearNuevoProductoAction)
+    // mandar a llmar la funcion del action para inplemnetarla
+    const agregarProducto=()=>dispatch(crearNuevoProductoAction())
 
     // cuando el usuario haga submit en el boton
     const agregarNUevoProducto=e=>{
@@ -18,6 +19,7 @@ const NuevoProducto = () => {
         // sino hay errores
 
         // crear el nuievo productos
+        agregarProducto();
     }
     return ( 
         <div className="row justify-content-center">
