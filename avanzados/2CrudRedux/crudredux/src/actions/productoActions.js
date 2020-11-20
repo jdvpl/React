@@ -2,14 +2,14 @@ import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO} from '..
 import clienteAxios from '../config/axios';
 // crear nuecos productos
 export function crearNuevoProductoAction(producto){
-    return(dispatch)=>{
+    return async(dispatch)=>{
         dispatch(
             agregarProducto()
         );
         // para agregar a la base de datos
         try {
             // insertar en la api
-            clienteAxios.post('/productos',producto);
+            await clienteAxios.post('/productos',producto);
             // si todo sale bien actualiza el state
 
             dispatch(agregarProductoExito(producto));

@@ -12,6 +12,8 @@ const NuevoProducto = () => {
     // mandar a llmar la funcion del action para inplemnetarla
     const agregarProducto=producto=>dispatch(crearNuevoProductoAction(producto))
 
+    // acceder al state del store
+    const cargando=useSelector(state=>state.productos.loading);
     // cuando el usuario haga submit en el boton
     const agregarNUevoProducto=e=>{
         e.preventDefault();
@@ -66,6 +68,7 @@ const NuevoProducto = () => {
                                     Agregar
                                 </button>
                         </form>
+                        {cargando?<p>Cargando...</p>:null}
                     </div>
                 </div>
             </div>

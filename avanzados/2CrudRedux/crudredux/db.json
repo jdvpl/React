@@ -39,6 +39,11 @@
       "nombre": "muneco goku",
       "precio": 60000,
       "id": 8
+    },
+    {
+      "nombre": "kakaroto",
+      "precio": 5300,
+      "id": 9
     }
   ]
 }
