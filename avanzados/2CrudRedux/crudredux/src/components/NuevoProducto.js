@@ -1,11 +1,20 @@
 import React from 'react';
+// funciones de redux
+import {useDispatch,useSelector} from 'react-redux';
 import {crearNuevoProductoAction} from '../actions/productoActions';
 
 const NuevoProducto = () => {
+    cosnt agregarProducto=()=>
 
     // cuando el usuario haga submit en el boton
     const agregarNUevoProducto=e=>{
         e.preventDefault();
+        // validar formulario
+
+
+        // sino hay errores
+
+        // crear el nuievo productos
     }
     return ( 
         <div className="row justify-content-center">
