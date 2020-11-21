@@ -34,6 +34,19 @@ export default function(state=initialState,action){
                 ...state,
                 loading:action.payload
             }
+        case DESCARGA_PRODUCTOS_EXITO:
+            return{
+                ...state,
+                loading:false,
+                error:null,
+                productos:action.payload
+            }
+        case DESCARGA_PRODUCTOS_ERROR:
+        return{
+            ...state,
+            loading:false,
+            error:action.payload
+        }
         default:
             return state;
     }
