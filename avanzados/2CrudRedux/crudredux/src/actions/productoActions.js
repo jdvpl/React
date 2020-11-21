@@ -1,4 +1,5 @@
-import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO} from '../types/index';
+import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO,
+    COMENZAR_DESCARGA_PRODUCTOS,DESCARGA_PRODUCTOS_ERROR,DESCARGA_PRODUCTOS_EXITO} from '../types/index';
 import clienteAxios from '../config/axios';
 import Swal from 'sweetalert2';
 // crear nuecos productos
@@ -51,4 +52,14 @@ const agregarProductoExito=producto=>({
 const agregarProductoError=estado=>({
     type:GUARDAR_PRODUCTO_ERROR,
     payload:estado
+});
+// FUNCON QUE obtiene los porductos
+export function obtenerProductosAction(){
+    return async(dispatch)=>{
+        dispatch(descargarProductos());
+    }
+}
+const descargarProductos =()=>({
+    type:COMENZAR_DESCARGA_PRODUCTOS,
+    payload:true
 })
