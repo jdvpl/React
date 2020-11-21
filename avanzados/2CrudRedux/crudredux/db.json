@@ -69,6 +69,11 @@
       "nombre": "jugo de naranja",
       "precio": 1500,
       "id": 14
+    },
+    {
+      "nombre": "azami",
+      "precio": 950,
+      "id": 15
     }
   ]
 }

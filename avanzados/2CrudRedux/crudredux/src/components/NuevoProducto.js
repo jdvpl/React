@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import {crearNuevoProductoAction} from '../actions/productoActions';
 
-const NuevoProducto = () => {
+const NuevoProducto = ({history}) => {
     const [nombre,setNombre]=useState('');
     const [precio, setPrecio] = useState(0);
     // utilizar usedispatj y te crea una funcion
@@ -30,6 +30,8 @@ const NuevoProducto = () => {
             nombre,
             precio
         });
+        // reidreccionar al inicio
+        history.push('/');
     }
     return ( 
         <div className="row justify-content-center">
