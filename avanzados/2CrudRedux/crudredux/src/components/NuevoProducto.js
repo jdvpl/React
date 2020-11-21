@@ -5,7 +5,9 @@ import {crearNuevoProductoAction} from '../actions/productoActions';
 
 const NuevoProducto = ({history}) => {
     const [nombre,setNombre]=useState('');
-    const [precio, setPrecio] = useState(0);
+    const [precio, setPrecio] = useState(null);
+    const [cliente, setCliente] = useState('');
+    const [vendedor, setVendedor] = useState('')
     // utilizar usedispatj y te crea una funcion
     const dispatch=useDispatch();
 
@@ -28,7 +30,9 @@ const NuevoProducto = ({history}) => {
         // crear el nuievo productos
         agregarProducto({
             nombre,
-            precio
+            precio,
+            cliente,
+            vendedor
         });
         // reidreccionar al inicio
         history.push('/');
@@ -63,6 +67,28 @@ const NuevoProducto = ({history}) => {
                                     name="precio"
                                     value={precio}
                                     onChange={e=>setPrecio(Number(e.target.value))}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Cliente</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Cliente"
+                                    name="precio"
+                                    value={cliente}
+                                    onChange={e=>setCliente(e.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Vendedor</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Vendedor"
+                                    name="precio"
+                                    value={vendedor}
+                                    onChange={e=>setVendedor(e.target.value)}
                                 />
                             </div>
                             <button

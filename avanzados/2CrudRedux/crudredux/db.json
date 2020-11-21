@@ -74,6 +74,13 @@
       "nombre": "azami",
       "precio": 950,
       "id": 15
+    },
+    {
+      "nombre": "tequila",
+      "precio": 1650,
+      "cliente": "juan daniel",
+      "vendedor": "kakaroto",
+      "id": 16
     }
   ]
 }

@@ -27,6 +27,24 @@ const EditarProducto = () => {
                                     name="precio"
                                 />
                             </div>
+                            <div className="form-group">
+                                <label>Cliente</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="cliente"
+                                    name="cliente"
+                                />
+                                 </div>
+                                <div className="form-group">
+                                <label>Vendedor</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="vendedor"
+                                    name="vendedor"
+                                />
+                            </div>
                             <button
                                 type="submit"
                                 className="btn btn-primary font-weight-bold text-capitaliza d-block w-100">

@@ -9,6 +9,8 @@ const Productos = () => {
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Vendedor</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
