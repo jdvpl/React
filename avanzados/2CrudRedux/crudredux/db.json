@@ -1,86 +1,18 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
-    },
-    {
-      "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
-    },
-    {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
-      "id": 3
-    },
-    {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
-    },
-    {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "nombre": "tequila",
-      "precio": 5000,
-      "id": 6
-    },
-    {
-      "nombre": "muneco goku",
-      "precio": 60000,
-      "id": 7
-    },
-    {
-      "nombre": "muneco goku",
-      "precio": 60000,
-      "id": 8
-    },
-    {
-      "nombre": "kakaroto",
-      "precio": 5300,
-      "id": 9
-    },
-    {
-      "nombre": "juan daniel suarez amado",
-      "precio": 654654,
-      "id": 10
-    },
-    {
-      "nombre": "tequila",
-      "precio": 500,
-      "id": 11
-    },
-    {
-      "nombre": "jiren",
-      "precio": 1000,
-      "id": 12
-    },
-    {
-      "nombre": "kakaroto",
-      "precio": 6750,
-      "id": 13
-    },
-    {
-      "nombre": "jugo de naranja",
-      "precio": 1500,
-      "id": 14
-    },
-    {
-      "nombre": "azami",
-      "precio": 950,
-      "id": 15
-    },
-    {
       "nombre": "tequila",
       "precio": 1650,
       "cliente": "juan daniel",
       "vendedor": "kakaroto",
-      "id": 16
+      "id": 1
+    },
+    {
+      "nombre": "kakaroto",
+      "precio": 3500,
+      "cliente": "Juan Daniel",
+      "vendedor": "Kakaroto",
+      "id": 2
     }
   ]
 }
