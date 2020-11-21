@@ -16,12 +16,14 @@ const Productos = () => {
 
     // obtener el state
     const productos = useSelector(state => state.productos.productos);
-    const error = useSelector(state => state.productos.error)
+    const error = useSelector(state => state.productos.error);
+    const cargando = useSelector(state => state.productos.loading);
 
     return ( 
         <div>
             <h2 className="text-center my-5">Listado de Productos</h2>
             {error ? <p className="font-weight-bold text-center alert alert-danger">Eror</p>:null}
+            {cargando?<p className="text-center font-weight-bold">Cargando datos.....</p>:null}
             <table className="table table-striped">
                 <thead className="bg-primary table-dark">
                     <tr>
