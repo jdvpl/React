@@ -13,6 +13,11 @@ const Producto = ({producto}) => {
                 <Link to={`/productos/editar/${id}`} 
                     className="btn btn-outline-primary mr-2 "
                 >Editar</Link>
+                <button 
+                    type="button"
+                    className="btn btn-outline-danger">
+                    Eliminar
+                </button>
             </td>
         </tr>
     );
