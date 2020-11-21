@@ -49,6 +49,21 @@
       "nombre": "juan daniel suarez amado",
       "precio": 654654,
       "id": 10
+    },
+    {
+      "nombre": "tequila",
+      "precio": 500,
+      "id": 11
+    },
+    {
+      "nombre": "jiren",
+      "precio": 1000,
+      "id": 12
+    },
+    {
+      "nombre": "kakaroto",
+      "precio": 6750,
+      "id": 13
     }
   ]
 }
