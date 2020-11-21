@@ -54,7 +54,7 @@ const agregarProductoError=estado=>({
     payload:estado
 });
 // FUNCON QUE obtiene los porductos
-export function obtenerProductosAction(){
+export default function obtenerProductosAction(){
     return async(dispatch)=>{
         dispatch(descargarProductos());
     }
