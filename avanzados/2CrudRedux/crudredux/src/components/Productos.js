@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 
 import { useDispatch,useSelector } from 'react-redux';
 import obtenerProductosAction from '../actions/productoActions';
+import Producto from './Producto';
 
 const Productos = () => {
     const dispatch=useDispatch();
@@ -32,7 +33,10 @@ const Productos = () => {
                 <tbody>
                     {productos.length===0?'No hay Productos':(
                         productos.map(producto =>(
-                            
+                            <Producto
+                                key={producto.id}
+                                producto={producto}
+                            />
                         ))
                     )}
                 </tbody>
