@@ -13,6 +13,9 @@ const Productos = () => {
         cargarProductos();
     }, []);
 
+    // obtener el state
+    const productos = useSelector(state => state.productos.productos);
+
     return ( 
         <div>
             <h2 className="text-center my-5">Listado de Productos</h2>
@@ -27,7 +30,11 @@ const Productos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {productos.length===0?'No hay Productos':(
+                        productos.map(producto =>(
+                            
+                        ))
+                    )}
                 </tbody>
             </table>
         </div>
