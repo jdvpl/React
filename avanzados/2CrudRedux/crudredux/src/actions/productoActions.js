@@ -1,5 +1,6 @@
 import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO} from '../types/index';
 import clienteAxios from '../config/axios';
+import Swal from 'sweetalert2';
 // crear nuecos productos
 export function crearNuevoProductoAction(producto){
     return async(dispatch)=>{
@@ -13,11 +14,23 @@ export function crearNuevoProductoAction(producto){
             // si todo sale bien actualiza el state
 
             dispatch(agregarProductoExito(producto));
-
+            // alerta
+            Swal.fire(
+                'Correcto',
+                'El producto se agrego correctamente',
+                'success'
+            )
         } catch (error) {
             console.log(error);
             // cambia el state
             dispatch(agregarProductoError(true));
+
+            // alerta de error
+            Swal.fire({
+                icon:'error',
+                title:'Error',
+                text:'No se pudieron agregar los datos a la base de datos'
+            })
         }
     }
 }

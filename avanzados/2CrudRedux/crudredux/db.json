@@ -64,6 +64,11 @@
       "nombre": "kakaroto",
       "precio": 6750,
       "id": 13
+    },
+    {
+      "nombre": "jugo de naranja",
+      "precio": 1500,
+      "id": 14
     }
   ]
 }
