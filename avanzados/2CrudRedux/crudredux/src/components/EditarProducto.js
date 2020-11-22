@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux'
+import {editarProducto} from '../actions/productoActions';
 
 const EditarProducto = () => {
-
+    const [producto, setproducto] = useState({
+        nombre:'',
+        precio:0,
+        cliente:'',
+        vendedor:''
+    })
     // producto a editar
-    const producto = useSelector(state => state.productos.productoeditar);
-    if(!producto) return null;
+    const productoExite = useSelector(state => state.productos.productoeditar);
+    
+    useEffect(() => {
+        setproducto(productoExite);
+    }, [productoExite])
+
+    const onChangeForm=e=>{
+        setproducto({
+            ...producto,
+            [e.target.name]:e.target.value
+        })
+    }
+
+
     const {nombre,precio,cliente,vendedor,id}=producto;
+    const edicion=e=>{
+        e.preventDefault();
+
+        editarProducto();
+    }
     return ( 
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -14,7 +37,9 @@ const EditarProducto = () => {
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-wight-bold">Editar Producto</h2>
 
-                        <form>
+                        <form
+                            onSubmit={edicion}
+                        >
                             <div className="form-group">
                                 <label>Nombre Producto</label>
                                 <input
@@ -23,6 +48,7 @@ const EditarProducto = () => {
                                     placeholder="Nombre Producto"
                                     name="nombre"
                                     value={nombre}
+                                    onChange={onChangeForm}
                                 />
                             </div>
                             <div className="form-group">
@@ -33,6 +59,7 @@ const EditarProducto = () => {
                                     placeholder="Precio"
                                     name="precio"
                                     value={precio}
+                                    onChange={onChangeForm}
                                 />
                             </div>
                             <div className="form-group">
@@ -43,6 +70,7 @@ const EditarProducto = () => {
                                     placeholder="cliente"
                                     name="cliente"
                                     value={cliente}
+                                    onChange={onChangeForm}
                                 />
                                  </div>
                                 <div className="form-group">
@@ -53,6 +81,7 @@ const EditarProducto = () => {
                                     placeholder="vendedor"
                                     name="vendedor"
                                     value={vendedor}
+                                    onChange={onChangeForm}
                                 />
                             </div>
                             <button
