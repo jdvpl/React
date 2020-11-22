@@ -42,6 +42,7 @@ export default function(state=initialState,action){
                 error:null,
                 productos:action.payload
             }
+        case PRODUCTO_ELIMINADO_ERROR:
         case DESCARGA_PRODUCTOS_ERROR:
         return{
             ...state,
