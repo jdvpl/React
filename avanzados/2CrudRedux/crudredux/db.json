@@ -2,38 +2,10 @@
   "productos": [
     {
       "nombre": "tequila",
-      "precio": 1650,
-      "cliente": "juan daniel",
-      "vendedor": "kakaroto",
-      "id": 1
-    },
-    {
-      "nombre": "kakaroto",
-      "precio": 3500,
-      "cliente": "Juan Daniel",
-      "vendedor": "Kakaroto",
-      "id": 2
-    },
-    {
-      "nombre": "jiren",
-      "precio": 30000,
-      "cliente": "kamisama",
-      "vendedor": "Goku",
-      "id": 3
-    },
-    {
-      "nombre": "Liboria",
-      "precio": 600000,
+      "precio": 1250,
       "cliente": "kakaroto",
-      "vendedor": "Jiren",
-      "id": 4
-    },
-    {
-      "nombre": "tequila",
-      "precio": 123456789,
-      "cliente": "jiren",
-      "vendedor": "kakaroto",
-      "id": 5
+      "vendedor": "jiren",
+      "id": 1
     }
   ]
 }
