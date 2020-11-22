@@ -56,7 +56,8 @@ export default function(state=initialState,action){
         case PRODUCTO_ELIMINADO_EXITO:
             return{
                 ...state,
-                productos:state.productos.filter(producto=>producto.id !==state.productoEliminar)
+                productos:state.productos.filter(producto=>producto.id !==state.productoEliminar),
+                productoEliminar:null
             }
         default:
             return state;
