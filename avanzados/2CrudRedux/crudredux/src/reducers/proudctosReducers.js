@@ -1,7 +1,8 @@
 
 import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO,
     COMENZAR_DESCARGA_PRODUCTOS,DESCARGA_PRODUCTOS_ERROR,DESCARGA_PRODUCTOS_EXITO,
-    PRODUCTO_ELIMINADO_ERROR,OBTENER_PRODUCTO_ELIMINAR,PRODUCTO_ELIMINADO_EXITO} from '../types/index';
+    PRODUCTO_ELIMINADO_ERROR,OBTENER_PRODUCTO_ELIMINAR,PRODUCTO_ELIMINADO_EXITO,
+    OBTNER_PRODUCTO_EDITAR, PRODUCTO_EDITADO_EXITO, PRODUCTO_EDITADO_ERROR} from '../types/index';
 
 // cada reduceres tiene su porpio estate
 
@@ -9,7 +10,8 @@ const initialState={
     productos:[],
     error:null,
     loading:false,
-    productoEliminar:null
+    productoEliminar:null,
+    productoeditar:null
 }
 export default function(state=initialState,action){
     switch(action.type){
@@ -59,6 +61,11 @@ export default function(state=initialState,action){
                 ...state,
                 productos:state.productos.filter(producto=>producto.id !==state.productoEliminar),
                 productoEliminar:null
+            }
+        case OBTNER_PRODUCTO_EDITAR:
+            return{
+                ...state,
+                productoeditar:action.payload
             }
         default:
             return state;
