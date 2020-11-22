@@ -1,7 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {borrarProductoAction} from '../actions/productoActions';
+
 const Producto = ({producto}) => {
     const {nombre,id,precio,cliente,vendedor}=producto;
+
+    const dispatch = useDispatch();
+    // confirmar si desea eliminar el producto
+    const confirmar=id=>{
+        console.log('el id es: '+id);
+    }
     return (  
         <tr>
             <td>{id}</td>
@@ -15,7 +24,9 @@ const Producto = ({producto}) => {
                 >Editar</Link>
                 <button 
                     type="button"
-                    className="btn btn-outline-danger">
+                    className="btn btn-outline-danger"
+                    onClick={()=>confirmar(id)}
+                    >
                     Eliminar
                 </button>
             </td>

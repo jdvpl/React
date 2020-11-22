@@ -82,7 +82,7 @@ const descargaProductosError=()=>({
     payload:true
 })
 // selecciona y elimina un producto
-export default function(id){
+export function borrarProductoAction(id){
     return async(dispatch)=>{
         dispatch(obtenerProductosEliminar(id));
     }
