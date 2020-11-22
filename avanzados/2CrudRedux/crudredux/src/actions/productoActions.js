@@ -1,6 +1,7 @@
 import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO,
     COMENZAR_DESCARGA_PRODUCTOS,DESCARGA_PRODUCTOS_ERROR,DESCARGA_PRODUCTOS_EXITO,
-    PRODUCTO_ELIMINADO_ERROR,OBTENER_PRODUCTO_ELIMINAR,PRODUCTO_ELIMINADO_EXITO} from '../types/index';
+    PRODUCTO_ELIMINADO_ERROR,OBTENER_PRODUCTO_ELIMINAR,PRODUCTO_ELIMINADO_EXITO,
+    OBTNER_PRODUCTO_EDITAR, PRODUCTO_EDITADO_EXITO, PRODUCTO_EDITADO_ERROR} from '../types/index';
 import clienteAxios from '../config/axios';
 import Swal from 'sweetalert2';
 // crear nuecos productos
@@ -114,4 +115,15 @@ const elimianrProductoExito=()=>({
 const elimianrProductoError=()=>({
     type:PRODUCTO_ELIMINADO_ERROR,
     payload:true
+})
+// COLOCAR PRODUCTO EN EL FORM DE EDITAR
+export function obtenerProductoEditar(producto){
+    return(dispatch)=>{
+        dispatch(obtenerProductoEdicion(producto))
+    }
+}
+
+const obtenerProductoEdicion =producto=>({
+    type:OBTNER_PRODUCTO_EDITAR,
+    payload:producto
 })
