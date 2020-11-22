@@ -2,24 +2,31 @@
   "productos": [
     {
       "nombre": "tequila",
-      "precio": "123456",
-      "cliente": "kamisama",
+      "precio": "9",
+      "cliente": "kakaroto",
       "vendedor": "kamisama",
       "id": 1
     },
     {
       "nombre": "liboria",
-      "precio": "3245234599999999",
-      "cliente": "Kaioken",
+      "precio": "369852",
+      "cliente": "kakaroto",
       "vendedor": "Saitama",
       "id": 2
     },
     {
       "nombre": "enmasama",
       "precio": "13506",
-      "cliente": "milk",
+      "cliente": "jiren",
       "vendedor": "kakaroto",
       "id": 3
+    },
+    {
+      "nombre": "juan",
+      "precio": 30000,
+      "cliente": "saitama",
+      "vendedor": "manuel",
+      "id": 4
     }
   ]
 }
