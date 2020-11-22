@@ -2,7 +2,6 @@ import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO,
     COMENZAR_DESCARGA_PRODUCTOS,DESCARGA_PRODUCTOS_ERROR,DESCARGA_PRODUCTOS_EXITO} from '../types/index';
 import clienteAxios from '../config/axios';
 import Swal from 'sweetalert2';
-import Productos from '../components/Productos';
 // crear nuecos productos
 export function crearNuevoProductoAction(producto){
     return async(dispatch)=>{

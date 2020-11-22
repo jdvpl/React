@@ -7,7 +7,8 @@ import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO,
 const initialState={
     productos:[],
     error:null,
-    loading:false
+    loading:false,
+    productoEliminar:null
 }
 export default function(state=initialState,action){
     switch(action.type){

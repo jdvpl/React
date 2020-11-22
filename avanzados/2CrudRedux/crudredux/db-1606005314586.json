@@ -20,20 +20,6 @@
       "cliente": "kamisama",
       "vendedor": "Goku",
       "id": 3
-    },
-    {
-      "nombre": "Liboria",
-      "precio": 600000,
-      "cliente": "kakaroto",
-      "vendedor": "Jiren",
-      "id": 4
-    },
-    {
-      "nombre": "tequila",
-      "precio": 123456789,
-      "cliente": "jiren",
-      "vendedor": "kakaroto",
-      "id": 5
     }
   ]
 }
