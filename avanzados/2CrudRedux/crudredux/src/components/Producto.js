@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link,useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {borrarProductoAction} from '../actions/productoActions';
 import Swal from 'sweetalert2';
@@ -29,6 +29,12 @@ const Producto = ({producto}) => {
           });
 
     }
+    const history=useHistory();
+    // funcion que redirige 
+    const redireccionar=producto=>{
+        history.push(`/productos/editar/${producto.id}`)
+
+    }
     return (  
         <tr>
             <td>{id}</td>
@@ -37,9 +43,11 @@ const Producto = ({producto}) => {
             <td>{cliente}</td>
             <td>{vendedor}</td>
             <td>
-                <Link to={`/productos/editar/${id}`} 
+                <button 
+                    type="button"
+                    onClick={()=>redireccionar(producto)}
                     className="btn btn-outline-primary mr-2 "
-                >Editar</Link>
+                >Editar</button>
                 <button 
                     type="button"
                     className="btn btn-outline-danger"

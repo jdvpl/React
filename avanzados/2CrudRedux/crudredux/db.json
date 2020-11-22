@@ -6,6 +6,13 @@
       "cliente": "kamisama",
       "vendedor": "kamisama",
       "id": 1
+    },
+    {
+      "nombre": "liboria",
+      "precio": 123412354,
+      "cliente": "Kaioken",
+      "vendedor": "Saitama",
+      "id": 2
     }
   ]
 }
