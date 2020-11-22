@@ -1,6 +1,7 @@
 
 import {AGREGAR_PRODUCTO,GUARDAR_PRODUCTO_ERROR,AGREGAR_PRODUCTO_EXITO,
-    COMENZAR_DESCARGA_PRODUCTOS,DESCARGA_PRODUCTOS_ERROR,DESCARGA_PRODUCTOS_EXITO} from '../types/index';
+    COMENZAR_DESCARGA_PRODUCTOS,DESCARGA_PRODUCTOS_ERROR,DESCARGA_PRODUCTOS_EXITO,
+    PRODUCTO_ELIMINADO_ERROR,OBTENER_PRODUCTO_ELIMINAR,PRODUCTO_ELIMINADO_EXITO} from '../types/index';
 
 // cada reduceres tiene su porpio estate
 
@@ -47,6 +48,11 @@ export default function(state=initialState,action){
             loading:false,
             error:action.payload
         }
+        case OBTENER_PRODUCTO_ELIMINAR:
+            return{
+                ...state,
+                productoEliminar:action.payload
+            }
         default:
             return state;
     }

@@ -9,7 +9,14 @@ const Producto = ({producto}) => {
     const dispatch = useDispatch();
     // confirmar si desea eliminar el producto
     const confirmar=id=>{
-        console.log('el id es: '+id);
+        // confirmacion
+
+
+        // pasarlo al action
+        dispatch(borrarProductoAction(id));
+
+
+
     }
     return (  
         <tr>
