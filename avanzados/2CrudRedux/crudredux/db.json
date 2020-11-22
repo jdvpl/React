@@ -2,17 +2,24 @@
   "productos": [
     {
       "nombre": "tequila",
-      "precio": 2345234,
+      "precio": "123456",
       "cliente": "kamisama",
       "vendedor": "kamisama",
       "id": 1
     },
     {
       "nombre": "liboria",
-      "precio": 123412354,
+      "precio": "3245234599999999",
       "cliente": "Kaioken",
       "vendedor": "Saitama",
       "id": 2
+    },
+    {
+      "nombre": "enmasama",
+      "precio": "13506",
+      "cliente": "milk",
+      "vendedor": "kakaroto",
+      "id": 3
     }
   ]
 }

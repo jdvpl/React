@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux'
 import {editarProducto} from '../actions/productoActions';
+import {useHistory} from 'react-router-dom';
 
 const EditarProducto = () => {
+    const dispatch = useDispatch();
+    const history=useHistory();
+
+
+    // ek state para leer los nuevos productos
     const [producto, setproducto] = useState({
         nombre:'',
-        precio:0,
+        precio:'',
         cliente:'',
         vendedor:''
     })
@@ -24,11 +30,12 @@ const EditarProducto = () => {
     }
 
 
-    const {nombre,precio,cliente,vendedor,id}=producto;
+    const {nombre,precio,cliente,vendedor}=producto;
     const edicion=e=>{
         e.preventDefault();
 
-        editarProducto();
+        dispatch(editarProducto(producto));
+        history.push('/');
     }
     return ( 
         <div className="row justify-content-center">
