@@ -130,16 +130,19 @@ const obtenerProductoEdicion =producto=>({
 // EDITA UN REGISTRO EN LA API
 export function editarProducto(producto){
     return async(dispatch)=>{
-        dispatch(editar(producto));
+        dispatch(editar());
         try {
-            const resultado=await clienteAxios.put(`/productos/${producto.id}`,producto);
-            console.log(resultado)
+            await clienteAxios.put(`/productos/${producto.id}`,producto);
+            dispatch(editarPorductoExito(producto));
         } catch (error) {
             
         }
     }
 }
-const editar=producto=>({
-    type:COMENZAR_EDICION,
+const editar=()=>({
+    type:COMENZAR_EDICION
+})
+const editarPorductoExito =producto=>({
+    type:PRODUCTO_EDITADO_EXITO,
     payload:producto
 })
