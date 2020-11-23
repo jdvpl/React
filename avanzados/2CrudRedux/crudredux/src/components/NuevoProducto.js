@@ -20,6 +20,7 @@ const NuevoProducto = ({history}) => {
     // acceder al state del store
     const cargando=useSelector(state=>state.productos.loading);
     const error=useSelector(state=>state.productos.error);
+    const alerta = useSelector(state => state.alerta.alerta)
     // cuando el usuario haga submit en el boton
     const agregarNUevoProducto=e=>{
         e.preventDefault();
@@ -51,7 +52,7 @@ const NuevoProducto = ({history}) => {
                 <div className="card">
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-wight-bold">Agregar Producto</h2>
-
+                        {alerta?<p className={alerta.classes}>{alerta.msg}</p>:null}
 
                         <form
                             onSubmit={agregarNUevoProducto}

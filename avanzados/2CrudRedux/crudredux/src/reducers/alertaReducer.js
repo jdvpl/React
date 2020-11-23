@@ -6,7 +6,11 @@ const initalState={
 }
 export default function(state=initalState,action){
     switch(action.type){
-
+        case MOSTAR_ALERTA:
+            return{
+                ...state,
+                alerta:action.payload
+            }
 
 
         default:
