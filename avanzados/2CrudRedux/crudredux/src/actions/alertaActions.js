@@ -9,4 +9,14 @@ export function mostrarAlerta(alerta){
 const mostrarAlertaError=alerta=>({
     type:MOSTAR_ALERTA,
     payload:alerta
-})
+});
+
+// ocutla
+export function ocultaAlertaAction(){
+    return(dispatch)=>{
+        dispatch(ocultar())
+    }
+}
+const ocultar=()=>({
+    type:OCULTAR_ALERTA
+});

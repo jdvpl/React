@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // funciones de redux
 import {useDispatch,useSelector} from 'react-redux';
-import { mostrarAlerta } from '../actions/alertaActions';
+import { mostrarAlerta,ocultaAlertaAction } from '../actions/alertaActions';
 import {crearNuevoProductoAction} from '../actions/productoActions';
 
 
@@ -34,6 +34,7 @@ const NuevoProducto = ({history}) => {
             return;
         }
         // sino hay errores
+        dispatch(ocultaAlertaAction() );
 
         // crear el nuievo productos
         agregarProducto({
