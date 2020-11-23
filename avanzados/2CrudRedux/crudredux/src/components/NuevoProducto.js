@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 // funciones de redux
 import {useDispatch,useSelector} from 'react-redux';
+import { mostrarAlerta } from '../actions/alertaActions';
 import {crearNuevoProductoAction} from '../actions/productoActions';
+
 
 const NuevoProducto = ({history}) => {
     const [nombre,setNombre]=useState('');
@@ -9,7 +11,6 @@ const NuevoProducto = ({history}) => {
     const [cliente, setCliente] = useState('');
     const [vendedor, setVendedor] = useState('');
     const [cantidad, setcantidad] = useState(null)
-    const [errorr, seterror] = useState(false);
     // utilizar usedispatj y te crea una funcion
     const dispatch=useDispatch();
 
@@ -24,7 +25,11 @@ const NuevoProducto = ({history}) => {
         e.preventDefault();
         // validar formulario
         if(nombre.trim()===''||precio<=0 || cliente.trim()===''||vendedor.trim()===''||cantidad<=0){
-            seterror(true);
+            const alerta={
+                msg:'Todos los campos son obligatorios',
+                classes:'alert alert-danger text-center text-uppercase p-3'
+            }
+            dispatch(mostrarAlerta(alerta));
             return;
         }
         // sino hay errores
@@ -46,7 +51,8 @@ const NuevoProducto = ({history}) => {
                 <div className="card">
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-wight-bold">Agregar Producto</h2>
-                        {errorr?<p className="alert alert-danger text-center p-2">Todo los campos son obligatorios</p>:null}
+
+
                         <form
                             onSubmit={agregarNUevoProducto}
                         >
