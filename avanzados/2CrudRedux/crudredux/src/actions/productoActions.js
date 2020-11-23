@@ -136,7 +136,7 @@ export function editarProducto(producto){
             dispatch(editarPorductoExito(producto));
             Swal.fire(
                 'Correcto',
-                'El producto se edito',
+                'El producto se edito satisfactoriamente',
                 'success'
             )
         } catch (error) {

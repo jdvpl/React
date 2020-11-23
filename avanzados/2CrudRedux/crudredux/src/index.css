@@ -49,3 +49,26 @@ h1 a.text-light:hover {
 .acciones > *{
   flex: 1;
 }
+
+  /* color de la barra scroll */
+
+  .navbar.scrolled {
+    background: rgb(211, 63, 26) !important;
+    transition: 0.5s;
+  }
+  
+  ::-webkit-scrollbar {
+    border-radius: 10px !important;
+    width: 7px !important;
+    background-color: rgba(255, 14, 14, 0.144) !important;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(70, 8, 185, 0.3) !important;
+    background-color: rgba(7, 69, 241, 0.11) !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 1px !important;
+    background-color: rgb(56, 86, 218) !important;
+  }

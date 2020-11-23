@@ -26,7 +26,7 @@ const Productos = () => {
 
             {error ? <p className="font-weight-bold text-center alert alert-danger">Eror</p>:null}
             {cargando?<p className="text-center font-weight-bold">Cargando datos.....</p>:null}
-            
+            <div className=" table-responsive table-bordered">
             <table className="table table-hover table-bordered">
                 <thead className="bg-primary table-dark text-center">
                     <tr>
@@ -53,6 +53,7 @@ const Productos = () => {
 
                 </tbody>
             </table>
+            </div>
         </div>
      );
 }

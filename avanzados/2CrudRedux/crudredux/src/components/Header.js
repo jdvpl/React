@@ -10,7 +10,7 @@ const Header = () => {
     return (  
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
             <div className="container">
-                <h1><Link to={'/'} className="text-light">
+                <h1><Link to={'/'} className="text-light text-center">
                 CRUD -React, Redux, Rest API & Axios
                 </Link>
                 </h1>
