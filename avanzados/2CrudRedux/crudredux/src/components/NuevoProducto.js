@@ -8,6 +8,7 @@ const NuevoProducto = ({history}) => {
     const [precio, setPrecio] = useState(null);
     const [cliente, setCliente] = useState('');
     const [vendedor, setVendedor] = useState('');
+    const [cantidad, setcantidad] = useState(null)
     const [errorr, seterror] = useState(false);
     // utilizar usedispatj y te crea una funcion
     const dispatch=useDispatch();
@@ -22,7 +23,7 @@ const NuevoProducto = ({history}) => {
     const agregarNUevoProducto=e=>{
         e.preventDefault();
         // validar formulario
-        if(nombre.trim()===''||precio<=0 || cliente.trim()===''||vendedor.trim()===''){
+        if(nombre.trim()===''||precio<=0 || cliente.trim()===''||vendedor.trim()===''||cantidad<=0){
             seterror(true);
             return;
         }
@@ -32,6 +33,7 @@ const NuevoProducto = ({history}) => {
         agregarProducto({
             nombre,
             precio,
+            cantidad,
             cliente,
             vendedor
         });
@@ -68,6 +70,17 @@ const NuevoProducto = ({history}) => {
                                     name="precio"
                                     value={precio}
                                     onChange={e=>setPrecio(Number(e.target.value))}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Cantidad</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Cantidad"
+                                    name="cantidad"
+                                    value={cantidad}
+                                    onChange={e=>setcantidad(Number(e.target.value))}
                                 />
                             </div>
                             <div className="form-group">

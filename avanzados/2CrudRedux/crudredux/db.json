@@ -5,35 +5,72 @@
       "precio": "1200",
       "cliente": "kakaroto",
       "vendedor": "kamisama",
-      "id": 1
+      "id": 1,
+      "cantidad": "165"
     },
     {
       "nombre": "liboria",
       "precio": "369852",
       "cliente": "kakaroto",
       "vendedor": "Saitama",
-      "id": 2
+      "id": 2,
+      "cantidad": "97"
     },
     {
       "nombre": "enmasama",
       "precio": "13506",
       "cliente": "jiren",
       "vendedor": "kakaroto",
-      "id": 3
+      "id": 3,
+      "cantidad": "26"
     },
     {
       "nombre": "juan",
       "precio": 30000,
       "cliente": "saitama",
       "vendedor": "manuel",
-      "id": 4
+      "id": 4,
+      "cantidad": "28"
     },
     {
       "nombre": "kakaroto",
       "precio": "1600",
       "cliente": "Juan Daniel",
       "vendedor": "Kakaroto",
-      "id": 5
+      "id": 5,
+      "cantidad": "125"
+    },
+    {
+      "nombre": "mandarina",
+      "precio": 350,
+      "cliente": "jiren",
+      "vendedor": "kakaroto",
+      "id": 6,
+      "cantidad": "256"
+    },
+    {
+      "nombre": "mango",
+      "precio": 5000,
+      "cliente": "Candela",
+      "vendedor": "Kakaroto",
+      "id": 7,
+      "cantidad": "19"
+    },
+    {
+      "nombre": "gaseosa",
+      "precio": 6000,
+      "cliente": "Kakaroto",
+      "vendedor": "Lucifer",
+      "id": 8,
+      "cantidad": "28"
+    },
+    {
+      "nombre": "Uva",
+      "precio": 3000,
+      "cantidad": 6,
+      "cliente": "Lucinda",
+      "vendedor": "Maria",
+      "id": 9
     }
   ]
 }

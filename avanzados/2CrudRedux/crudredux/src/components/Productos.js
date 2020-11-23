@@ -30,6 +30,7 @@ const Productos = () => {
                         <th scope="col">N°</th> 
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Vendedor</th>
                         <th scope="col">Acciones</th>

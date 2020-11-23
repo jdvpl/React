@@ -12,6 +12,7 @@ const EditarProducto = () => {
     const [producto, setproducto] = useState({
         nombre:'',
         precio:'',
+        cantidad:'',
         cliente:'',
         vendedor:''
     })
@@ -30,7 +31,7 @@ const EditarProducto = () => {
     }
 
 
-    const {nombre,precio,cliente,vendedor}=producto;
+    const {nombre,precio,cliente,vendedor,cantidad}=producto;
     const edicion=e=>{
         e.preventDefault();
 
@@ -66,6 +67,17 @@ const EditarProducto = () => {
                                     placeholder="Precio"
                                     name="precio"
                                     value={precio}
+                                    onChange={onChangeForm}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Cantidad</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="Cantidad"
+                                    name="cantidad"
+                                    value={cantidad}
                                     onChange={onChangeForm}
                                 />
                             </div>
