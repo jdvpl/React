@@ -2,7 +2,7 @@
   "productos": [
     {
       "nombre": "tequila",
-      "precio": "9",
+      "precio": "1200",
       "cliente": "kakaroto",
       "vendedor": "kamisama",
       "id": 1

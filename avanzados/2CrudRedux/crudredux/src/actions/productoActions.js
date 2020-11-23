@@ -134,6 +134,11 @@ export function editarProducto(producto){
         try {
             await clienteAxios.put(`/productos/${producto.id}`,producto);
             dispatch(editarPorductoExito(producto));
+            Swal.fire(
+                'Correcto',
+                'El producto se edito',
+                'success'
+            )
         } catch (error) {
             console.log(error);
             dispatch(editarProductoError());
