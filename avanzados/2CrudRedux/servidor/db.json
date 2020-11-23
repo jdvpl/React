@@ -79,6 +79,14 @@
       "cliente": "Tomas",
       "vendedor": "Juan",
       "id": 10
+    },
+    {
+      "nombre": "Lulo",
+      "precio": 1950,
+      "cantidad": 2.5,
+      "cliente": "Camila",
+      "vendedor": "Juan Daniel",
+      "id": 11
     }
   ]
 }
