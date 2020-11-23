@@ -79,14 +79,6 @@
       "cliente": "Tomas",
       "vendedor": "Juan",
       "id": 10
-    },
-    {
-      "nombre": "Pan",
-      "precio": 500,
-      "cantidad": 6,
-      "cliente": "Saitama",
-      "vendedor": "Kakaroto",
-      "id": 11
     }
   ]
 }
