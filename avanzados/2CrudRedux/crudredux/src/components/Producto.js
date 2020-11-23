@@ -36,12 +36,14 @@ const Producto = ({producto}) => {
         history.push(`/productos/editar/${producto.id}`)
 
     }
+    const total=Number(precio)*Number(cantidad);
     return (  
-        <tr>
+        <tr className="text-center">
             <td>{id}</td>
             <td>{nombre}</td>
             <td><span className="font-weight-bold">${precio}</span></td>
             <td>{cantidad}</td>
+            <td>{total}</td>
             <td>{cliente}</td>
             <td>{vendedor}</td>
             <td>

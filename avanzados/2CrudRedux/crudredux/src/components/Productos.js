@@ -25,12 +25,13 @@ const Productos = () => {
             {error ? <p className="font-weight-bold text-center alert alert-danger">Eror</p>:null}
             {cargando?<p className="text-center font-weight-bold">Cargando datos.....</p>:null}
             <table className="table table-striped">
-                <thead className="bg-primary table-dark">
+                <thead className="bg-primary table-dark text-center">
                     <tr>
                         <th scope="col">N°</th> 
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio</th>
-                        <th scope="col">Cantidad</th>
+                        <th scope="col">Cantidad (Kg)</th>
+                        <th scope="col">Total</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Vendedor</th>
                         <th scope="col">Acciones</th>

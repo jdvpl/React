@@ -43,7 +43,7 @@ const EditarProducto = () => {
             <div className="col-md-8">
                 <div className="card">
                     <div className="card-body">
-                        <h2 className="text-center mb-4 font-wight-bold">Editar Producto</h2>
+                        <h2 className="text-center mb-4 font-wight-bold">Editar {nombre}</h2>
 
                         <form
                             onSubmit={edicion}
