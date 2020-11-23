@@ -12,6 +12,7 @@ const Productos = () => {
 
         const cargarProductos=()=>dispatch(obtenerProductosAction());
         cargarProductos();
+        // eslint-disable-next-line
     }, []);
 
     // obtener el state
@@ -22,9 +23,11 @@ const Productos = () => {
     return ( 
         <div>
             <h2 className="text-center my-5">Listado de Productos</h2>
+
             {error ? <p className="font-weight-bold text-center alert alert-danger">Eror</p>:null}
             {cargando?<p className="text-center font-weight-bold">Cargando datos.....</p>:null}
-            <table className="table table-striped">
+            
+            <table className="table table-hover table-bordered">
                 <thead className="bg-primary table-dark text-center">
                     <tr>
                         <th scope="col">N°</th> 
@@ -38,7 +41,8 @@ const Productos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {productos.length===0?'No hay Productos':(
+
+                    {productos.length===0 ?<tr><td className="mt-3">No hay Productos</td></tr>:(
                         productos.map(producto =>(
                             <Producto
                                 key={producto.id}
@@ -46,6 +50,7 @@ const Productos = () => {
                             />
                         ))
                     )}
+
                 </tbody>
             </table>
         </div>

@@ -42,7 +42,7 @@
     },
     {
       "nombre": "Mandarina",
-      "precio": 350,
+      "precio": "600",
       "cliente": "jiren",
       "vendedor": "kakaroto",
       "id": 6,
@@ -71,6 +71,14 @@
       "cliente": "Lucinda",
       "vendedor": "Maria",
       "id": 9
+    },
+    {
+      "nombre": "Chcolatina Jet Blanca",
+      "precio": 650,
+      "cantidad": 4,
+      "cliente": "Tomas",
+      "vendedor": "Juan",
+      "id": 10
     }
   ]
 }
