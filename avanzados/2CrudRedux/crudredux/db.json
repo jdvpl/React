@@ -27,6 +27,13 @@
       "cliente": "saitama",
       "vendedor": "manuel",
       "id": 4
+    },
+    {
+      "nombre": "kakaroto",
+      "precio": "1600",
+      "cliente": "Juan Daniel",
+      "vendedor": "Kakaroto",
+      "id": 5
     }
   ]
 }

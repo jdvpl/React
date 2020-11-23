@@ -7,7 +7,8 @@ const NuevoProducto = ({history}) => {
     const [nombre,setNombre]=useState('');
     const [precio, setPrecio] = useState(null);
     const [cliente, setCliente] = useState('');
-    const [vendedor, setVendedor] = useState('')
+    const [vendedor, setVendedor] = useState('');
+    const [errorr, seterror] = useState(false);
     // utilizar usedispatj y te crea una funcion
     const dispatch=useDispatch();
 
@@ -21,10 +22,10 @@ const NuevoProducto = ({history}) => {
     const agregarNUevoProducto=e=>{
         e.preventDefault();
         // validar formulario
-        if(nombre.trim()===''||precio<=0){
+        if(nombre.trim()===''||precio<=0 || cliente.trim()===''||vendedor.trim()===''){
+            seterror(true);
             return;
         }
-
         // sino hay errores
 
         // crear el nuievo productos
@@ -43,7 +44,7 @@ const NuevoProducto = ({history}) => {
                 <div className="card">
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-wight-bold">Agregar Producto</h2>
-
+                        {errorr?<p className="alert alert-danger text-center p-2">Todo los campos son obligatorios</p>:null}
                         <form
                             onSubmit={agregarNUevoProducto}
                         >
