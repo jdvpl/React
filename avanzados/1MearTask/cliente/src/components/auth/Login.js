@@ -57,7 +57,7 @@ const Login = (props) => {
         <div className="form-usuario">
         <div className="contenedor-form sombra-dark">
         {alerta? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>: null}
-            <h1>Inciar Sesion</h1>
+            <h1>Inciar Sesion kakaroto</h1>
             <form
                 onSubmit={onSubmit}
             >
