@@ -4,7 +4,6 @@ import {useDispatch,useSelector} from 'react-redux';
 import { mostrarAlerta,ocultaAlertaAction } from '../actions/alertaActions';
 import {crearNuevoProductoAction} from '../actions/productoActions';
 
-
 const NuevoProducto = ({history}) => {
     const [nombre,setNombre]=useState('');
     const [precio, setPrecio] = useState(null);
