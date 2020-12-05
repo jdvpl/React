@@ -62,7 +62,7 @@ const EditarProducto = () => {
                             <div className="form-group">
                                 <label>Precio</label>
                                 <input
-                                    type="number"
+                                    type="date"
                                     className="form-control"
                                     placeholder="Precio"
                                     name="precio"
