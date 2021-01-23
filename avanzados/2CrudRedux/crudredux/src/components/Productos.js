@@ -37,6 +37,7 @@ const Productos = () => {
                         <th scope="col">Total</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Vendedor</th>
+                        <th scope="col">Fecha</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>

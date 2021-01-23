@@ -14,7 +14,8 @@ const EditarProducto = () => {
         precio:'',
         cantidad:'',
         cliente:'',
-        vendedor:''
+        vendedor:'',
+        fecha:''
     })
     // producto a editar
     const productoExite = useSelector(state => state.productos.productoeditar);
@@ -31,7 +32,7 @@ const EditarProducto = () => {
     }
 
 
-    const {nombre,precio,cliente,vendedor,cantidad}=producto;
+    const {nombre,precio,cliente,vendedor,cantidad,fecha}=producto;
     const edicion=e=>{
         e.preventDefault();
 
@@ -62,7 +63,7 @@ const EditarProducto = () => {
                             <div className="form-group">
                                 <label>Precio</label>
                                 <input
-                                    type="date"
+                                    type="number"
                                     className="form-control"
                                     placeholder="Precio"
                                     name="precio"
@@ -100,6 +101,17 @@ const EditarProducto = () => {
                                     placeholder="vendedor"
                                     name="vendedor"
                                     value={vendedor}
+                                    onChange={onChangeForm}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Vendedor</label>
+                                <input
+                                    type="date"
+                                    className="form-control"
+                                    placeholder="vendedor"
+                                    name="fecha"
+                                    value={fecha}
                                     onChange={onChangeForm}
                                 />
                             </div>

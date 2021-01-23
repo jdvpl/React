@@ -5,7 +5,7 @@ import {borrarProductoAction,obtenerProductoEditar} from '../actions/productoAct
 import Swal from 'sweetalert2';
 
 const Producto = ({producto}) => {
-    const {nombre,id,precio,cliente,vendedor,cantidad}=producto;
+    const {nombre,id,precio,cliente,vendedor,cantidad,fecha}=producto;
 
     const dispatch = useDispatch();
     // confirmar si desea eliminar el producto
@@ -46,6 +46,7 @@ const Producto = ({producto}) => {
             <td>{total}</td>
             <td>{cliente}</td>
             <td>{vendedor}</td>
+            <td>{fecha}</td>
             <td>
                 <button 
                     type="button"

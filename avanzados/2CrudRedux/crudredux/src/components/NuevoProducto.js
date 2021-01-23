@@ -9,7 +9,8 @@ const NuevoProducto = ({history}) => {
     const [precio, setPrecio] = useState(null);
     const [cliente, setCliente] = useState('');
     const [vendedor, setVendedor] = useState('');
-    const [cantidad, setcantidad] = useState(null)
+    const [cantidad, setcantidad] = useState(null);
+    const [fecha, setfecha] = useState('');
     // utilizar usedispatj y te crea una funcion
     const dispatch=useDispatch();
 
@@ -24,7 +25,7 @@ const NuevoProducto = ({history}) => {
     const agregarNUevoProducto=e=>{
         e.preventDefault();
         // validar formulario
-        if(nombre.trim()===''||precio<=0 || cliente.trim()===''||vendedor.trim()===''||cantidad<=0){
+        if(nombre.trim()===''||precio<=0 || cliente.trim()===''||vendedor.trim()===''||cantidad<=0 || fecha.trim()===''){
             const alerta={
                 msg:'Todos los campos son obligatorios',
                 classes:'alert alert-danger text-center text-uppercase p-3'
@@ -41,11 +42,13 @@ const NuevoProducto = ({history}) => {
             precio,
             cantidad,
             cliente,
-            vendedor
+            vendedor,
+            fecha
         });
         // reidreccionar al inicio
         history.push('/');
     }
+
     return ( 
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -110,6 +113,17 @@ const NuevoProducto = ({history}) => {
                                     name="precio"
                                     value={vendedor}
                                     onChange={e=>setVendedor(e.target.value)}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Fecha</label>
+                                <input
+                                    type="date"
+                                    className="form-control"
+                                    placeholder="Cantidad"
+                                    name="fecha"
+                                    value={fecha}
+                                    onChange={e=>setfecha(e.target.value)}
                                 />
                             </div>
                             <button
