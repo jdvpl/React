@@ -25,7 +25,7 @@ const Logo = styled.p`
   cursor: pointer;
 `;
 const Header = () => {
-  const usuario = true;
+  const usuario = false;
   return (
     <header
       css={css`
@@ -68,10 +68,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link href="/">
+              <Link href="/login">
                 <Boton bgColor="true">Iniciar Sesion</Boton>
               </Link>
-              <Link href="/">
+              <Link href="/crear-cuenta">
                 <Boton>Crear Cuenta</Boton>
               </Link>
             </>

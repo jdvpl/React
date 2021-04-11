@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 const InputText = styled.input`
   border: 1px solid var(--gris3);
@@ -32,7 +33,9 @@ const Buscar = () => {
   return (
     <Formulario>
       <InputText type="text" placeholder="Buscar Producto" />
-      <InputSubmit type="submit">Buscar</InputSubmit>
+      <Link href="/buscar">
+        <InputSubmit type="submit">Buscar</InputSubmit>
+      </Link>
     </Formulario>
   );
 };
