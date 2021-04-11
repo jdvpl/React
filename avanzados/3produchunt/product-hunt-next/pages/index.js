@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <Layout>
       {" "}
-      //!se llamar el layout el principal para reutilizarlas en todas las
-      //!paginas
+      {/* //!se llamar el layout el principal para reutilizarlas en todas las
+      //!paginas */}
       <Perro>Kamisama</Perro>
     </Layout>
   );
