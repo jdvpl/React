@@ -3,7 +3,7 @@ import Buscar from "../ui/Buscar";
 import Navegacion from "./Navegacion";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import { css, jsx } from "@emotion/react";
 import Boton from "../ui/Boton";
 
 const ContenedorHeader = styled.div`
