@@ -1,16 +1,19 @@
-import React from 'react';
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import styled from "@emotion/styled";
+import Layout from "../components/layouts/Layout"; //se llama el layout para reutilizarlo
 
+const Perro = styled.h1`
+  color: yellowgreen;
+`;
 const Home = () => {
-  return ( 
-    <div>
-    <h1>Inicio Next.js saitamado</h1>
+  return (
+    <Layout>
+      {" "}
+      //!se llamar el layout el principal para reutilizarlas en todas las
+      //!paginas
+      <Perro>Kamisama</Perro>
+    </Layout>
+  );
+};
 
-    
-  </div>
-   );
-}
- 
 export default Home;
-
