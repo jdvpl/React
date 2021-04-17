@@ -3,11 +3,23 @@ import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import { Formulario, Campo, InputSubmit } from "../components/ui/Formulario";
 
+// validaciones
+import useValidacion from "../hooks/useValidacion";
+
 const Titulo = styled.h1`
   text-align: center;
   margin-top: 5rem;
 `;
 const CrearCuenta = () => {
+  const STATE_INICIAL = {
+    nombre: "",
+    email: "",
+    password: "",
+  };
+
+  // colocar el state inicial
+  const {} = useValidacion(STATE_INICIAL);
+
   return (
     <Layout>
       <>
