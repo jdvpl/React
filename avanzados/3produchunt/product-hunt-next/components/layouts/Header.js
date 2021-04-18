@@ -3,8 +3,9 @@ import Buscar from "../ui/Buscar";
 import Navegacion from "./Navegacion";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import Boton from "../ui/Boton";
+import { FirebaseContext } from "../../firebase";
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
