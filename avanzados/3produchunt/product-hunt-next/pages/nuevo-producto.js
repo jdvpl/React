@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import { FirebaseContext } from "../firebase";
 import Router, { useRouter } from "next/router";
+import FileUploader from "react-firebase-file-uploader";
 
 import {
   Formulario,
@@ -29,6 +30,14 @@ const STATE_INICIAL = {
 };
 
 const NuevoProducto = () => {
+  // state de las imagenes
+  // nombre
+  const [nombreimagen, guardarNombre] = useState("");
+
+  const [subiendo, guardarSubiendo] = useState(false);
+  const [progreso, guardarProgreso] = useState(0);
+  const [urlimagen, guardarUrlImagen] = useState("");
+
   // state de los errores de validacion y de la base de datos1
   const [error, seterror] = useState(false);
   // context con las operacion crud de firebase
@@ -60,6 +69,7 @@ const NuevoProducto = () => {
       empresa,
       sitio,
       url,
+      urlimagen,
       descripcion,
       votos: 0,
       cometarios: [],
@@ -68,7 +78,36 @@ const NuevoProducto = () => {
 
     // insertar a la base de datos
     firebase.db.collection("productos").add(producto);
+    router.push("/");
   }
+
+  // handles de las imagenes
+  // comenzar a subier
+  const handleUploadStart = () => {
+    guardarProgreso(0);
+    guardarSubiendo(true);
+  };
+  // progreso
+  const handleProgress = (progreso) => guardarProgreso({ progreso });
+  // error de subida
+  const handleUploadError = (error) => {
+    guardarSubiendo(error);
+    console.error(error);
+  };
+  // se sube correctamente
+  const handleUploadSuccess = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("productos")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url) => {
+        console.log(url);
+        guardarUrlImagen(url);
+      });
+  };
 
   return (
     <Layout>
@@ -109,18 +148,20 @@ const NuevoProducto = () => {
             </Campo>
             {errores.empresa && <Error>{errores.empresa}</Error>}
 
-            {/* <Campo>
+            <Campo>
               <label htmlFor="imagen">Imagen</label>
-              <input
-                type="file"
+              <FileUploader
+                accept="image/*"
                 id="imagen"
                 name="imagen"
-                value={imagen}
-                onChange={handleChange}
-                onBlur={handleBLur}
+                randomizeFilename
+                storageRef={firebase.storage.ref("productos")}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+                onUploadSuccess={handleUploadSuccess}
+                onProgress={handleProgress}
               />
             </Campo>
-            {errores.imagen && <Error>{errores.imagen}</Error>} */}
 
             <Campo>
               <label htmlFor="sitio">Sitio Web</label>
