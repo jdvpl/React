@@ -3,7 +3,6 @@ import Buscar from "../ui/Buscar";
 import Navegacion from "./Navegacion";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import Boton from "../ui/Boton";
 import { FirebaseContext } from "../../firebase";
 
@@ -25,22 +24,32 @@ const Logo = styled.p`
   margin-right: 2rem;
   cursor: pointer;
 `;
+
+const Header1 = styled.header`
+  border-bottom: 2px solid var(--gris3);
+  padding: 1rem 0;
+`;
+
+const Div1 = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Div2 = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const P = styled.p`
+  margin-right: 2rem;
+`;
+
 const Header = () => {
   const { usuario, firebase } = useContext(FirebaseContext);
   return (
-    <header
-      css={css`
-        border-bottom: 2px solid var(--gris3);
-        padding: 1rem 0;
-      `}
-    >
+    <Header1>
       <ContenedorHeader>
-        <div
-          css={css`
-            display: flex;
-            align-items: center;
-          `}
-        >
+        <Div1>
           <Link href="/">
             <Logo>P</Logo>
           </Link>
@@ -48,24 +57,20 @@ const Header = () => {
           <Buscar />
 
           <Navegacion />
-        </div>
+        </Div1>
 
-        <div
-          css={css`
-            display: flex;
-            align-items: center;
-          `}
-        >
+        <Div2>
           {usuario ? (
             <>
-              <p
-                css={css`
-                  margin-right: 2rem;
-                `}
+              <P>Hola: {usuario.displayName}</P>
+              <Boton
+                bgColor="true"
+                onClick={() => {
+                  firebase.cerrarSesion();
+                }}
               >
-                Hola: {usuario.displayName}
-              </p>
-              <Boton bgColor="true">Cerrar Sesion</Boton>
+                Cerrar Sesion
+              </Boton>
             </>
           ) : (
             <>
@@ -77,9 +82,9 @@ const Header = () => {
               </Link>
             </>
           )}
-        </div>
+        </Div2>
       </ContenedorHeader>
-    </header>
+    </Header1>
   );
 };
 
