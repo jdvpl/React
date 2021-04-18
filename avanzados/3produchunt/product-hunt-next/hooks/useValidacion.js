@@ -31,12 +31,18 @@ const useValidacion = (stateInicial, validar, fn) => {
     seterrores(erroresValidacion);
     setsubmitForm(true);
   };
+  // cuando se realiza el evento de BLur
+  const handleBLur = () => {
+    const erroresValidacion = validar(valores);
+    seterrores(erroresValidacion);
+  };
   return {
     valores,
     errores,
     submitForm,
     handleSubmit,
     handleChange,
+    handleBLur,
   };
 };
 
