@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import { FirebaseContext } from "../firebase";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 
 import {
   Formulario,
@@ -28,8 +28,10 @@ const STATE_INICIAL = {
 };
 
 const NuevoProducto = () => {
+  // state de los errores de validacion y de la base de datos1
   const [error, seterror] = useState(false);
-
+  // context con las operacion crud de firebase
+  const { usuario, firebase } = useContext(FirebaseContext);
   // colocar el state inicial
   const {
     valores,
@@ -39,10 +41,31 @@ const NuevoProducto = () => {
     handleChange,
     handleBLur,
   } = useValidacion(STATE_INICIAL, validarCrearProducto, crearProducto);
-
+  // valroes que estan en el state inicial y el handlechange los coloca
   const { nombre, empresa, imagen, url, descripcion } = valores;
+  // hook del routing para redireccionar
+  const router = useRouter();
+  // funcion para crear el producto
+  async function crearProducto() {
+    // si el usuario no esta autenticado llevar al login
 
-  async function crearProducto() {}
+    if (!usuario) {
+      return router.push("/login");
+    }
+
+    // crear el producto de nuevo producto
+    const producto = {
+      nombre,
+      empresa,
+      url,
+      descripcion,
+      votos: 0,
+      cometarios: [],
+      creado: Date.now(),
+    };
+
+    // insertar a la base de datos
+  }
 
   return (
     <Layout>
