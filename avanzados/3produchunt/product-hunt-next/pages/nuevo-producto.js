@@ -72,7 +72,7 @@ const NuevoProducto = () => {
       urlimagen,
       descripcion,
       votos: 0,
-      cometarios: [],
+      comentarios: [],
       creado: Date.now(),
     };
 

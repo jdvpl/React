@@ -2,10 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout"; //se llama el layout para reutilizarlo
 import { FirebaseContext } from "../firebase";
+import DetallesProducto from "../components/layouts/DetallesProducto";
 
-const Perro = styled.h1`
-  color: yellowgreen;
-`;
 const Home = () => {
   // state para los productos
   const [productos, setproductos] = useState([]);
@@ -39,7 +37,15 @@ const Home = () => {
       {" "}
       {/* //!se llamar el layout el principal para reutilizarlas en todas las
       //!paginas */}
-      <Perro>Kamisama</Perro>
+      <div className="listado-productos">
+        <div className="contenedor">
+          <ul className="bg-white">
+            {productos.map((producto) => (
+              <DetallesProducto key={producto.id} producto={producto} />
+            ))}
+          </ul>
+        </div>
+      </div>
     </Layout>
   );
 };
