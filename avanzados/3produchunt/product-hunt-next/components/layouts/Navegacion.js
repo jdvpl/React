@@ -20,7 +20,6 @@ const Navegacion = () => {
   const { usuario } = useContext(FirebaseContext);
   return (
     <Nav>
-      <Link href="/">Inicio</Link>
       <Link href="/populares">Populares</Link>
       {usuario && <Link href="/nuevo-producto">Nuevo Producto</Link>}
     </Nav>
