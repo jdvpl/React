@@ -16,6 +16,13 @@ export default function validarCrearProducto(valores) {
     errores.url = "URL no valida";
   }
 
+  // url
+  if (!valores.sitio) {
+    errores.sitio = "Coloca la url del Sitio";
+  } else if (!/^(ftp|http|https):\/\/[^ "]+$/.test(valores.url)) {
+    errores.sitio = "URL no valida";
+  }
+
   // valdiar el empresa
   if (!valores.descripcion) {
     errores.descripcion = "Escribe una Descripcion";

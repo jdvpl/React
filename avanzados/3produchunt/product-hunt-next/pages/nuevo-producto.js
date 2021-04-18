@@ -23,6 +23,7 @@ const STATE_INICIAL = {
   nombre: "",
   empresa: "",
   // imagen: "",
+  sitio: "",
   url: "",
   descripcion: "",
 };
@@ -42,7 +43,7 @@ const NuevoProducto = () => {
     handleBLur,
   } = useValidacion(STATE_INICIAL, validarCrearProducto, crearProducto);
   // valroes que estan en el state inicial y el handlechange los coloca
-  const { nombre, empresa, imagen, url, descripcion } = valores;
+  const { nombre, empresa, imagen, sitio, url, descripcion } = valores;
   // hook del routing para redireccionar
   const router = useRouter();
   // funcion para crear el producto
@@ -57,6 +58,7 @@ const NuevoProducto = () => {
     const producto = {
       nombre,
       empresa,
+      sitio,
       url,
       descripcion,
       votos: 0,
@@ -65,6 +67,7 @@ const NuevoProducto = () => {
     };
 
     // insertar a la base de datos
+    firebase.db.collection("productos").add(producto);
   }
 
   return (
@@ -118,6 +121,20 @@ const NuevoProducto = () => {
               />
             </Campo>
             {errores.imagen && <Error>{errores.imagen}</Error>} */}
+
+            <Campo>
+              <label htmlFor="sitio">Sitio Web</label>
+              <input
+                type="url"
+                id="sitio"
+                name="sitio"
+                value={sitio}
+                placeholder="Url del sitio Web"
+                onChange={handleChange}
+                onBlur={handleBLur}
+              />
+            </Campo>
+            {errores.sitio && <Error>{errores.sitio}</Error>}
 
             <Campo>
               <label htmlFor="url">Repositorio</label>
