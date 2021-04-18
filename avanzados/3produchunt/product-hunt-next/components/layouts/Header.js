@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Buscar from "../ui/Buscar";
 import Navegacion from "./Navegacion";
 import Link from "next/link";
@@ -26,7 +26,7 @@ const Logo = styled.p`
   cursor: pointer;
 `;
 const Header = () => {
-  const usuario = false;
+  const { usuario, firebase } = useContext(FirebaseContext);
   return (
     <header
       css={css`
@@ -63,7 +63,7 @@ const Header = () => {
                   margin-right: 2rem;
                 `}
               >
-                Hola: JDVPl
+                Hola: {usuario.displayName}
               </p>
               <Boton bgColor="true">Cerrar Sesion</Boton>
             </>
