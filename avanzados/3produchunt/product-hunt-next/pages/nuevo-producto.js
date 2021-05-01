@@ -37,6 +37,11 @@ const NuevoProducto = () => {
   const [subiendo, guardarSubiendo] = useState(false);
   const [progreso, guardarProgreso] = useState(0);
   const [urlimagen, guardarUrlImagen] = useState("");
+  const [urlimagen1, guardarUrlImagen1] = useState("");
+  const [urlimagen2, guardarUrlImagen2] = useState("");
+  const [urlimagen3, guardarUrlImagen3] = useState("");
+  const [urlimagen4, guardarUrlImagen4] = useState("");
+  const [urlimagen5, guardarUrlImagen5] = useState("");
 
   // state de los errores de validacion y de la base de datos1
   const [error, seterror] = useState(false);
@@ -70,6 +75,12 @@ const NuevoProducto = () => {
       sitio,
       url,
       urlimagen,
+      urlimagen1,
+      urlimagen2,
+      urlimagen3,
+      urlimagen4,
+      urlimagen5,
+
       descripcion,
       votos: 0,
       comentarios: [],
@@ -106,9 +117,79 @@ const NuevoProducto = () => {
       .then((url) => {
         console.log(url);
         guardarUrlImagen(url);
+
       });
   };
 
+    const handleUploadSuccess1 = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("productos")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url1) => {
+        console.log(url1);
+        guardarUrlImagen1(url1);
+      });
+  };
+
+   const handleUploadSuccess2 = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("productos")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url2) => {
+        console.log(url2);
+        guardarUrlImagen2(url2);
+      });
+  };
+
+    const handleUploadSuccess3 = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("productos")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url3) => {
+        console.log(url3);
+        guardarUrlImagen3(url3);
+      });
+  };
+
+      const handleUploadSuccess4 = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("productos")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url4) => {
+        console.log(url4);
+        guardarUrlImagen4(url4);
+      });
+  };
+
+     const handleUploadSuccess5 = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("productos")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url5) => {
+        console.log(url5);
+        guardarUrlImagen5(url5);
+      });
+  };
   return (
     <Layout>
       <>
@@ -147,7 +228,7 @@ const NuevoProducto = () => {
               />
             </Campo>
             {errores.empresa && <Error>{errores.empresa}</Error>}
-
+            {/* imagen 0 */}
             <Campo>
               <label htmlFor="imagen">Imagen</label>
               <FileUploader
@@ -163,6 +244,90 @@ const NuevoProducto = () => {
               />
             </Campo>
 
+            {/* imagen 1 */}
+
+                 <Campo>
+              <label htmlFor="imagen1">Imagen 2 </label>
+              <FileUploader
+                accept="image/*"
+                id="imagen1"
+                name="imagen1"
+                randomizeFilename
+                storageRef={firebase.storage.ref("productos")}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+                onUploadSuccess={handleUploadSuccess1}
+                onProgress={handleProgress}
+              />
+            </Campo>
+
+
+          {/* imagen 2 */}
+
+            <Campo>
+              <label htmlFor="imagen2">Imagen 3 </label>
+              <FileUploader
+                accept="image/*"
+                id="imagen2"
+                name="imagen2"
+                randomizeFilename
+                storageRef={firebase.storage.ref("productos")}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+                onUploadSuccess={handleUploadSuccess2}
+                onProgress={handleProgress}
+              />
+            </Campo>
+
+               {/* imagen 3 */}
+
+            <Campo>
+              <label htmlFor="imagen3">Imagen 4 </label>
+              <FileUploader
+                accept="image/*"
+                id="imagen3"
+                name="imagen3"
+                randomizeFilename
+                storageRef={firebase.storage.ref("productos")}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+                onUploadSuccess={handleUploadSuccess3}
+                onProgress={handleProgress}
+              />
+            </Campo>
+            {/* imagen 4 */}
+             <Campo>
+              <label htmlFor="imagen4">Imagen 5 </label>
+              <FileUploader
+                accept="image/*"
+                id="imagen4"
+                name="imagen4"
+                randomizeFilename
+                storageRef={firebase.storage.ref("productos")}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+                onUploadSuccess={handleUploadSuccess4}
+                onProgress={handleProgress}
+              />
+            </Campo>
+
+               {/* imagen 5 */}
+             <Campo>
+              <label htmlFor="imagen4">Imagen 6 </label>
+              <FileUploader
+                accept="image/*"
+                id="imagen5"
+                name="imagen5"
+                randomizeFilename
+                storageRef={firebase.storage.ref("productos")}
+                onUploadStart={handleUploadStart}
+                onUploadError={handleUploadError}
+                onUploadSuccess={handleUploadSuccess5}
+                onProgress={handleProgress}
+              />
+            </Campo>
+
+          
             <Campo>
               <label htmlFor="sitio">Sitio Web</label>
               <input
