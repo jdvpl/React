@@ -3,6 +3,12 @@ import { useRouter } from "next/router";
 import Layout from "../../components/layouts/Layout";
 import { FirebaseContext } from "../../firebase";
 import Error404 from "../../components/layouts/404";
+import styled from "@emotion/styled";
+
+const Titulo = styled.h1`
+  margin-top: 5rem;
+  text-align: center;
+`;
 
 const Producto = () => {
   // state del componente
@@ -32,9 +38,18 @@ const Producto = () => {
       obtenerProducto();
     }
   }, [id]);
+  if (Object.keys(producto).length === 0) return "kisama";
+  //   destructuring
+  const { nombre } = producto;
+
   return (
     <Layout>
-      <>{error && <Error404 />}</>
+      <>
+        {error && <Error404 />}
+        <div className="contenedor">
+          <Titulo>{nombre}</Titulo>
+        </div>
+      </>
     </Layout>
   );
 };
