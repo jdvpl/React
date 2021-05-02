@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Layout from "../components/layouts/Layout"; //se llama el layout para reutilizarlo
 import DetallesProducto from "../components/layouts/DetallesProducto";
-import useProductos from "../hooks/useProducto";
 import { FirebaseContext } from "../firebase";
 
 const MisProyectos = () => {

@@ -218,7 +218,7 @@ const NuevoProducto = () => {
         <Error404 />
       ) : (
         <>
-          <Titulo>Nuevo Producto</Titulo>
+          <Titulo>Nuevo Proyecto</Titulo>
 
           <Formulario onSubmit={handleSubmit}>
             {error && <Error>{error}</Error>}

@@ -26,7 +26,7 @@ const Navegacion = () => {
       {usuario && (
         <>
           <Link href="/nuevo-producto">
-            <a>Nuevo Producto</a>
+            <a>Nuevo Proyecto</a>
           </Link>
 
           <Link href="/mis-proyectos">
