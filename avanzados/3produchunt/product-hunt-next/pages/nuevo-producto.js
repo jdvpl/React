@@ -90,6 +90,7 @@ const NuevoProducto = () => {
         nombre: usuario.displayName,
         photo: usuario.photoURL,
       },
+      haVotado: [],
     };
 
     // insertar a la base de datos
@@ -206,7 +207,7 @@ const NuevoProducto = () => {
                 <input
                   type="text"
                   id="nombre"
-                  placeholder="Tu Nombre"
+                  placeholder="Nombre del sitio"
                   name="nombre"
                   value={nombre}
                   onChange={handleChange}
