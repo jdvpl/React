@@ -2,7 +2,6 @@ import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
-
 import firebaseConfig from "./config";
 
 class Firebase {
@@ -16,7 +15,7 @@ class Firebase {
   }
 
   // Registra un usuario
-  async registrar(nombre, email, password) {
+  async registrar(nombre, email, password, photo) {
     const nuevoUsuario = await this.auth.createUserWithEmailAndPassword(
       email,
       password
@@ -24,6 +23,7 @@ class Firebase {
 
     return await nuevoUsuario.user.updateProfile({
       displayName: nombre,
+      photoURL: photo,
     });
   }
 

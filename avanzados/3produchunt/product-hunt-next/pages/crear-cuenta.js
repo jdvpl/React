@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Layout from "../components/layouts/Layout";
 import firebase from "../firebase";
 import Router from "next/router";
+import FileUploader from "react-firebase-file-uploader";
 
 import {
   Formulario,
@@ -23,10 +24,18 @@ const STATE_INICIAL = {
   nombre: "",
   email: "",
   password: "",
+  photo: "",
 };
 
 const CrearCuenta = () => {
   const [error, seterror] = useState(false);
+  // img
+  // nombre
+  const [nombreimagen, guardarNombre] = useState("");
+
+  const [subiendo, guardarSubiendo] = useState(false);
+  const [progreso, guardarProgreso] = useState(0);
+  const [urlimagen, guardarUrlImagen] = useState("");
 
   // colocar el state inicial
   const {
@@ -39,10 +48,10 @@ const CrearCuenta = () => {
   } = useValidacion(STATE_INICIAL, validarCrearCuenta, crearCuenta);
 
   const { nombre, email, password } = valores;
-
   async function crearCuenta() {
     try {
-      await firebase.registrar(nombre, email, password);
+      await firebase.registrar(nombre, email, password, urlimagen);
+      // console.log(urlimagen);
       Router.push("/");
     } catch (error) {
       console.error("Hubo un error al crear ese usuario ", error.message);
@@ -50,12 +59,56 @@ const CrearCuenta = () => {
     }
   }
 
+  // handles de las imagenes
+  // comenzar a subier
+  const handleUploadStart = () => {
+    guardarProgreso(0);
+    guardarSubiendo(true);
+  };
+  // progreso
+  const handleProgress = (progreso) => guardarProgreso({ progreso });
+  // error de subida
+  const handleUploadError = (error) => {
+    guardarSubiendo(error);
+    console.error(error);
+  };
+  // se sube correctamente
+  const handleUploadSuccess = (nombre) => {
+    guardarProgreso(100);
+    guardarSubiendo(false);
+    guardarNombre(nombre);
+    firebase.storage
+      .ref("userimg")
+      .child(nombre)
+      .getDownloadURL()
+      .then((url) => {
+        console.log(url);
+        guardarUrlImagen(url);
+      });
+  };
+
   return (
     <Layout>
       <>
         <Titulo>Crear Cuenta</Titulo>
 
         <Formulario onSubmit={handleSubmit}>
+          {/* imagen 0 */}
+          <Campo>
+            <label htmlFor="imagen">Imagen</label>
+            <FileUploader
+              accept="image/*"
+              id="imagen"
+              name="imagen"
+              randomizeFilename
+              storageRef={firebase.storage.ref("userimg")}
+              onUploadStart={handleUploadStart}
+              onUploadError={handleUploadError}
+              onUploadSuccess={handleUploadSuccess}
+              onProgress={handleProgress}
+            />
+          </Campo>
+
           {error && <Error>{error}</Error>}
           <Campo>
             <label htmlFor="nombre">Nombre</label>

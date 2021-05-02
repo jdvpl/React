@@ -47,6 +47,7 @@ const NuevoProducto = () => {
   const [error, seterror] = useState(false);
   // context con las operacion crud de firebase
   const { usuario, firebase } = useContext(FirebaseContext);
+  console.log(usuario.photoURL);
   // colocar el state inicial
   const {
     valores,
@@ -80,11 +81,15 @@ const NuevoProducto = () => {
       urlimagen3,
       urlimagen4,
       urlimagen5,
-
       descripcion,
       votos: 0,
       comentarios: [],
       creado: Date.now(),
+      creador: {
+        id: usuario.id,
+        nombre: usuario.displayName,
+        photo: usuario.photoURL,
+      },
     };
 
     // insertar a la base de datos
@@ -117,11 +122,10 @@ const NuevoProducto = () => {
       .then((url) => {
         console.log(url);
         guardarUrlImagen(url);
-
       });
   };
 
-    const handleUploadSuccess1 = (nombre) => {
+  const handleUploadSuccess1 = (nombre) => {
     guardarProgreso(100);
     guardarSubiendo(false);
     guardarNombre(nombre);
@@ -135,7 +139,7 @@ const NuevoProducto = () => {
       });
   };
 
-   const handleUploadSuccess2 = (nombre) => {
+  const handleUploadSuccess2 = (nombre) => {
     guardarProgreso(100);
     guardarSubiendo(false);
     guardarNombre(nombre);
@@ -149,7 +153,7 @@ const NuevoProducto = () => {
       });
   };
 
-    const handleUploadSuccess3 = (nombre) => {
+  const handleUploadSuccess3 = (nombre) => {
     guardarProgreso(100);
     guardarSubiendo(false);
     guardarNombre(nombre);
@@ -163,7 +167,7 @@ const NuevoProducto = () => {
       });
   };
 
-      const handleUploadSuccess4 = (nombre) => {
+  const handleUploadSuccess4 = (nombre) => {
     guardarProgreso(100);
     guardarSubiendo(false);
     guardarNombre(nombre);
@@ -177,7 +181,7 @@ const NuevoProducto = () => {
       });
   };
 
-     const handleUploadSuccess5 = (nombre) => {
+  const handleUploadSuccess5 = (nombre) => {
     guardarProgreso(100);
     guardarSubiendo(false);
     guardarNombre(nombre);
@@ -246,7 +250,7 @@ const NuevoProducto = () => {
 
             {/* imagen 1 */}
 
-                 <Campo>
+            <Campo>
               <label htmlFor="imagen1">Imagen 2 </label>
               <FileUploader
                 accept="image/*"
@@ -261,8 +265,7 @@ const NuevoProducto = () => {
               />
             </Campo>
 
-
-          {/* imagen 2 */}
+            {/* imagen 2 */}
 
             <Campo>
               <label htmlFor="imagen2">Imagen 3 </label>
@@ -279,7 +282,7 @@ const NuevoProducto = () => {
               />
             </Campo>
 
-               {/* imagen 3 */}
+            {/* imagen 3 */}
 
             <Campo>
               <label htmlFor="imagen3">Imagen 4 </label>
@@ -296,7 +299,7 @@ const NuevoProducto = () => {
               />
             </Campo>
             {/* imagen 4 */}
-             <Campo>
+            <Campo>
               <label htmlFor="imagen4">Imagen 5 </label>
               <FileUploader
                 accept="image/*"
@@ -311,8 +314,8 @@ const NuevoProducto = () => {
               />
             </Campo>
 
-               {/* imagen 5 */}
-             <Campo>
+            {/* imagen 5 */}
+            <Campo>
               <label htmlFor="imagen4">Imagen 6 </label>
               <FileUploader
                 accept="image/*"
@@ -327,7 +330,6 @@ const NuevoProducto = () => {
               />
             </Campo>
 
-          
             <Campo>
               <label htmlFor="sitio">Sitio Web</label>
               <input
