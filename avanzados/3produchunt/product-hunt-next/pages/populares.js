@@ -1,11 +1,26 @@
 import React from "react";
-import styled from "@emotion/styled";
-import Layout from "../components/layouts/Layout";
+import Layout from "../components/layouts/Layout"; //se llama el layout para reutilizarlo
+import DetallesProducto from "../components/layouts/DetallesProducto";
+
+import useProductos from "../hooks/useProducto";
 
 const Populares = () => {
+  const { productos } = useProductos("votos");
+
   return (
     <Layout>
-      <h1>Populares</h1>
+      {" "}
+      {/* //!se llamar el layout el principal para reutilizarlas en todas las
+      //!paginas */}
+      <div className="listado-productos">
+        <div className="contenedor">
+          <ul className="bg-white">
+            {productos.map((producto) => (
+              <DetallesProducto key={producto.id} producto={producto} />
+            ))}
+          </ul>
+        </div>
+      </div>
     </Layout>
   );
 };
