@@ -42,7 +42,7 @@ const Buscar = () => {
     Router.push({
       pathname: "/buscar",
       query: {
-        buscando: busqueda,
+        q: busqueda,
       },
     });
   };
