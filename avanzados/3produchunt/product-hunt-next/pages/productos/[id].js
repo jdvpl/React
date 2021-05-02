@@ -99,6 +99,14 @@ const Hosting = styled.p`
     font-weight: normal;
   }
 `;
+
+const Participante = styled.p`
+  font-weight: bold;
+  text-align: center;
+  span {
+    font-weight: normal;
+  }
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
@@ -282,7 +290,23 @@ const Producto = () => {
                   ""
                 )}
 
-                <p>{descripcion}</p>
+                {tecnologias ? (
+                  <Hosting>
+                    Tecnologias: <span>{tecnologias}</span>
+                  </Hosting>
+                ) : (
+                  ""
+                )}
+
+                {duracion ? (
+                  <Hosting>
+                    Duracion: <span>{duracion}</span>
+                  </Hosting>
+                ) : (
+                  ""
+                )}
+
+                <p>{descripcion}.</p>
 
                 {usuario && (
                   <>
@@ -345,6 +369,14 @@ const Producto = () => {
                 <Boton target="_blank" bgColor="true" href={urlVideo}>
                   Video
                 </Boton>
+
+                {participantes ? (
+                  <Participante>
+                    Participantes: <span>{participantes}</span>
+                  </Participante>
+                ) : (
+                  ""
+                )}
 
                 <PhotoPerfil>
                   <img src={creador.photo} />

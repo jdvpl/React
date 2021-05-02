@@ -104,7 +104,7 @@ const DetallesProducto = ({ producto }) => {
           <Link href="/productos/[id]" as={`/productos/${id}`}>
             <a>{nombre}</a>
           </Link>
-          <TextoDescripcion>{descripcionresumee}</TextoDescripcion>
+          <TextoDescripcion>{descripcionresumee} ...</TextoDescripcion>
 
           <Comentarios>
             <div>

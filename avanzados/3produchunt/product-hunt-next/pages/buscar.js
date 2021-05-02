@@ -23,7 +23,11 @@ const Buscar = () => {
         producto.creador.nombre.toLowerCase().includes(busqueda) ||
         producto.empresa.toLowerCase().includes(busqueda) ||
         producto.sitio.toLowerCase().includes(busqueda) ||
-        producto.url.toLowerCase().includes(busqueda)
+        producto.url.toLowerCase().includes(busqueda) ||
+        producto.urlVideo.toLowerCase().includes(busqueda) ||
+        producto.hosting.toLowerCase().includes(busqueda) ||
+        producto.participantes.toLowerCase().includes(busqueda) ||
+        producto.tecnologias.toLowerCase().includes(busqueda)
       );
     });
     setresultado(filtro);
