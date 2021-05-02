@@ -4,12 +4,19 @@ import Layout from "../../components/layouts/Layout";
 import { FirebaseContext } from "../../firebase";
 import Error404 from "../../components/layouts/404";
 import styled from "@emotion/styled";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 const Titulo = styled.h1`
   margin-top: 5rem;
   text-align: center;
 `;
 
+const Central = styled.div`
+  position: absolute;
+  top: 20rem;
+  left: 40rem;
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
@@ -38,7 +45,18 @@ const Producto = () => {
       obtenerProducto();
     }
   }, [id]);
-  if (Object.keys(producto).length === 0) return "kisama";
+  if (Object.keys(producto).length === 0)
+    return (
+      <Central>
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
+      </Central>
+    );
   //   destructuring
   const { nombre } = producto;
 
