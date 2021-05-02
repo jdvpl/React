@@ -68,7 +68,7 @@ const Header = () => {
                 onClick={() => {
                   firebase.cerrarSesion();
                 }}
-                href="/login"
+                href="/"
               >
                 Cerrar Sesion
               </Boton>

@@ -20,7 +20,6 @@ const MisProyectos = () => {
     };
     obtenerProductos();
   }, []);
-  console.log(productos);
 
   function manejarSnapshot(snapshot) {
     const productos = snapshot.docs.map((doc) => {

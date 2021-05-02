@@ -84,7 +84,6 @@ const CrearCuenta = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url) => {
-        console.log(url);
         guardarUrlImagen(url);
       });
   };
