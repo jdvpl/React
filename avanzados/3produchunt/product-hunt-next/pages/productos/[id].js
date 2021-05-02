@@ -6,6 +6,10 @@ import Error404 from "../../components/layouts/404";
 import styled from "@emotion/styled";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { es } from "date-fns/locale";
+import { Campo, InputSubmit } from "../../components/ui/Formulario";
+import Boton from "../../components/ui/Boton";
 
 const Titulo = styled.h1`
   margin-top: 5rem;
@@ -16,6 +20,25 @@ const Central = styled.div`
   position: absolute;
   top: 20rem;
   left: 40rem;
+`;
+
+const COntenedorProducto = styled.div`
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2rem;
+  } ;
+`;
+
+const Comentarios = styled.h2`
+  margin-top: 2rem;
+  text-align: center;
+`;
+const Votos = styled.div`
+  margin-top: 1rem;
+  p {
+    text-align: center;
+  }
 `;
 const Producto = () => {
   // state del componente
@@ -58,7 +81,22 @@ const Producto = () => {
       </Central>
     );
   //   destructuring
-  const { nombre } = producto;
+  const {
+    comentarios,
+    creado,
+    descripcion,
+    nombre,
+    urlimagen,
+    urlimagen1,
+    urlimagen2,
+    urlimagen3,
+    urlimagen4,
+    urlimagen5,
+    empresa,
+    sitio,
+    votos,
+    url,
+  } = producto;
 
   return (
     <Layout>
@@ -66,6 +104,50 @@ const Producto = () => {
         {error && <Error404 />}
         <div className="contenedor">
           <Titulo>{nombre}</Titulo>
+
+          <COntenedorProducto>
+            <div>
+              <p>
+                Publicado hace:{" "}
+                {formatDistanceToNow(new Date(creado), { locale: es })}
+              </p>
+              <img src={urlimagen} />
+              <img src={urlimagen2} />
+
+              <p>{descripcion}</p>
+
+              <h2>Agrega tu comentario</h2>
+
+              <form>
+                <Campo>
+                  <input type="text" name="mensaje" />
+                </Campo>
+                <InputSubmit type="submit" value="Agregar Comentario" />
+              </form>
+
+              <Comentarios>Comentarios</Comentarios>
+
+              <div>
+                {comentarios.map((comentario) => (
+                  <li>
+                    <p>{comentario.nombre}</p>
+                    <p>Escrito por: {comentario.usuarioNombre}</p>
+                  </li>
+                ))}
+              </div>
+            </div>
+
+            <aside>
+              <Boton target="_blank" bgColor="true" href={url}>
+                Visitar URL
+              </Boton>
+
+              <Votos>
+                <p>{votos} votos</p>
+                <Boton>Votar</Boton>
+              </Votos>
+            </aside>
+          </COntenedorProducto>
         </div>
       </>
     </Layout>
