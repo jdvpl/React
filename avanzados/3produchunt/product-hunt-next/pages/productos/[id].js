@@ -40,6 +40,19 @@ const Votos = styled.div`
     text-align: center;
   }
 `;
+const PhotoPerfil = styled.div`
+  margin-top: 2rem;
+  text-align: center;
+  img {
+    margin-right: 1rem;
+    width: 5rem;
+    border-radius: 5rem;
+  }
+  p {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
@@ -96,6 +109,7 @@ const Producto = () => {
     sitio,
     votos,
     url,
+    creador,
   } = producto;
 
   return (
@@ -141,6 +155,13 @@ const Producto = () => {
               <Boton target="_blank" bgColor="true" href={url}>
                 Visitar URL
               </Boton>
+
+              <PhotoPerfil>
+                <img src={creador.photo} />
+                <p>
+                  {creador.nombre} de {empresa}
+                </p>
+              </PhotoPerfil>
 
               <Votos>
                 <p>{votos} votos</p>

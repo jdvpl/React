@@ -47,7 +47,6 @@ const NuevoProducto = () => {
   const [error, seterror] = useState(false);
   // context con las operacion crud de firebase
   const { usuario, firebase } = useContext(FirebaseContext);
-  console.log(usuario);
   // colocar el state inicial
   const {
     valores,
@@ -86,7 +85,7 @@ const NuevoProducto = () => {
       comentarios: [],
       creado: Date.now(),
       creador: {
-        id: usuario.id,
+        id: usuario.uid,
         nombre: usuario.displayName,
         photo: usuario.photoURL,
       },
@@ -120,7 +119,6 @@ const NuevoProducto = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url) => {
-        console.log(url);
         guardarUrlImagen(url);
       });
   };
@@ -134,7 +132,6 @@ const NuevoProducto = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url1) => {
-        console.log(url1);
         guardarUrlImagen1(url1);
       });
   };
@@ -148,7 +145,6 @@ const NuevoProducto = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url2) => {
-        console.log(url2);
         guardarUrlImagen2(url2);
       });
   };
@@ -162,7 +158,6 @@ const NuevoProducto = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url3) => {
-        console.log(url3);
         guardarUrlImagen3(url3);
       });
   };
@@ -176,7 +171,6 @@ const NuevoProducto = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url4) => {
-        console.log(url4);
         guardarUrlImagen4(url4);
       });
   };
@@ -190,7 +184,6 @@ const NuevoProducto = () => {
       .child(nombre)
       .getDownloadURL()
       .then((url5) => {
-        console.log(url5);
         guardarUrlImagen5(url5);
       });
   };

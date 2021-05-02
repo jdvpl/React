@@ -16,7 +16,7 @@ const ContenedorHeader = styled.div`
   }
 `;
 const Logo = styled.p`
-  color: var(--naranja);
+  color: #000;
   font-size: 4rem;
   line-height: 0;
   font-weight: 700;
