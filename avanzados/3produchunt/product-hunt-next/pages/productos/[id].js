@@ -61,11 +61,34 @@ const Imagenes = styled.div`
     width: 50%;
   }
 `;
+const ImgComentario = styled.div`
+  img {
+    width: 2rem;
+    border-radius: 5rem;
+  }
+  p {
+    margin-top: -1rem;
+    text-transform: capitalize;
+
+    span {
+      font-weight: bold;
+      position: absolute;
+      margin-left: 1rem;
+    }
+  }
+`;
+const Li = styled.li`
+  border: 1px solid #e1e1e1;
+  padding: 2rem;
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
+
   // state del error
   const [error, seterror] = useState(false);
+  // state del comentarios
+  const [comentario, setcomentario] = useState({});
   // roter para obtener el id actual
   const router = useRouter();
   const {
@@ -143,6 +166,39 @@ const Producto = () => {
       votos: nuevoTotal,
     });
   };
+  // funciones para crear comentarios
+  const comentarioChange = (e) => {
+    setcomentario({
+      ...comentario,
+      [e.target.name]: e.target.value,
+    });
+  };
+  // agregar comentario
+  const agregarComentario = (e) => {
+    e.preventDefault();
+
+    if (!usuario) {
+      return router.push("/login");
+    }
+    // informacion extra ala comentario
+    comentario.usuarioId = usuario.uid;
+    comentario.usuarioNombre = usuario.displayName;
+    comentario.usuarioPhoto = usuario.photoURL;
+
+    // tomar copira de comntarios y agregarlos al arreglo
+    const nuevosCOmentarios = [...comentarios, comentario];
+
+    // actualizar la BD
+    firebase.db.collection("productos").doc(id).update({
+      comentarios: nuevosCOmentarios,
+    });
+    // acutualizar el state
+
+    setcomentario({
+      ...producto,
+      Comentarios: nuevosCOmentarios,
+    });
+  };
   return (
     <Layout>
       <>
@@ -171,24 +227,46 @@ const Producto = () => {
                 <>
                   <h2>Agrega tu comentario</h2>
 
-                  <form>
+                  <form onSubmit={agregarComentario}>
                     <Campo>
-                      <input type="text" name="mensaje" />
+                      <input
+                        type="text"
+                        name="mensaje"
+                        onChange={comentarioChange}
+                      />
                     </Campo>
                     <InputSubmit type="submit" value="Agregar Comentario" />
                   </form>
                 </>
               )}
-              <Comentarios>Comentarios</Comentarios>
 
-              <div>
-                {comentarios.map((comentario) => (
-                  <li>
-                    <p>{comentario.nombre}</p>
-                    <p>Escrito por: {comentario.usuarioNombre}</p>
-                  </li>
-                ))}
-              </div>
+              {comentarios.length === 0 ? (
+                <h3>Aun no hay comentarios</h3>
+              ) : (
+                <>
+                  <Comentarios>Comentarios</Comentarios>
+                  <div>
+                    <ul>
+                      {comentarios.map((comentario, i) => (
+                        <Li key={`${comentario.usuarioId}-${i}`}>
+                          <p>{comentario.mensaje}</p>
+
+                          <ImgComentario>
+                            <p>
+                              {!comentario.usuarioPhoto ? (
+                                <img src="https://firebasestorage.googleapis.com/v0/b/portafolio-jdvpl.appspot.com/o/userimg%2Fusuario.png?alt=media&token=961a0ebd-89cc-4ecb-a447-5acd874d95f5" />
+                              ) : (
+                                <img src={comentario.usuarioPhoto} />
+                              )}
+                              <span>{comentario.usuarioNombre}</span>
+                            </p>
+                          </ImgComentario>
+                        </Li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
             </div>
 
             <aside>
