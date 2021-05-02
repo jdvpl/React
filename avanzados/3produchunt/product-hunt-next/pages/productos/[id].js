@@ -81,6 +81,16 @@ const Li = styled.li`
   border: 1px solid #e1e1e1;
   padding: 2rem;
 `;
+
+const CreadorProducto = styled.p`
+  padding: 0.5rem 2rem;
+  background-color: #000;
+  color: white;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: right;
+  display: inline-block;
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
@@ -199,6 +209,12 @@ const Producto = () => {
       Comentarios: nuevosCOmentarios,
     });
   };
+  // funciona para verificar si es el creador del producto
+  const esCreador = (id) => {
+    if (creador.id == id) {
+      return true;
+    }
+  };
   return (
     <Layout>
       <>
@@ -260,6 +276,9 @@ const Producto = () => {
                               )}
                               <span>{comentario.usuarioNombre}</span>
                             </p>
+                            {esCreador(comentario.usuarioId) && (
+                              <CreadorProducto>Owner</CreadorProducto>
+                            )}
                           </ImgComentario>
                         </Li>
                       ))}
