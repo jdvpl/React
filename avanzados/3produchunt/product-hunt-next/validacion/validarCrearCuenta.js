@@ -4,6 +4,7 @@ export default function validarCrearCuenta(valores) {
   if (!valores.nombre) {
     errores.nombre = "El nombre es obligatorio";
   }
+
   // valdiar el email
   if (!valores.email) {
     errores.email = "El email es obligatorio";
@@ -16,6 +17,11 @@ export default function validarCrearCuenta(valores) {
     errores.password = "La contraseña es obligatorio";
   } else if (valores.password.length < 6) {
     errores.password = "La contraseña debe ser de al menos 6 caracteres";
+  }
+
+  // repetir contrasena
+  if (valores.password !== valores.repetir) {
+    errores.repetir = "Las contraseñas NO coinciden";
   }
   return errores;
 }

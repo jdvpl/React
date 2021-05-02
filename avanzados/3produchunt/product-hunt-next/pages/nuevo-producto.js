@@ -47,7 +47,7 @@ const NuevoProducto = () => {
   const [error, seterror] = useState(false);
   // context con las operacion crud de firebase
   const { usuario, firebase } = useContext(FirebaseContext);
-  console.log(usuario.photoURL);
+  console.log(usuario);
   // colocar el state inicial
   const {
     valores,

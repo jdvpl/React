@@ -21,10 +21,11 @@ const Titulo = styled.h1`
 `;
 
 const STATE_INICIAL = {
+  photo: "",
   nombre: "",
   email: "",
   password: "",
-  photo: "",
+  repetir: "",
 };
 
 const CrearCuenta = () => {
@@ -47,11 +48,12 @@ const CrearCuenta = () => {
     handleBLur,
   } = useValidacion(STATE_INICIAL, validarCrearCuenta, crearCuenta);
 
-  const { nombre, email, password } = valores;
+  const { nombre, email, password, repetir } = valores;
+
   async function crearCuenta() {
     try {
       await firebase.registrar(nombre, email, password, urlimagen);
-      // console.log(urlimagen);
+
       Router.push("/");
     } catch (error) {
       console.error("Hubo un error al crear ese usuario ", error.message);
@@ -152,6 +154,20 @@ const CrearCuenta = () => {
             />
           </Campo>
           {errores.password && <Error>{errores.password}</Error>}
+
+          <Campo>
+            <label htmlFor="repetir">Repetir Contraseña</label>
+            <input
+              type="password"
+              id="repetir"
+              placeholder="Repetir Contraseña"
+              name="repetir"
+              value={repetir}
+              onChange={handleChange}
+              onBlur={handleBLur}
+            />
+          </Campo>
+          {errores.repetir && <Error>{errores.repetir}</Error>}
 
           <InputSubmit type="submit" value="Crear Cuenta" />
         </Formulario>
