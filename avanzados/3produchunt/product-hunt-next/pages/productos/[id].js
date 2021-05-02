@@ -12,8 +12,9 @@ import { Campo, InputSubmit } from "../../components/ui/Formulario";
 import Boton from "../../components/ui/Boton";
 
 const Titulo = styled.h1`
-  margin-top: 5rem;
+  margin-top: 1rem;
   text-align: center;
+  text-transform: capitalize;
 `;
 
 const Central = styled.div`
@@ -91,10 +92,16 @@ const CreadorProducto = styled.p`
   text-align: right;
   display: inline-block;
 `;
+
+const Hosting = styled.p`
+  font-weight: bold;
+  span {
+    font-weight: normal;
+  }
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
-  const [consultarDb, setconsultarDb] = useState(true);
   // state del error
   const [error, seterror] = useState(false);
   // state del comentarios
@@ -109,21 +116,19 @@ const Producto = () => {
   const { firebase, usuario } = useContext(FirebaseContext);
 
   useEffect(() => {
-    if (id && consultarDb) {
+    if (id) {
       const obtenerProducto = async () => {
         const productos = await firebase.db.collection("productos").doc(id);
         const producto = await productos.get();
         if (producto.exists) {
           setproducto(producto.data());
-          setconsultarDb(false);
         } else {
           seterror(true);
-          setconsultarDb(false);
         }
       };
       obtenerProducto();
     }
-  }, [id]);
+  }, [id, producto]);
   if (Object.keys(producto).length === 0 && !error)
     return (
       <Central>
@@ -152,6 +157,11 @@ const Producto = () => {
     sitio,
     votos,
     url,
+    hosting,
+    participantes,
+    tecnologias,
+    duracion,
+    urlVideo,
     creador,
     haVotado,
   } = producto;
@@ -177,7 +187,6 @@ const Producto = () => {
       ...producto,
       votos: nuevoTotal,
     });
-    setconsultarDb(true); //hay un coto por lo tanto consulta a la base de datos
   };
   // funciones para crear comentarios
   const comentarioChange = (e) => {
@@ -211,7 +220,6 @@ const Producto = () => {
       ...producto,
       Comentarios: nuevosCOmentarios,
     });
-    setconsultarDb(true); // hay un comonetarios entonces consulta la BD
   };
   // funciona para verificar si es el creador del producto
   const esCreador = (id) => {
@@ -266,6 +274,13 @@ const Producto = () => {
                   <img src={urlimagen4} />
                   <img src={urlimagen5} />
                 </Imagenes>
+                {hosting ? (
+                  <Hosting>
+                    Hostings: <span>{hosting}</span>
+                  </Hosting>
+                ) : (
+                  ""
+                )}
 
                 <p>{descripcion}</p>
 
@@ -319,8 +334,16 @@ const Producto = () => {
               </div>
 
               <aside>
-                <Boton target="_blank" bgColor="true" href={url}>
-                  Visitar URL
+                <Boton target="_blank" bgColor="true" href={sitio}>
+                  Sitio Web
+                </Boton>
+
+                <Boton target="_blank" href={url}>
+                  Repositorio
+                </Boton>
+
+                <Boton target="_blank" bgColor="true" href={urlVideo}>
+                  Video
                 </Boton>
 
                 <PhotoPerfil>

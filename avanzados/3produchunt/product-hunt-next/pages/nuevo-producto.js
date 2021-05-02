@@ -28,6 +28,12 @@ const STATE_INICIAL = {
   sitio: "",
   url: "",
   descripcion: "",
+
+  hosting: "",
+  participantes: "",
+  tecnologias: "",
+  duracion: "",
+  urlVideo: "",
 };
 
 const NuevoProducto = () => {
@@ -58,7 +64,19 @@ const NuevoProducto = () => {
     handleBLur,
   } = useValidacion(STATE_INICIAL, validarCrearProducto, crearProducto);
   // valroes que estan en el state inicial y el handlechange los coloca
-  const { nombre, empresa, imagen, sitio, url, descripcion } = valores;
+  const {
+    nombre,
+    empresa,
+    imagen,
+    hosting,
+    participantes,
+    tecnologias,
+    duracion,
+    urlVideo,
+    sitio,
+    url,
+    descripcion,
+  } = valores;
   // hook del routing para redireccionar
   const router = useRouter();
   // funcion para crear el producto
@@ -81,6 +99,11 @@ const NuevoProducto = () => {
       urlimagen3,
       urlimagen4,
       urlimagen5,
+      hosting,
+      participantes,
+      tecnologias,
+      duracion,
+      urlVideo,
       descripcion,
       votos: 0,
       comentarios: [],
@@ -355,9 +378,83 @@ const NuevoProducto = () => {
                 />
               </Campo>
               {errores.url && <Error>{errores.url}</Error>}
+
+              {/* hosting */}
+
+              <Campo>
+                <label htmlFor="hosting">Hosting</label>
+                <input
+                  type="text"
+                  id="hosting"
+                  name="hosting"
+                  value={hosting}
+                  placeholder="Hostings usados del proyecto, Eje: Ocean, Heroku"
+                  onChange={handleChange}
+                  onBlur={handleBLur}
+                />
+              </Campo>
+              {errores.hosting && <Error>{errores.hosting}</Error>}
+
+              {/* participantes */}
+              <Campo>
+                <label htmlFor="participantes">Participantes</label>
+                <input
+                  type="text"
+                  id="participantes"
+                  name="participantes"
+                  value={participantes}
+                  placeholder="Otras personas influyentes en el proyecto"
+                  onChange={handleChange}
+                  onBlur={handleBLur}
+                />
+              </Campo>
+              {errores.participantes && <Error>{errores.participantes}</Error>}
+
+              <Campo>
+                <label htmlFor="tecnologias">Tecnologias</label>
+                <input
+                  type="text"
+                  id="tecnologias"
+                  name="tecnologias"
+                  value={tecnologias}
+                  placeholder="Tecnologias usuadas: react,angular,mongoDb ..."
+                  onChange={handleChange}
+                  onBlur={handleBLur}
+                />
+              </Campo>
+              {errores.tecnologias && <Error>{errores.tecnologias}</Error>}
+
+              <Campo>
+                <label htmlFor="duracion">Duracion</label>
+                <input
+                  type="text"
+                  id="duracion"
+                  name="duracion"
+                  value={duracion}
+                  placeholder="Tiempo del proyecto"
+                  onChange={handleChange}
+                  onBlur={handleBLur}
+                />
+              </Campo>
+              {errores.duracion && <Error>{errores.duracion}</Error>}
+
+              {/* video */}
+
+              <Campo>
+                <label htmlFor="urlVideo">Url Video</label>
+                <input
+                  type="url"
+                  id="urlVideo"
+                  name="urlVideo"
+                  value={urlVideo}
+                  placeholder="Url del video, Youtube, Vimeo, etc"
+                  onChange={handleChange}
+                  onBlur={handleBLur}
+                />
+              </Campo>
+              {errores.urlVideo && <Error>{errores.urlVideo}</Error>}
             </fieldset>
 
-            {errores.descripcion && <Error>{errores.descripcion}</Error>}
             <fieldset>
               <legend>Sobre tu Producto</legend>
 
@@ -371,6 +468,7 @@ const NuevoProducto = () => {
                   onBlur={handleBLur}
                 ></textarea>
               </Campo>
+              {errores.descripcion && <Error>{errores.descripcion}</Error>}
             </fieldset>
 
             <InputSubmit type="submit" value="Crear Producto" />

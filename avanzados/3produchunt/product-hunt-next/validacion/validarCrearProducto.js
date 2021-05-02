@@ -28,5 +28,29 @@ export default function validarCrearProducto(valores) {
     errores.descripcion = "Escribe una Descripcion";
   }
 
+  // valdiar el empresa
+  if (!valores.hosting) {
+    errores.hosting =
+      "Los Hostings son relevantes por favor separar por ' , ' ";
+  }
+
+  if (!valores.participantes) {
+    errores.participantes =
+      "Los participantes que trabajaron, por favor separar por ' , ' ";
+  }
+
+  if (!valores.tecnologias) {
+    errores.tecnologias =
+      "Las tecnologias usadas, por favor separar por ' , ' ";
+  }
+
+  if (!valores.duracion) {
+    errores.duracion = "Escribe la duracion del proyecto 15 dias, 3 meses .. ";
+  }
+  if (!valores.urlVideo) {
+    errores.urlVideo = "Coloca la url del video explicativo";
+  } else if (!/^(ftp|http|https):\/\/[^ "]+$/.test(valores.urlVideo)) {
+    errores.sitio = "URL no valida";
+  }
   return errores;
 }
