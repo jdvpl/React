@@ -65,7 +65,7 @@ const Producto = () => {
   } = router;
 
   //   context de firebase
-  const { firebase } = useContext(FirebaseContext);
+  const { firebase, usuario } = useContext(FirebaseContext);
 
   useEffect(() => {
     if (id) {
@@ -111,7 +111,10 @@ const Producto = () => {
     url,
     creador,
   } = producto;
-
+  // adminsitrar u valisr los votos
+  const votarProducto = () => {
+    console.log("votando");
+  };
   return (
     <Layout>
       <>
@@ -130,15 +133,18 @@ const Producto = () => {
 
               <p>{descripcion}</p>
 
-              <h2>Agrega tu comentario</h2>
+              {usuario && (
+                <>
+                  <h2>Agrega tu comentario</h2>
 
-              <form>
-                <Campo>
-                  <input type="text" name="mensaje" />
-                </Campo>
-                <InputSubmit type="submit" value="Agregar Comentario" />
-              </form>
-
+                  <form>
+                    <Campo>
+                      <input type="text" name="mensaje" />
+                    </Campo>
+                    <InputSubmit type="submit" value="Agregar Comentario" />
+                  </form>
+                </>
+              )}
               <Comentarios>Comentarios</Comentarios>
 
               <div>
@@ -165,7 +171,7 @@ const Producto = () => {
 
               <Votos>
                 <p>{votos} votos</p>
-                <Boton>Votar</Boton>
+                {usuario && <Boton onClick={votarProducto}>Votar</Boton>}
               </Votos>
             </aside>
           </COntenedorProducto>

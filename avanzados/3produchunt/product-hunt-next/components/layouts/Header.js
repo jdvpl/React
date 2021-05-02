@@ -51,7 +51,7 @@ const Header = () => {
       <ContenedorHeader>
         <Div1>
           <Link href="/">
-            <Logo>P</Logo>
+            <Logo>JDVPL</Logo>
           </Link>
 
           <Buscar />

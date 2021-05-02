@@ -6,7 +6,7 @@ const Titulo = styled.h1`
   text-align: center;
 `;
 const Error404 = () => {
-  return <Titulo>Producto no existente</Titulo>;
+  return <Titulo>Pagina no encontrada</Titulo>;
 };
 
 export default Error404;
