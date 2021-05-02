@@ -53,6 +53,14 @@ const PhotoPerfil = styled.div`
     text-transform: uppercase;
   }
 `;
+
+const Imagenes = styled.div`
+  padding: 1rem;
+  vertical-align: center;
+  img {
+    width: 50%;
+  }
+`;
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
@@ -117,8 +125,7 @@ const Producto = () => {
     if (!usuario) {
       return router.push("/login");
     }
-    // validar si ya voto
-    if (haVotado.includes(usuario.uid)) return;
+
     // guarda el ID del usuario que ha votado
     const NuevohaVotado = [...haVotado, usuario.uid];
 
@@ -149,8 +156,14 @@ const Producto = () => {
                 Publicado hace:{" "}
                 {formatDistanceToNow(new Date(creado), { locale: es })}
               </p>
-              <img src={urlimagen} />
-              <img src={urlimagen2} />
+              <Imagenes>
+                <img src={urlimagen} />
+                <img src={urlimagen1} />
+                <img src={urlimagen2} />
+                <img src={urlimagen3} />
+                <img src={urlimagen4} />
+                <img src={urlimagen5} />
+              </Imagenes>
 
               <p>{descripcion}</p>
 
@@ -192,7 +205,13 @@ const Producto = () => {
 
               <Votos>
                 <p>{votos} votos</p>
-                {usuario && <Boton onClick={votarProducto}>Votar</Boton>}
+                {!usuario ? (
+                  ""
+                ) : haVotado.includes(usuario.uid) ? (
+                  <p>ya votaste</p>
+                ) : (
+                  <Boton onClick={votarProducto}>Votar</Boton>
+                )}
               </Votos>
             </aside>
           </COntenedorProducto>
