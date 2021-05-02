@@ -94,7 +94,7 @@ const CreadorProducto = styled.p`
 const Producto = () => {
   // state del componente
   const [producto, setproducto] = useState({});
-
+  const [consultarDb, setconsultarDb] = useState(true);
   // state del error
   const [error, seterror] = useState(false);
   // state del comentarios
@@ -109,20 +109,22 @@ const Producto = () => {
   const { firebase, usuario } = useContext(FirebaseContext);
 
   useEffect(() => {
-    if (id) {
+    if (id && consultarDb) {
       const obtenerProducto = async () => {
         const productos = await firebase.db.collection("productos").doc(id);
         const producto = await productos.get();
         if (producto.exists) {
           setproducto(producto.data());
+          setconsultarDb(false);
         } else {
           seterror(true);
+          setconsultarDb(false);
         }
       };
       obtenerProducto();
     }
-  }, [id, producto]);
-  if (Object.keys(producto).length === 0)
+  }, [id]);
+  if (Object.keys(producto).length === 0 && !error)
     return (
       <Central>
         <Loader
@@ -175,6 +177,7 @@ const Producto = () => {
       ...producto,
       votos: nuevoTotal,
     });
+    setconsultarDb(true); //hay un coto por lo tanto consulta a la base de datos
   };
   // funciones para crear comentarios
   const comentarioChange = (e) => {
@@ -208,6 +211,7 @@ const Producto = () => {
       ...producto,
       Comentarios: nuevosCOmentarios,
     });
+    setconsultarDb(true); // hay un comonetarios entonces consulta la BD
   };
   // funciona para verificar si es el creador del producto
   const esCreador = (id) => {
@@ -218,101 +222,104 @@ const Producto = () => {
   return (
     <Layout>
       <>
-        {error && <Error404 />}
-        <div className="contenedor">
-          <Titulo>{nombre}</Titulo>
+        {error ? (
+          <Error404 />
+        ) : (
+          <div className="contenedor">
+            <Titulo>{nombre}</Titulo>
 
-          <COntenedorProducto>
-            <div>
-              <p>
-                Publicado hace:{" "}
-                {formatDistanceToNow(new Date(creado), { locale: es })}
-              </p>
-              <Imagenes>
-                <img src={urlimagen} />
-                <img src={urlimagen1} />
-                <img src={urlimagen2} />
-                <img src={urlimagen3} />
-                <img src={urlimagen4} />
-                <img src={urlimagen5} />
-              </Imagenes>
-
-              <p>{descripcion}</p>
-
-              {usuario && (
-                <>
-                  <h2>Agrega tu comentario</h2>
-
-                  <form onSubmit={agregarComentario}>
-                    <Campo>
-                      <input
-                        type="text"
-                        name="mensaje"
-                        onChange={comentarioChange}
-                      />
-                    </Campo>
-                    <InputSubmit type="submit" value="Agregar Comentario" />
-                  </form>
-                </>
-              )}
-
-              {comentarios.length === 0 ? (
-                <h3>Aun no hay comentarios</h3>
-              ) : (
-                <>
-                  <Comentarios>Comentarios</Comentarios>
-                  <div>
-                    <ul>
-                      {comentarios.map((comentario, i) => (
-                        <Li key={`${comentario.usuarioId}-${i}`}>
-                          <p>{comentario.mensaje}</p>
-
-                          <ImgComentario>
-                            <p>
-                              {!comentario.usuarioPhoto ? (
-                                <img src="https://firebasestorage.googleapis.com/v0/b/portafolio-jdvpl.appspot.com/o/userimg%2Fusuario.png?alt=media&token=961a0ebd-89cc-4ecb-a447-5acd874d95f5" />
-                              ) : (
-                                <img src={comentario.usuarioPhoto} />
-                              )}
-                              <span>{comentario.usuarioNombre}</span>
-                            </p>
-                            {esCreador(comentario.usuarioId) && (
-                              <CreadorProducto>Owner</CreadorProducto>
-                            )}
-                          </ImgComentario>
-                        </Li>
-                      ))}
-                    </ul>
-                  </div>
-                </>
-              )}
-            </div>
-
-            <aside>
-              <Boton target="_blank" bgColor="true" href={url}>
-                Visitar URL
-              </Boton>
-
-              <PhotoPerfil>
-                <img src={creador.photo} />
+            <COntenedorProducto>
+              <div>
                 <p>
-                  {creador.nombre} de {empresa}
+                  Publicado hace:{" "}
+                  {formatDistanceToNow(new Date(creado), { locale: es })}
                 </p>
-              </PhotoPerfil>
+                <Imagenes>
+                  <img src={urlimagen} />
+                  <img src={urlimagen1} />
+                  <img src={urlimagen2} />
+                  <img src={urlimagen3} />
+                  <img src={urlimagen4} />
+                  <img src={urlimagen5} />
+                </Imagenes>
 
-              <Votos>
-                <p>{votos} votos</p>
-                {!usuario ? (
-                  ""
-                ) : haVotado.includes(usuario.uid) ? (
-                  <p>ya votaste</p>
-                ) : (
-                  <Boton onClick={votarProducto}>Votar</Boton>
+                <p>{descripcion}</p>
+
+                {usuario && (
+                  <>
+                    <h2>Agrega tu comentario</h2>
+
+                    <form onSubmit={agregarComentario}>
+                      <Campo>
+                        <input
+                          type="text"
+                          name="mensaje"
+                          onChange={comentarioChange}
+                        />
+                      </Campo>
+                      <InputSubmit type="submit" value="Agregar Comentario" />
+                    </form>
+                  </>
                 )}
-              </Votos>
-            </aside>
-          </COntenedorProducto>
-        </div>
+
+                {comentarios.length === 0 ? (
+                  <h3>Aun no hay comentarios</h3>
+                ) : (
+                  <>
+                    <Comentarios>Comentarios</Comentarios>
+                    <div>
+                      <ul>
+                        {comentarios.map((comentario, i) => (
+                          <Li key={`${comentario.usuarioId}-${i}`}>
+                            <p>{comentario.mensaje}</p>
+
+                            <ImgComentario>
+                              <p>
+                                {!comentario.usuarioPhoto ? (
+                                  <img src="https://firebasestorage.googleapis.com/v0/b/portafolio-jdvpl.appspot.com/o/userimg%2Fusuario.png?alt=media&token=961a0ebd-89cc-4ecb-a447-5acd874d95f5" />
+                                ) : (
+                                  <img src={comentario.usuarioPhoto} />
+                                )}
+                                <span>{comentario.usuarioNombre}</span>
+                              </p>
+                              {esCreador(comentario.usuarioId) && (
+                                <CreadorProducto>Owner</CreadorProducto>
+                              )}
+                            </ImgComentario>
+                          </Li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <aside>
+                <Boton target="_blank" bgColor="true" href={url}>
+                  Visitar URL
+                </Boton>
+
+                <PhotoPerfil>
+                  <img src={creador.photo} />
+                  <p>
+                    {creador.nombre} de {empresa}
+                  </p>
+                </PhotoPerfil>
+
+                <Votos>
+                  <p>{votos} votos</p>
+                  {!usuario ? (
+                    ""
+                  ) : haVotado.includes(usuario.uid) ? (
+                    <p>ya votaste</p>
+                  ) : (
+                    <Boton onClick={votarProducto}>Votar</Boton>
+                  )}
+                </Votos>
+              </aside>
+            </COntenedorProducto>
+          </div>
+        )}
       </>
     </Layout>
   );

@@ -4,7 +4,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { es } from "date-fns/locale";
 import Link from "next/link";
 
-const Producto = styled.li`
+const ProductoLi = styled.li`
   padding: 4rem;
   display: flex;
   justify-content: space-between;
@@ -12,7 +12,7 @@ const Producto = styled.li`
   border-bottom: 1px solid #e1e1e1;
 `;
 
-const DescripcionProdcuto = styled.p`
+const DescripcionProdcuto = styled.div`
   flex: 0 1 600px;
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -90,14 +90,11 @@ const DetallesProducto = ({ producto }) => {
     descripcion,
     nombre,
     urlimagen,
-    empresa,
-    sitio,
     votos,
-    url,
   } = producto;
   const descripcionresumee = descripcion.slice(0, 100);
   return (
-    <Producto>
+    <ProductoLi>
       <DescripcionProdcuto>
         <div>
           <Imagen src={urlimagen} />
@@ -115,6 +112,7 @@ const DetallesProducto = ({ producto }) => {
               <p>{comentarios.length} Comentarios</p>
             </div>
           </Comentarios>
+
           <p>
             Publicado hace:{" "}
             {formatDistanceToNow(new Date(creado), { locale: es })}
@@ -126,7 +124,7 @@ const DetallesProducto = ({ producto }) => {
         <div> &#9650; </div>
         <p>{votos}</p>
       </Votos>
-    </Producto>
+    </ProductoLi>
   );
 };
 
