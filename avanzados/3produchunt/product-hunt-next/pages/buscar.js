@@ -26,13 +26,26 @@ const Buscar = () => {
         producto.url.toLowerCase().includes(busqueda)
       );
     });
-    console.log(filtro);
+    setresultado(filtro);
   }, [q, productos]);
 
   return (
-    <Layout>
-      <h1>Buscar</h1>
-    </Layout>
+    <div>
+      <Layout>
+        {" "}
+        {/* //!se llamar el layout el principal para reutilizarlas en todas las
+    //!paginas */}
+        <div className="listado-productos">
+          <div className="contenedor">
+            <ul className="bg-white">
+              {resultado.map((producto) => (
+                <DetallesProducto key={producto.id} producto={producto} />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Layout>
+    </div>
   );
 };
 
